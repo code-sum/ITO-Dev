@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import egovframework.example.sample.service.BoardVO;
 import egovframework.rte.psl.dataaccess.EgovAbstractDAO;
 
-
+// test
 @Repository("BoardDAO")
 public class BoardDAO extends EgovAbstractDAO{
 
