@@ -1,4 +1,4 @@
-package egovframework.example.sample.web;
+package egovframework.example.dashboard.web;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import egovframework.example.sample.service.BoardService;
-import egovframework.example.sample.service.BoardVO;
+import egovframework.example.dashboard.service.BoardService;
+import egovframework.example.dashboard.service.BoardVO;
 
 
 @Controller
@@ -23,15 +23,16 @@ public class BoardController {
 	private BoardService boardService;
 	
 	
+	/* URL 연결 테스트 : 약국 목록 조회(5건만) */
 	@RequestMapping(value="/boardList.do")
-	public String selectDeptList(BoardVO vo, Model model) throws Exception {
-		Logger.debug("deptList......sdfsdfsdfsdfsdfsdfiojwioerjsodijdfijsdio...........");
+	public String selectSearchList(BoardVO vo, Model model) throws Exception {
+		Logger.debug("searchList......sdfsdfsdfsdfsdfsdfiojwioerjsodijdfijsdio...........");
 		List<?> list = boardService.SelectBoardList(vo);
 		
 		System.out.println(list);
 
 		model.addAttribute("list",list);
-		return "board/boardList";
+		return "dashboard/boardList";
 	}
 	
 }

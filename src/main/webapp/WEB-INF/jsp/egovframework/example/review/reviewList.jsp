@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>코드 리팩토링</title>
+<title>약국 추천 게시판</title>
 </head>
 <body>
 	<h1>약국 추천 게시판</h1>

@@ -4,10 +4,13 @@
 <sqlMap namespace="BoardSpace">
 
 	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="BoardVO" type="egovframework.example.sample.service.BoardVO"/>
+	<typeAlias  alias="BoardVO" type="egovframework.example.dashboard.service.BoardVO"/>
 
 	<select id="boardDAO.SelectBoardList" resultClass="BoardVO">
-		select * from tb_review
+		SELECT pharm_no, pharm_name 
+		  FROM tb_pharm
+		ORDER BY pharm_no
+		LIMIT 5;
 	</select>
 
 </sqlMap>

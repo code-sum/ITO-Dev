@@ -9,7 +9,7 @@
 <title>지역별 약국 현황</title>
 </head>
 <body>
-	<h3>지역별 약국 현황</h3>
+	<h1>지역별 약국 현황</h1>
 		<div>
 			<table class="custom-table">
 				<thead>

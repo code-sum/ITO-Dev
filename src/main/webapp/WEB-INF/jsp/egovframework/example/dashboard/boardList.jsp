@@ -6,25 +6,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>대시보드</title>
 </head>
 <body>
-	<h1>약국 추천 게시판</h1>
+	<h1>약국 찾기</h1>
 		<div>
 			<table class="custom-table">
 				<thead>
 					<tr>
-						<th>글번호</th>
-						<th>제목</th>
-						<th>작성일</th>
+						<th>번호</th>
+						<th>약국이름</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${list }" var="list">
 						<tr>
-							<td><c:out value="${list.review_no }" /></td>
-							<td><c:out value="${list.review_title }" /></td>
-							<td><c:out value="${list.review_created_at }" /></td>
+							<td><c:out value="${list.pharm_no }" /></td>
+							<td><c:out value="${list.pharm_name }" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>
