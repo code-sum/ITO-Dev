@@ -7,6 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>약국 추천 게시판</title>
+<jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/common_include.jsp"></jsp:include>
+
 </head>
 <body>
 	<h1>약국 추천 게시판</h1>
