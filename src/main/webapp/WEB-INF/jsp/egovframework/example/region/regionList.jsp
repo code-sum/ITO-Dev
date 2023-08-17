@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>지역별 약국 현황</title>
+<jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/common_include.jsp"></jsp:include>
 
 </head>

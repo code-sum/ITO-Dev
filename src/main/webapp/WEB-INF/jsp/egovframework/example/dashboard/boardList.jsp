@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>대시보드</title>
+<jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/common_include.jsp"></jsp:include>
 
 </head>
