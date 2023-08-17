@@ -30,7 +30,7 @@ public class ReviewController {
 		
 		System.out.println(list);
 
-		model.addAttribute("list",list);
+		model.addAttribute("list", list);
 		return "review/reviewList";
 	}
 	
