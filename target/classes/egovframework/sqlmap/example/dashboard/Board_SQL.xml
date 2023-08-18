@@ -10,7 +10,7 @@
 		SELECT pharm_no, pharm_name 
 		  FROM tb_pharm
 		ORDER BY pharm_no
-		LIMIT 5;
+		LIMIT 20;
 	</select>
 
 </sqlMap>
