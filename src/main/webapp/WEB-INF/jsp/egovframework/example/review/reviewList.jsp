@@ -12,9 +12,11 @@
 
 </head>
 <body>
-	<h1>약국 추천 게시판</h1>
+	<div class="container">
+		<h1 class="fw-bold">약국 추천 게시판</h1>
+		<hr>
 		<div>
-			<table class="custom-table">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>글번호</th>
@@ -33,5 +35,6 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 </body>
 </html>

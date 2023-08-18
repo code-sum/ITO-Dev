@@ -12,13 +12,14 @@
 
 </head>
 <body>
-	<h1>약국 찾기</h1>
+	<div class="container">
+		<h1 class="fw-bold">약국 찾기</h1>
 		<div>
-			<table class="table">
+			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th scope="col">번호</th>
-						<th scope="col">약국이름</th>
+						<th>번호</th>
+						<th>약국이름</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,5 +32,6 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 </body>
 </html>

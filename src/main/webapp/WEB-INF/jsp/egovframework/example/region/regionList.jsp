@@ -12,9 +12,11 @@
 
 </head>
 <body>
-	<h1>지역별 약국 현황</h1>
+	<div class="container">
+		<h1 class="fw-bold">지역별 약국 현황</h1>
+		<hr>
 		<div>
-			<table class="custom-table">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>번호</th>
@@ -31,5 +33,6 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
 </body>
 </html>
