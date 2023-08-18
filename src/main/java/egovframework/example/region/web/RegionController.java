@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,7 @@ public class RegionController {
 	private static Logger Logger = LoggerFactory.getLogger(RegionController.class);
 	
 	
-	@Resource(name="RegionService")
+	@Autowired
 	private RegionService regionService;
 	
 	
@@ -28,7 +29,7 @@ public class RegionController {
 	@RequestMapping(value="/regionList.do")
 	public String selectPharList(RegionVO vo, Model model) throws Exception {
 		Logger.debug("pharList......sdfsdfsdfsdfsdfsdfiojwioerjsodijdfijsdio...........");
-		List<?> list = regionService.SelectRegionList(vo);
+		List<?> list = regionService.selectRegionList();
 		
 		System.out.println(list);
 

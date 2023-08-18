@@ -1,8 +1,8 @@
 package egovframework.example.region.service.impl;
 
-import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 import egovframework.example.region.service.RegionVO;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 
 @Mapper

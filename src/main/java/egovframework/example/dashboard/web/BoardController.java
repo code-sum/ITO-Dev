@@ -1,8 +1,7 @@
 package egovframework.example.dashboard.web;
 
 import java.util.List;
-
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,10 +15,11 @@ import egovframework.example.dashboard.service.BoardVO;
 
 @Controller
 public class BoardController {
+	
 	private static Logger Logger = LoggerFactory.getLogger(BoardController.class);
 	
 	
-	@Resource(name="BoardService")
+	@Autowired
 	private BoardService boardService;
 	
 	
@@ -27,11 +27,11 @@ public class BoardController {
 	@RequestMapping(value="/boardList.do")
 	public String selectSearchList(BoardVO vo, Model model) throws Exception {
 		Logger.debug("searchList......sdfsdfsdfsdfsdfsdfiojwioerjsodijdfijsdio...........");
-		List<?> list = boardService.SelectBoardList(vo);
+		List<BoardVO> list = boardService.selectBoardList();
 		
 		System.out.println(list);
 
-		model.addAttribute("list",list);
+		model.addAttribute("list", list);
 		return "dashboard/boardList";
 	}
 	

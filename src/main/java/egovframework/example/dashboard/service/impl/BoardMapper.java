@@ -1,8 +1,8 @@
 package egovframework.example.dashboard.service.impl;
 
-import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 import egovframework.example.dashboard.service.BoardVO;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 
 @Mapper

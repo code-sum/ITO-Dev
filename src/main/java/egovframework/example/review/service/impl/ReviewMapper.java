@@ -1,8 +1,8 @@
 package egovframework.example.review.service.impl;
 
-import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 import egovframework.example.review.service.ReviewVO;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 
 @Mapper
