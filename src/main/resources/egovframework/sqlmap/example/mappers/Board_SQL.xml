@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.dashboard.service.impl.BoardMapper">
 
-<sqlMap namespace="BoardSpace">
-
-	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="BoardVO" type="egovframework.example.dashboard.service.BoardVO"/>
-
-	<select id="boardDAO.SelectBoardList" resultClass="BoardVO">
+	<select id="selectBoardList" parameterType="boardVO" resultType="egovMap">
 		SELECT pharm_no, pharm_name 
 		  FROM tb_pharm
 		ORDER BY pharm_no
-		LIMIT 20;
+		LIMIT 20
 	</select>
 
-</sqlMap>
+</mapper>

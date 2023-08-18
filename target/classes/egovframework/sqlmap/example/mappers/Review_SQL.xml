@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.review.service.impl.ReviewMapper">
 
-<sqlMap namespace="ReviewSpace">
-
-	<typeAlias  alias="egovMap" type="egovframework.rte.psl.dataaccess.util.EgovMap"/>
-	<typeAlias  alias="ReviewVO" type="egovframework.example.review.service.ReviewVO"/>
-
-	<select id="reviewDAO.SelectReviewList" resultClass="ReviewVO">
-		select * from tb_review
+	<select id="selectReviewList" parameterType="reviewVO" resultType="egovMap">
+		SELECT * 
+		  FROM tb_review
 	</select>
 
-</sqlMap>
+</mapper>
