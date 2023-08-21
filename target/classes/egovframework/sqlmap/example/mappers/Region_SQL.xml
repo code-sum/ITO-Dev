@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="egovframework.example.region.service.impl.RegionMapper">
 
-	<select id="selectRegionList" parameterType="regionVO" resultType="egovMap">
+	<select id="selectRegionList" resultType="egovframework.example.region.service.RegionVO">
 		SELECT pharm_no, pharm_name 
 		  FROM tb_pharm
 		ORDER BY pharm_no

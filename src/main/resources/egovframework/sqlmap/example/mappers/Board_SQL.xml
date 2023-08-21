@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="egovframework.example.dashboard.service.impl.BoardMapper">
 
-	<select id="selectBoardList" parameterType="boardVO" resultType="egovMap">
+	<select id="selectBoardList" resultType="egovframework.example.dashboard.service.BoardVO">
 		SELECT pharm_no, pharm_name 
 		  FROM tb_pharm
 		ORDER BY pharm_no

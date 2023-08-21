@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="egovframework.example.review.service.impl.ReviewMapper">
 
-	<select id="selectReviewList" parameterType="reviewVO" resultType="egovMap">
+	<select id="selectReviewList" resultType="egovframework.example.review.service.ReviewVO">
 		SELECT * 
 		  FROM tb_review
 	</select>
