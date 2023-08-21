@@ -17,6 +17,11 @@
 		<hr>
 		<div>
 			<table class="table table-hover">
+				<colgroup>
+						<col width="20%">
+						<col width="50%">
+						<col width="30%">
+				</colgroup>
 				<thead>
 					<tr>
 						<th>글번호</th>

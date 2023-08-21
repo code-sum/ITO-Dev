@@ -3,7 +3,11 @@
 <mapper namespace="egovframework.example.dashboard.service.impl.BoardMapper">
 
 	<select id="selectBoardList" resultType="egovframework.example.dashboard.service.BoardVO">
-		SELECT pharm_no, pharm_name 
+		SELECT 
+		        pharm_no
+		      , sido_name
+		      , pharm_name
+		      , pharm_open
 		  FROM tb_pharm
 		ORDER BY pharm_no
 		LIMIT 20
