@@ -10,6 +10,48 @@
 <jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/header.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/common_include.jsp"></jsp:include>
 
+<script type="text/javascript">
+
+	/** 페이지네이션 **/
+	var pageSize = 5;     
+	var pageBlockSize = 5;  
+	
+	/** OnLoad event **/ 
+	$(function() {
+		fn_pharlist();  // 약국 목록
+	});
+	
+	/** 약국 목록  **/
+	function fn_pharlist(pagenum) {
+		
+		pagenum = pagenum || 1;
+		
+		var param = {
+			      pageSize : pageSize
+			    , pageBlockSize : pageBlockSize
+			    , pagenum : pagenum
+		}
+		
+		var listcallback = function(returnvalue) {
+			console.log(returnvalue);
+			
+			$("#listphar").empty().append(returnvalue);
+			
+			var  totalcnt = $("#totalcnt").val();
+			console.log("totalcnt : " + totalcnt);
+			
+			var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_pharlist');
+			console.log("paginationHtml : " + paginationHtml);
+			 
+			$("#pharPagination").empty().append( paginationHtml );
+			
+			$("#pageno").val(pagenum);
+		}
+		callAjax("/boardlist.do", "post", "text", false, param, listcallback);	
+	}
+	
+</script>
+
 </head>
 <body>
 	<div class="container">
@@ -30,16 +72,7 @@
 						<th>개업일</th>
 					</tr>
 				</thead>
-				<tbody>
-					<c:forEach items="${list }" var="list">
-						<tr>
-							<td><c:out value="${list.pharm_no }" /></td>
-							<td><c:out value="${list.sido_name }" /></td>
-							<td><c:out value="${list.pharm_name }" /></td>
-							<td><c:out value="${list.pharm_open }" /></td>
-						</tr>
-					</c:forEach>
-				</tbody>
+				<tbody id="listphar"></tbody>
 			</table>
 		</div>
 	</div>

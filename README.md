@@ -21,5 +21,5 @@
 - Web : HTML 5, CSS 3
 - Server : Apache Tomcat (8.5)
 - IDE : Eclipse (eGovFrameDev - 3.8.0)
-- DB : PostgreSQL (13.12), DBeaver
+- DB : PostgreSQL (13.12), DBeaver (23.1.5)
 - Tools : Ajax, JSON, Figma
