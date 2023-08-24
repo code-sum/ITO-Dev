@@ -34,11 +34,10 @@ public class BoardController {
     private final String className = this.getClass().toString();
 	
 	
-    
 	/**
 	 * 대시보드 초기화면 
 	 */
-	@RequestMapping(value="index.do")
+	@RequestMapping("mainIndex.do")
 	public String mainIndex(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
 	         HttpServletResponse response, HttpSession session) throws Exception {
 	      
@@ -54,7 +53,7 @@ public class BoardController {
 	/** 
 	 * 약국 목록 조회
 	 */
-	@RequestMapping(value="boardlist.do")
+	@RequestMapping("boardlist.do")
 	public String boardlist(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
 	         HttpServletResponse response, HttpSession session) throws Exception {
 		

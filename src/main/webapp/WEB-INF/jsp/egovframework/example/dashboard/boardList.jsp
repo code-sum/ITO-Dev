@@ -43,11 +43,11 @@
 			var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_pharlist');
 			console.log("paginationHtml : " + paginationHtml);
 			 
-			$("#pharPagination").empty().append( paginationHtml );
+			$("#pharPagination").empty().append(paginationHtml);
 			
 			$("#pageno").val(pagenum);
 		}
-		callAjax("/boardlist.do", "post", "text", false, param, listcallback);
+		callAjax("/dashboard/boardlist.do", "post", "text", false, param, listcallback);
 	}
 	
 </script>
