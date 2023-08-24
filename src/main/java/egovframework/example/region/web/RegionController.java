@@ -28,7 +28,7 @@ public class RegionController {
 	/* URL 연결 테스트 : 약국 목록 조회(5건만) */
 	@RequestMapping(value="/regionList.do")
 	public String selectPharList(RegionVO vo, Model model) throws Exception {
-		Logger.debug("pharList......sdfsdfsdfsdfsdfsdfiojwioerjsodijdfijsdio...........");
+		Logger.debug("pharList......sdfsdfsdfsdfsdfsdfiojwioerjsodijdfijsdio..........");
 		List<?> list = regionService.selectRegionList();
 		
 		System.out.println(list);
