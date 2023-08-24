@@ -30,13 +30,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${list }" var="list">
-						<tr>
-							<td><c:out value="${list.review_no }" /></td>
-							<td><c:out value="${list.review_title }" /></td>
-							<td><c:out value="${list.review_created_at }" /></td>
-						</tr>
-					</c:forEach>
 				</tbody>
 			</table>
 		</div>

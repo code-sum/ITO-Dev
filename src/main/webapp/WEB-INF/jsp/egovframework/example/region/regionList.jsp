@@ -15,23 +15,41 @@
 	<div class="container">
 		<h1 class="fw-bold">지역별 약국 현황</h1>
 		<hr>
-		<div>
-			<table class="table table-hover">
+		
+		<!-- 시각화 표출 영역 (표/차트) -->
+		<div class="d-flex" style="width:100%;">
+		
+			<!-- 표 영역 -->
+			<div style="float:left; width:30%;">
+				<table class="table table-hover">
+				<colgroup>
+						<col width="50%">
+						<col width="50%">
+				</colgroup>
 				<thead>
 					<tr>
-						<th>번호</th>
-						<th>약국이름</th>
+						<th>지역</th>
+						<th>(단위: 개소)</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${list }" var="list">
-						<tr>
-							<td><c:out value="${list.pharm_no }" /></td>
-							<td><c:out value="${list.pharm_name }" /></td>
-						</tr>
-					</c:forEach>
+					<tr>
+				      <td>서울</td>
+				      <td>데이터</td>
+				    </tr>
+   					<tr>
+				      <td>부산</td>
+				      <td>데이터</td>
+				    </tr>
 				</tbody>
 			</table>
+			</div>
+			
+			<!-- 차트 영역 -->
+			<div style="float:right; width:70%;">
+				차트 영역입니다
+			</div>
+			
 		</div>
 	</div>
 </body>

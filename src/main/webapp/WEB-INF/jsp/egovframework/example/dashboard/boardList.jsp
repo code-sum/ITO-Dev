@@ -55,9 +55,24 @@
 </head>
 <body>
 	<div class="container">
-		<h1 class="fw-bold">약국 찾기</h1>
+	
+		<!-- 검색창 영역 -->
+		<div class="d-flex justify-content-center align-items-center">
+			<!-- 텍스트 영역 -->
+			<div class="p-3">
+				<h1 class="fw-bold">약국 찾기</h1>
+			</div>
+			<!-- 검색조건 입력 영역 -->
+			<div class="p-3">
+				<select></select>
+			</div>
+			<!-- 버튼 영역 -->
+			<div class="p-3">
+				<button type="button" class="btn btn-success">검 색</button>
+			</div>
+		</div>
 		
-		<!-- 목록 테이블 -->
+		<!-- 목록 테이블 영역 -->
 		<div>
 			<table class="table table-hover">
 				<colgroup>
@@ -78,7 +93,7 @@
 			</table>
 		</div>
 		
-		<!-- 페이지네이션 -->
+		<!-- 페이지네이션 영역 -->
 		<div class="paging_area"  id="pharPagination"> </div>
 		
 	</div>

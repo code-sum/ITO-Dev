@@ -8,8 +8,8 @@
 <!-- 네비게이션 바 -->
 <nav class="navbar navbar-expand-lg" style="background-color:#32A852;">
   <div class="container-fluid px-5">
-    <a class="navbar-brand" href="/boardList.do" style="color:white; font-weight:bold;">
-    	<img src="/images/egovframework/cmmn/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+    <a class="navbar-brand" href="/dashboard/mainIndex.do" style="color:white; font-weight:bold;">
+    	<img src="../images/egovframework/cmmn/logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
     	모든약국
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,9 +17,9 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-  		<a class="nav-link active" aria-current="page" href="/boardList.do" style="color:white; font-weight:bold; padding-right:1rem;">메인으로</a>
-        <a class="nav-link" href="/regionList.do" style="color:white; font-weight:bold; padding-right:1rem;">지역별 약국 현황</a>
-        <a class="nav-link" href="/reviewList.do" style="color:white; font-weight:bold;">약국 추천 게시판</a>
+  		<a class="nav-link active" aria-current="page" href="/dashboard/mainIndex.do" style="color:white; font-weight:bold; padding-right:1rem;">메인으로</a>
+        <a class="nav-link" href="/region/regionIndex.do" style="color:white; font-weight:bold; padding-right:1rem;">지역별 약국 현황</a>
+        <a class="nav-link" href="/review/reviewIndex.do" style="color:white; font-weight:bold;">약국 추천 게시판</a>
       </div>
     </div>
   </div>
