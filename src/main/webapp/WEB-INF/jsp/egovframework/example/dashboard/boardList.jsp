@@ -47,7 +47,7 @@
 			
 			$("#pageno").val(pagenum);
 		}
-		callAjax("/boardlist.do", "post", "text", false, param, listcallback);	
+		callAjax("/boardlist.do", "post", "text", false, param, listcallback);
 	}
 	
 </script>
@@ -56,6 +56,8 @@
 <body>
 	<div class="container">
 		<h1 class="fw-bold">약국 찾기</h1>
+		
+		<!-- 목록 테이블 -->
 		<div>
 			<table class="table table-hover">
 				<colgroup>
@@ -75,6 +77,10 @@
 				<tbody id="listphar"></tbody>
 			</table>
 		</div>
+		
+		<!-- 페이지네이션 -->
+		<div class="paging_area"  id="pharPagination"> </div>
+		
 	</div>
 	
 	<!-- TOP 버튼 -->

@@ -11,7 +11,7 @@
 		      , pharm_open
 		  FROM tb_pharm
 		ORDER BY pharm_no
-		LIMIT 30
+		LIMIT #{pageindex}, #{pageSize}
 	</select>
 	
 	<!-- 약국 목록 카운트 조회 -->

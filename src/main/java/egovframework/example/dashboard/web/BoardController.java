@@ -21,6 +21,7 @@ import egovframework.example.dashboard.service.BoardVO;
 
 
 @Controller
+@RequestMapping("/dashboard/")
 public class BoardController {
 		
 	@Autowired
@@ -37,7 +38,7 @@ public class BoardController {
 	/**
 	 * 대시보드 초기화면 
 	 */
-	@RequestMapping(value="/index.do")
+	@RequestMapping(value="index.do")
 	public String mainIndex(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
 	         HttpServletResponse response, HttpSession session) throws Exception {
 	      
@@ -51,9 +52,9 @@ public class BoardController {
 	
 	
 	/** 
-	 * 약국 목록 조회 (일단 30건만) 
+	 * 약국 목록 조회
 	 */
-	@RequestMapping(value="/boardlist.do")
+	@RequestMapping(value="boardlist.do")
 	public String boardlist(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
 	         HttpServletResponse response, HttpSession session) throws Exception {
 		
@@ -72,7 +73,6 @@ public class BoardController {
         
         model.addAttribute("boardsearchlist", boardsearchlist);
         model.addAttribute("totalcnt", totalcnt);
-        
         
         logger.info("+ End " + className + ".boardlist");
 
