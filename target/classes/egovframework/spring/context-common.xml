@@ -7,13 +7,7 @@
     <context:component-scan base-package="egovframework">
        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
-    
-    <!-- 2023-08-14 추가 -->
-    <context:component-scan base-package="egovframework.example.sample">
-	   <context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
-	   <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
-	</context:component-scan>
-    
+
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames">
 			<list>

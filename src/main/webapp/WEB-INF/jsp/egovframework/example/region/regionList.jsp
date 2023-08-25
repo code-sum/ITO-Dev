@@ -12,7 +12,7 @@
 
 </head>
 <body>
-	<div class="container">
+	<div class="container" id="wrapper">
 		<h1 class="fw-bold">지역별 약국 현황</h1>
 		<hr>
 		
@@ -51,6 +51,20 @@
 			</div>
 			
 		</div>
+		
+		<!-- 위로가기 버튼 -->
+		<div class="d-flex justify-content-end">
+			<a href="#" class="scrollToTop">
+			  <h1>
+			    <i class="bi bi-arrow-up-circle-fill"></i>
+			  </h1>
+			</a>
+		</div>
+		
 	</div>
+	
+	<!-- 푸터 영역 -->
+	<jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/footer.jsp"></jsp:include>
+	
 </body>
 </html>

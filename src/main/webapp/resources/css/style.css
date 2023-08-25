@@ -1,0 +1,17 @@
+/* 푸터 하단 고정 */
+
+body {
+  height: 100vh;
+}
+
+#wrapper{
+  height:auto;
+  min-height:100%;
+}
+
+footer {
+	position:relative;
+	background:black;
+	padding-top:1rem;
+	padding-bottom:1rem;
+}
