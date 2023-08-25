@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
@@ -13,8 +14,8 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- CSS 공통코드 관리 -->
-<link type="text/css" rel="stylesheet" href="<c:url value='/css/egovframework/style.css'/>"/>
+<link type="text/css" rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"/>
 <!-- JS 공통코드 관리 -->
-<script type="text/javascript" src="<c:url value='/js/egovframework/cmmn.js'/>"></script> 
+<script type="text/javascript" src="<c:url value='/resources/js/cmmn.js'/>"></script> 
 <!-- Ajax 관련 공통코드 관리 -->
-<script type="text/javascript" src="<c:url value='/js/egovframework/cmmnAjax.js'/>"></script> 
+<script type="text/javascript" src="<c:url value='/resources/js/cmmnAjax.js'/>"></script> 

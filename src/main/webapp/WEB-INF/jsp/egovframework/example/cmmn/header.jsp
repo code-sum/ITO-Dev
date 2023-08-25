@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand-lg" style="background-color:#32A852;">
   <div class="container-fluid px-5">
     <a class="navbar-brand" href="/dashboard/mainIndex.do" style="color:white; font-weight:bold;">
-    	<img src="../images/egovframework/cmmn/logo.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+    	<img src="<c:url value='/resources/images/logo.png'/>" alt="" width="30" height="30" class="d-inline-block align-text-top">
     	모든약국
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
