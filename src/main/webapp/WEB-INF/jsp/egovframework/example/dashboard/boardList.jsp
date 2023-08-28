@@ -69,18 +69,18 @@
 			<div class="p-3">
 				<div class="d-flex flex-column">
 					<div class="py-1">
-						<input type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem;">
+						<input class="rounded-pill" type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem; border-width:0.5px; border-color:#D3D3D3;">
 					</div>				
 					<div class="d-flex py-1">					
-						<select></select>
-						<select class="mx-3"></select>
-						<select></select>
+						<select class="rounded-pill"></select>
+						<select class="mx-3 rounded-pill"></select>
+						<select class="rounded-pill"></select>
 					</div>
 				</div>
 			</div>
 			<!-- 버튼 영역 -->
 			<div class="p-3">
-				<button type="button" class="btn btn-success">검 색</button>
+				<button type="button" class="btn btn-success rounded-pill py-2 px-3">검 색</button>
 			</div>
 		</div>
 		

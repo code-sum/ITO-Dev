@@ -1,14 +1,11 @@
 /* 푸터 하단 고정 */
-
 body {
   height: 100vh;
 }
-
 #wrapper{
   height:auto;
   min-height:100%;
 }
-
 footer {
 	position:relative;
 	background:black;
@@ -16,11 +13,12 @@ footer {
 	padding-bottom:1rem;
 }
 
+
+/* 페이지네이션 */
 .paging {
 	display:flex;
 	justify-content:center;
 }
-
 .paging a {
 	line-height:2.5rem;
 	text-align:center;
@@ -31,7 +29,6 @@ footer {
 	height:2.5rem;
 	text-decoration:none;
 }
-
 .paging strong {
 	line-height:2.5rem;
 	text-align:center;
