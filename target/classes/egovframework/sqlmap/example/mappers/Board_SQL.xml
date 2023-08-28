@@ -10,6 +10,11 @@
 		      , pharm_name
 		      , pharm_open
 		  FROM tb_pharm
+		  	<where>
+		  		<if test="(pname != null) and (!pname.equals(''))">
+		  			and pharm_name Like CONCAT('%', #{pname}, '%')
+		  		</if>
+		  	</where>
 		ORDER BY pharm_no
 		LIMIT #{pageSize}
 		OFFSET #{pageindex}
@@ -19,6 +24,11 @@
 	<select id="countboardlist" resultType="int">
 		SELECT COUNT(*)
 		  FROM tb_pharm
+		  	<where>
+		  		<if test="(pname != null) and (!pname.equals(''))">
+		  			and pharm_name Like CONCAT('%', #{pname}, '%')
+		  		</if>
+		  	</where>
 	</select>
 	
 	<!-- 약국 한건 조회 -->

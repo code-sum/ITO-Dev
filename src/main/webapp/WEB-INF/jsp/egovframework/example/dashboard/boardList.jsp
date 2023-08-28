@@ -19,8 +19,27 @@
 	
 	/** OnLoad event **/ 
 	$(function() {
+		fRegisterButtonClickEvent();  // 버튼 이벤트 등록
 		fn_pharlist();  // 약국 목록
 	});
+	
+	/** 버튼 이벤트 등록 */
+	function fRegisterButtonClickEvent() {
+		$('a[name=btn]').click(function(e) {
+			e.preventDefault();
+
+			var btnId = $(this).attr('id');
+
+			switch (btnId) {
+				case 'btnSearch' :
+					fn_pharlist();
+					break;
+				case 'btnSave' :
+					fn_save();
+					break;
+			}
+		});
+	}
 	
 	/** 약국 목록  **/
 	function fn_pharlist(pagenum) {
@@ -28,7 +47,9 @@
 		pagenum = pagenum || 1;
 		
 		var param = {
-			      pageSize : pageSize
+				  searchKey : $("#searchKey").val()
+				, pname : $("#pname").val()
+			    , pageSize : pageSize
 			    , pageBlockSize : pageBlockSize
 			    , pagenum : pagenum
 		}
@@ -69,7 +90,7 @@
 			<div class="p-3">
 				<div class="d-flex flex-column">
 					<div class="py-1">
-						<input class="rounded-pill" type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem; border-width:0.5px; border-color:#D3D3D3;">
+						<input id="pname" name="pname" class="rounded-pill" type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem; border-width:0.5px; border-color:#D3D3D3;">
 					</div>				
 					<div class="d-flex py-1">					
 						<select class="rounded-pill"></select>
@@ -80,7 +101,7 @@
 			</div>
 			<!-- 버튼 영역 -->
 			<div class="p-3">
-				<button type="button" class="btn btn-success rounded-pill py-2 px-3">검 색</button>
+				<a href="" id="btnSearch" name="btn" class="btn btn-success rounded-pill py-2 px-3">검 색</a>
 			</div>
 		</div>
 		
