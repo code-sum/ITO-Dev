@@ -11,11 +11,11 @@
 	</c:if>
 			
 	<c:if test="${totalcnt > 0 }">
-		<c:forEach items="${list }" var="list">
+		<c:forEach items="${boardsearchlist }" var="list">
 			<tr>
 				<td><c:out value="${list.pharm_no }" /></td>
 				<td><c:out value="${list.sido_name }" /></td>
-				<td><c:out value="${list.pharm_name }" /></td>
+				<td><c:out value="${list.pharm_name }" /></a></td>
 				<td><c:out value="${list.pharm_open }" /></td>
 			</tr>
 		</c:forEach>

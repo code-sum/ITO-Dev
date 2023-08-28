@@ -11,7 +11,9 @@
 <!-- bootstrap ICON CDN -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- jQuery.blockUI -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"></script>
 
 <!-- CSS 공통코드 관리 -->
 <link type="text/css" rel="stylesheet" href="<c:url value='/resources/css/style.css'/>"/>

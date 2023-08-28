@@ -24,7 +24,7 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardMapper boardMapper;
 	
-	/** 약국 목록 조회 (일단 30건만) */
+	/** 약국 목록 조회 */
 	@Override
 	public List<BoardVO> boardlist(Map<String, Object> paramMap) throws Exception {
 		return boardMapper.boardlist(paramMap);
@@ -35,5 +35,15 @@ public class BoardServiceImpl implements BoardService {
 	public int countboardlist(Map<String, Object> paramMap) throws Exception {
 		return boardMapper.countboardlist(paramMap);
 	}
+	
+	/** 약국 한건 조회
+	 * 
+	 *  @Override
+	public BoardVO boardselectone(Map<String, Object> paramMap) throws Exception {
+		return boardMapper.boardselectone(paramMap);
+	}
+	 *  
+	 *  */
+	
 
 }

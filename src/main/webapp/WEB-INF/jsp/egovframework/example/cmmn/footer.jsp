@@ -8,6 +8,6 @@
 <!-- 푸터 요소 -->
 <footer>
 	<div class="d-flex justify-content-center">
-		<h3 style="color:white;">SOC SOFT Inc.</h3>
+		<h3 style="color:white; font-weight:bold;">SOC SOFT Inc.</h3>
 	</div>
 </footer>

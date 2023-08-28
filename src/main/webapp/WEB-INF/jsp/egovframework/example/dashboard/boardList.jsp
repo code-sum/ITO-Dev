@@ -14,7 +14,7 @@
 <script type="text/javascript">
 
 	/** 페이지네이션 **/
-	var pageSize = 5;     
+	var pageSize = 10;  // 1페이지에 10건씩 조회
 	var pageBlockSize = 5;  
 	
 	/** OnLoad event **/ 
@@ -51,10 +51,12 @@
 		callAjax("/dashboard/boardlist.do", "post", "text", false, param, listcallback);
 	}
 	
+	
 </script>
 
 </head>
 <body>
+	<input type="hidden" id="pageno"  name="pageno"  />
 	<div class="container" id="wrapper">
 	
 		<!-- 검색창 영역 -->
@@ -74,13 +76,13 @@
 		</div>
 		
 		<!-- 목록 테이블 영역 -->
-		<div>
-			<table class="table table-hover">
+		<div class="px-5">
+			<table class="table table-hover text-center">
 				<colgroup>
-						<col width="25%">
-						<col width="25%">
-						<col width="25%">
-						<col width="25%">
+						<col width="15%">
+						<col width="15%">
+						<col width="40%">
+						<col width="30%">
 				</colgroup>
 				<thead>
 					<tr>
