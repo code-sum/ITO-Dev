@@ -106,7 +106,7 @@
 		</div>
 		
 		<!-- 페이지네이션 영역 -->
-		<div class="paging_area"  id="pharPagination"> </div>
+		<div class="paging"  id="pharPagination"></div>
 		
 		<!-- 위로가기 버튼 -->
 		<div class="d-flex justify-content-end">

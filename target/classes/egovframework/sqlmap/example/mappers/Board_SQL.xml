@@ -12,7 +12,7 @@
 		  FROM tb_pharm
 		ORDER BY pharm_no
 		LIMIT #{pageSize}
-		OFFSET #{pageindex * pageSize}
+		OFFSET #{pageindex - 1} * #{pageSize}
 	</select>
 	
 	<!-- 약국 목록 카운트 조회 -->

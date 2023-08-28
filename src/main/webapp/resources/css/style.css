@@ -15,3 +15,31 @@ footer {
 	padding-top:1rem;
 	padding-bottom:1rem;
 }
+
+.paging {
+	display:flex;
+	justify-content:center;
+}
+
+.paging a {
+	line-height:2.5rem;
+	text-align:center;
+	margin-right:0.5rem;
+	background-color:white;
+	color:black;
+	width:2.5rem;
+	height:2.5rem;
+	text-decoration:none;
+}
+
+.paging strong {
+	line-height:2.5rem;
+	text-align:center;
+	margin-right:0.5rem;
+	background-color:#198754;
+	border-radius:50%;
+	color:white;
+	width:2.5rem;
+	height:2.5rem;
+	text-decoration:none;
+}
