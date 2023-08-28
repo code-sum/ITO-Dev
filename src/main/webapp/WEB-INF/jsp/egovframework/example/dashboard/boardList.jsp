@@ -60,14 +60,23 @@
 	<div class="container" id="wrapper">
 	
 		<!-- 검색창 영역 -->
-		<div class="d-flex justify-content-center align-items-center">
+		<div class="d-flex justify-content-center align-items-center py-5">
 			<!-- 텍스트 영역 -->
 			<div class="p-3">
 				<h1 class="fw-bold">약국 찾기</h1>
 			</div>
 			<!-- 검색조건 입력 영역 -->
 			<div class="p-3">
-				<select></select>
+				<div class="d-flex flex-column">
+					<div class="py-1">
+						<input type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem;">
+					</div>				
+					<div class="d-flex py-1">					
+						<select></select>
+						<select class="mx-3"></select>
+						<select></select>
+					</div>
+				</div>
 			</div>
 			<!-- 버튼 영역 -->
 			<div class="p-3">
