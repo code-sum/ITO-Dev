@@ -21,6 +21,18 @@
 	$(function() {
 		fRegisterButtonClickEvent();  // 버튼 이벤트 등록
 		fn_pharlist();  // 약국 목록
+		
+		// 지역구분_광역시도
+		pharCombo("l","ltypecombo","all","","","","");  // combo type(l:대분류   m:중분류   s:소분류) combo_name, type(기본값  all: 전체   sel: 선택) ,  대분류 코드, 중분류코드, 소분류 코드, ""
+		// 지역구분_시군구
+		$('#ltypecombo').change(function() {
+			pharCombo("m","mtypecombo","all",$("#ltypecombo").val(),"","","");   // combo type(combo box 종류), combo_name, type(기본값  all: 전체   sel: 선택), 선택된 상위 계정코드, "" 
+			$("#stypecombo option").remove();
+		});
+		// 약국이름_목록
+		$('#mtypecombo').change(function() {   
+			pharCombo("s","stypecombo","all",$("#ltypecombo").val(),$("#mtypecombo").val(),"");   // combo type(combo box 종류), combo_name, type(기본값  all: 전체   sel: 선택), 선택된 상위 계정코드, "" 
+		});
 	});
 	
 	/** 버튼 이벤트 등록 */
@@ -47,8 +59,8 @@
 		pagenum = pagenum || 1;
 		
 		var param = {
-				  searchKey : $("#searchKey").val()
-				, pname : $("#pname").val()
+				  pname : $("#pname").val()
+				, stypecombo : $("#stypecombo").val()
 			    , pageSize : pageSize
 			    , pageBlockSize : pageBlockSize
 			    , pagenum : pagenum
@@ -90,12 +102,12 @@
 			<div class="p-3">
 				<div class="d-flex flex-column">
 					<div class="py-1">
-						<input id="pname" name="pname" class="rounded-pill" type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem; border-width:0.5px; border-color:#D3D3D3;">
+						<input id="pname" name="pname" class="rounded-pill p-1" type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem; border-width:0.5px; border-color:#D3D3D3;">
 					</div>				
 					<div class="d-flex py-1">					
-						<select class="rounded-pill"></select>
-						<select class="mx-3 rounded-pill"></select>
-						<select class="rounded-pill"></select>
+						<select id="ltypecombo" name="ltypecombo" class="rounded-pill"></select>
+						<select id="mtypecombo" name="mtypecombo" class="mx-3 rounded-pill"></select>
+						<select id="stypecombo" name="stypecombo" class="rounded-pill"></select>
 					</div>
 				</div>
 			</div>
