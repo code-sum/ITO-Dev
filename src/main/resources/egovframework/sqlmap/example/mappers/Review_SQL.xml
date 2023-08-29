@@ -7,8 +7,24 @@
 		SELECT 
         	    review_no
 			  , review_title
+			  , review_content
 			  , review_created_at 
 		  FROM tb_review
+		  <where>
+		      <if test="(sname != null) and (!sname.equals(''))">
+		           <choose>
+				         <when test="searchKey eq 're_title'.toString()">
+				                and review_title Like CONCAT('%', #{sname}, '%')
+				         </when>
+				         <when test="searchKey eq 're_content'.toString()">
+				                and review_content LIKE CONCAT('%', #{sname}, '%')
+				         </when>
+				         <otherwise>
+				                and ( review_title Like CONCAT('%', #{sname}, '%') or review_content LIKE CONCAT('%', #{sname}, '%') )
+				         </otherwise>
+			   		</choose>
+		      </if>
+		  </where>
 		ORDER BY review_no
 		LIMIT #{pageSize}
 		OFFSET #{pageindex}
@@ -18,6 +34,21 @@
 	<select id="countreviewlist" resultType="int">
 		SELECT COUNT(*)
 		  FROM tb_review
+		  		  <where>
+		      <if test="(sname != null) and (!sname.equals(''))">
+		           <choose>
+				         <when test="searchKey eq 're_title'.toString()">
+				                and review_title Like CONCAT('%', #{sname}, '%')
+				         </when>
+				         <when test="searchKey eq 're_content'.toString()">
+				                and review_content LIKE CONCAT('%', #{sname}, '%')
+				         </when>
+				         <otherwise>
+				                and ( review_title Like CONCAT('%', #{sname}, '%') or review_content LIKE CONCAT('%', #{sname}, '%') )
+				         </otherwise>
+			   		</choose>
+		      </if>
+		  </where>
 	</select>
 
 </mapper>
