@@ -23,7 +23,7 @@
 		fn_pharlist();  // 약국 목록
 		
 		// 지역구분_광역시도
-		pharCombo("l","ltypecombo","all","","","","");  // combo type(l:대분류   m:중분류   s:소분류) combo_name, type(기본값  all: 전체   sel: 선택) ,  대분류 코드, 중분류코드, 소분류 코드, ""
+		pharCombo("l","ltypecombo","all","","","","");  // combo type(l:대분류   m:중분류   s:소분류) combo_name, type(기본값  all: 전체   sel: 선택), 대분류 코드, 중분류코드, 소분류 코드, ""
 		// 지역구분_시군구
 		$('#ltypecombo').change(function() {
 			pharCombo("m","mtypecombo","all",$("#ltypecombo").val(),"","","");   // combo type(combo box 종류), combo_name, type(기본값  all: 전체   sel: 선택), 선택된 상위 계정코드, "" 

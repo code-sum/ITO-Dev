@@ -9,7 +9,7 @@
 				 sido_code AS cd
 			   , sido_name AS name 
 		  FROM tb_ltype
-		ORDER_BY sido_code
+		ORDER BY sido_code
 	</select>
 	
 	<!-- 약국 중분류 콤보박스 -->
@@ -24,7 +24,7 @@
                        and mt.sido_code = #{lcode}
                 </if>
 		  	 </where>
-		ORDER_BY mt.sigungu_code
+		ORDER BY mt.sigungu_code
 	</select>
 
 	<!-- 약국 대분류/중분류/소분류 콤보박스 -->

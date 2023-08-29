@@ -55,7 +55,7 @@ function callAjax(url, method, dataType, async, param, callback) {
  */
 function pharCombo(comtype, combo_name, type, lcode, mcode, selvalue){
 	
-	//console.log("pharCombo Start !!!!!!!!!!!!!! ");
+	// console.log("pharCombo Start !!!!!!!!!!!!!! ");
 	
 	var selectbox = document.getElementById(combo_name);
 
@@ -68,13 +68,13 @@ function pharCombo(comtype, combo_name, type, lcode, mcode, selvalue){
 	$(selectbox).find("option").remove();
   		
 	$.ajax({ 
-	     type: "POST",  
-	     url: "/system/pharCombo.do", 
-	     dataType: "json",  
-	     data : data,
+		 url: "/system/pharCombo.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 - 정상
+		 data : data,
+		 method: "POST", // HTTP 요청 방식(GET, POST)
+	     dataType: "json",  // 서버 측에서 클라이언트로 리턴하는 데이터 타입, html 이나 text 로 고치면 success 로 넘어가긴 하는데 뭐가 문제지?
 	     success: function(data)
 	     { 				
-	    	 
+	    	 console.log(JSON.stringify(data));
 		     var json_obj = $.parseJSON(JSON.stringify(data));//parse JSON 
 		     var jsonstr = json_obj.list;
 		     console.log("jsonstr : " + jsonstr);

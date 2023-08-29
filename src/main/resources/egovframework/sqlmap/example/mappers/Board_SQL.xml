@@ -14,9 +14,9 @@
 		  		<if test="(pname != null) and (!pname.equals(''))">
 		  			and pharm_name Like CONCAT('%', #{pname}, '%')
 		  		</if>
-		  		<if test="searchptypecombo != null and searchptypecombo != ''">
-			    	and pharm_no = #{searchptypecombo}
-		       </if>
+		  		<if test="stypecombo != null and stypecombo != ''">
+			    	and pharm_no = #{stypecombo}
+		        </if>
 		  	</where>
 		ORDER BY pharm_no
 		LIMIT #{pageSize}
