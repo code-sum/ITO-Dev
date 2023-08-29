@@ -1,10 +1,33 @@
+/* 드래그 효과 */
+::selection {
+  background-color: #d1ffc0;
+  color: #000000;
+}
+
+
+/* 컨텐츠 영역 */
+.layout {
+	display:flex;
+	flex-direction:column;
+	margin-left:10rem;
+	margin-right:10rem;
+	margin-top:3rem;
+}
+.layout layout-header {
+	margin-bottom:5rem;
+}
+.layout .layout-header h1 {
+	font-weight:bold;
+}
+
+
 /* 푸터 하단 고정 */
 body {
-  height: 100vh;
+    height: 100vh;
 }
 #wrapper{
-  height:auto;
-  min-height:100%;
+    height:auto;
+    min-height:100%;
 }
 footer {
 	position:relative;

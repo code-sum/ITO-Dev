@@ -36,14 +36,11 @@ public class BoardServiceImpl implements BoardService {
 		return boardMapper.countboardlist(paramMap);
 	}
 	
-	/** 약국 한건 조회
-	 * 
-	 *  @Override
-	public BoardVO boardselectone(Map<String, Object> paramMap) throws Exception {
-		return boardMapper.boardselectone(paramMap);
+	/** 약국 한건 조회 */
+    @Override
+	public BoardVO boardselectone(int pharm_no) throws Exception {
+		return boardMapper.boardselectone(pharm_no);
 	}
-	 *  
-	 *  */
 	
 
 }

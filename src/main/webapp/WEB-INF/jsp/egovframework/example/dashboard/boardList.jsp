@@ -84,6 +84,25 @@
 		callAjax("/dashboard/boardlist.do", "post", "text", false, param, listcallback);
 	}
 	
+	/** 약국 한건 조회 **/
+	function fn_selectone(no) {
+		
+		var param = {
+		    pharm_no : no
+	    }
+
+	    var selectoncallback = function(returndata) {			
+	        
+	        console.log( JSON.stringify(returndata) );
+	        popupinit(returndata.noticesearch);
+
+	        gfModalPop("#layer1");
+	    }
+
+	    callAjax("/board/boardselectone.do", "post", "json", false, param, selectoncallback);
+
+	}
+	
 	
 </script>
 

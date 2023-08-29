@@ -80,22 +80,18 @@ public class BoardController {
         return "dashboard/boardListGrd";
 	}
 	
-	/**
-     * 약국 한건 조회
-     * 
-     * 
-     * 	   @RequestMapping("boardselectone.do")
-	   public String boardselectone(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
-                  HttpServletResponse response, HttpSession session) throws Exception {
-
-		      logger.info("+ Start " + className + ".boardselectone");
-		      logger.info("   - paramMap : " + paramMap);
-		      
-		      logger.info("+ End " + className + ".boardselectone");
-		      
-	       return "dashboard/boardOne";
-	   }
-     */
-
 	
+	/**
+     * 약국 한건 조회 
+     */
+	@RequestMapping("boardselectone.do")
+    public String boardselectone(Model model, HttpServletRequest request) throws Exception {
+        int pharm_no = Integer.parseInt(request.getParameter("pharm_no"));
+        
+        BoardVO boardVO = boardService.boardselectone(pharm_no);
+        model.addAttribute("vo", boardVO);
+        
+        return "dashboard/boardOne";
+    }
+     
 }

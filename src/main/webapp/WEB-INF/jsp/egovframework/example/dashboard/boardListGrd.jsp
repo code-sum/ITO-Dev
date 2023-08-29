@@ -13,10 +13,10 @@
 	<c:if test="${totalcnt > 0 }">
 		<c:forEach items="${boardsearchlist }" var="list">
 			<tr>
-				<td><c:out value="${list.pharm_no }" /></td>
-				<td><c:out value="${list.sido_name }" /></td>
-				<td><c:out value="${list.pharm_name }" /></a></td>
-				<td><c:out value="${list.pharm_open }" /></td>
+				<td>${list.pharm_no }</td>
+				<td>${list.sido_name }</td>
+				<td><a href="/dashboard/boardselectone.do?pharm_no=${list.pharm_no}">${list.pharm_name }</a></td>
+				<td>${list.pharm_open }</td>
 			</tr>
 		</c:forEach>
 	</c:if>

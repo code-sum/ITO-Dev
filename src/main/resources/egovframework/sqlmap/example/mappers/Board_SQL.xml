@@ -35,17 +35,17 @@
 	</select>
 	
 	<!-- 약국 한건 조회 -->
-	<!-- 
-	<select id="boardselectone" resultType="egovframework.example.dashboard.service.BoardVO">
+	<select id="boardselectone" parameterType="Integer" resultType="egovframework.example.dashboard.service.BoardVO">
 		SELECT
 		        pharm_no
-		      , sido_name
 		      , pharm_name
+		      , pharm_add
+		      , pharm_zip
+		      , pharm_tel
 		      , pharm_open
 		  FROM tb_pharm
 		 WHERE pharm_no = #{pharm_no}
 	</select>
-	 -->
 
 
 </mapper>
