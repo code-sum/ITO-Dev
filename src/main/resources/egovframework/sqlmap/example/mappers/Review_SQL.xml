@@ -2,8 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="egovframework.example.review.service.impl.ReviewMapper">
 
-	<select id="selectReviewList" resultType="egovframework.example.review.service.ReviewVO">
-		SELECT * 
+	<!-- 게시판 목록 조회  -->
+	<select id="reviewlist" resultType="egovframework.example.review.service.ReviewVO">
+		SELECT 
+        	    review_no
+			  , review_title
+			  , review_created_at 
+		  FROM tb_review
+		ORDER BY review_no
+		LIMIT #{pageSize}
+		OFFSET #{pageindex}
+	</select>
+	
+	<!-- 게시판 목록 카운트 조회 -->
+	<select id="countreviewlist" resultType="int">
+		SELECT COUNT(*)
 		  FROM tb_review
 	</select>
 

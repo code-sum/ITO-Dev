@@ -6,17 +6,16 @@
 
 	<c:if test="${totalcnt eq 0 }">
 		<tr>
-			<td colspan="4">데이터가 존재하지 않습니다.</td>
+			<td colspan="3">데이터가 존재하지 않습니다.</td>
 		</tr>
 	</c:if>
 			
 	<c:if test="${totalcnt > 0 }">
-		<c:forEach items="${boardsearchlist }" var="list">
+		<c:forEach items="${reviewsearchlist }" var="list">
 			<tr>
-				<td>${list.pharm_no }</td>
-				<td>${list.sido_name }</td>
-				<td>${list.pharm_name }</td>
-				<td>${list.pharm_open }"</td>
+				<td>${list.review_no }</td>
+				<td>${list.review_title }</td>
+				<td>${list.review_created_at }</td>
 			</tr>
 		</c:forEach>
 	</c:if>

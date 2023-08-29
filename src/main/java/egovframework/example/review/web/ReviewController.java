@@ -49,4 +49,32 @@ public class ReviewController {
 	      return "review/reviewList";
 	   }
 	
+	
+	/** 
+	 * 약국 추천 게시판 목록 조회
+	 */
+	@RequestMapping("reviewlist.do")
+	public String reviewlist(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
+	         HttpServletResponse response, HttpSession session) throws Exception {
+		
+		logger.info("+ Start " + className + ".boardlist");
+        logger.info("   - paramMap : " + paramMap);
+		
+        int pagenum = Integer.parseInt((String) paramMap.get("pagenum"));
+        int pageSize = Integer.parseInt((String) paramMap.get("pageSize"));
+        int pageindex = (pagenum - 1) * pageSize;
+        
+        paramMap.put("pageSize", pageSize);
+        paramMap.put("pageindex", pageindex);
+        
+        List<ReviewVO> reviewsearchlist = reviewService.reviewlist(paramMap);
+        int totalcnt = reviewService.countreviewlist(paramMap);
+        
+        model.addAttribute("reviewsearchlist", reviewsearchlist);
+        model.addAttribute("totalcnt", totalcnt);
+        
+        logger.info("+ End " + className + ".reviewlist");
+
+        return "review/reviewListGrd";
+	}
 }
