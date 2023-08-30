@@ -13,10 +13,10 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.review.service.ReviewService;
 import egovframework.example.review.service.ReviewVO;
 
@@ -36,7 +36,7 @@ public class ReviewController {
 	
 	
     /**
-	 * 약국 추천 게시판 초기화면 
+	 * 게시판 초기화면 
 	 */
 	@RequestMapping("reviewIndex.do")
 	public String reviewIndex(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
@@ -52,13 +52,13 @@ public class ReviewController {
 	
 	
 	/** 
-	 * 약국 추천 게시판 목록 조회
+	 * 게시판 목록 조회
 	 */
 	@RequestMapping("reviewlist.do")
 	public String reviewlist(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
 	         HttpServletResponse response, HttpSession session) throws Exception {
 		
-		logger.info("+ Start " + className + ".boardlist");
+		logger.info("+ Start " + className + ".reviewlist");
         logger.info("   - paramMap : " + paramMap);
 		
         int pagenum = Integer.parseInt((String) paramMap.get("pagenum"));
@@ -92,6 +92,27 @@ public class ReviewController {
         
         return "review/reviewOne";
     }
+	
+	
+	/**
+     * 게시판 글생성 화면
+     */
+	@RequestMapping("insertview.do")
+    public String insertview(){
+        return "review/reviewInsert";
+    }
+	
+	
+	/**
+     * 게시판 글생성
+     * @ModelAttribute는 사용자가 요청시 전달하는 값을 오브젝트 형태로 매핑해주는 어노테이션
+     */
+	@RequestMapping("reviewinsert.do")
+    public String write(@ModelAttribute("reviewVO") ReviewVO reviewVO) throws Exception {
+		reviewService.reviewinsert(reviewVO);
+        return "redirect:reviewlist.do";
+    }
+	
 	
 	
 }

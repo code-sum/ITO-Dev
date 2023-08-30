@@ -57,7 +57,9 @@
 			</table>
 			
 			<!-- 뒤로가기 버튼 -->
-			<a href="/review/reviewIndex.do" style="text-decoration:none; color:black;">목록으로</a>
+			<div>
+				<a href="/review/reviewIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>
+			</div>
 			
 		</div>
 

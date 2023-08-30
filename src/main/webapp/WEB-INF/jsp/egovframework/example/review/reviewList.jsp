@@ -84,6 +84,7 @@
 		<div class="layout">
 			<div class="layout-header">			
 				<h1>약국 추천 게시판</h1>
+				<a class="btn btn-outline-success rounded-pill" href="insertview.do">글쓰기</a>
 				<hr>
 			</div>
 			

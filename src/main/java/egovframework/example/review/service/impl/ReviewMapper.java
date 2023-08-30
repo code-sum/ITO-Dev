@@ -20,4 +20,7 @@ public interface ReviewMapper {
 	/** 게시판 한건 조회  */
 	public ReviewVO reviewselectone(int review_no) throws Exception;
 	
+	/** 게시판 글생성 */
+	public void reviewinsert(ReviewVO reviewVO) throws Exception;
+	
 }

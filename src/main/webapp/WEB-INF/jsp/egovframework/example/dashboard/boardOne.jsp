@@ -90,7 +90,7 @@
 			
 			<!-- 뒤로가기 버튼 -->
 			<div class="mt-3">			
-				<a href="/dashboard/mainIndex.do" style="text-decoration:none; color:black;">목록으로</a>
+				<a href="/dashboard/mainIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>
 			</div>
 			
 		</div>
