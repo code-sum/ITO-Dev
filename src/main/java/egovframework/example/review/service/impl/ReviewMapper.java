@@ -26,4 +26,7 @@ public interface ReviewMapper {
 	/** 게시판 글수정 */
 	public void reviewupdate(ReviewVO reviewVO) throws Exception;
 	
+	/** 게시판 글삭제 */
+	public void reviewdelete(int review_no) throws Exception;
+	
 }

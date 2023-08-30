@@ -15,8 +15,19 @@
 <script type="text/javascript">
 	
 	/** 수정 버튼 클릭 시, form 제출 **/ 
-	$(document).on('click', '#btn_modify', function(e) {
+	$(document).on('click', '#btn_update', function(e) {
         if (confirm("정말 수정하시겠습니까 ?") == true) {
+            $("#update_form").submit();
+        } else {
+            return;
+        }
+    });
+	
+	/** 삭제 버튼 클릭 시, reviewdelete.do **/
+	$(document).on('click', '#btn_delete', function(e) {
+        var review_no = ${vo.review_no};
+        if (confirm("정말 삭제하시겠습니까 ?") == true) {
+            $("#update_form").attr("action", "reviewdelete.do?review_no="+review_no);
             $("#update_form").submit();
         } else {
             return;
@@ -79,7 +90,8 @@
 					<a href="/review/reviewIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>
 				</div>
 				<div>
-					<button id="btn_modify" type="button" class="btn btn-outline-success rounded-pill">수정</button>
+					<button id="btn_update" type="button" class="btn btn-outline-success rounded-pill">수정</button>
+					<button id="btn_delete" type="button" class="btn btn-outline-danger rounded-pill">삭제</button>
 				</div>
 			</div>
 			

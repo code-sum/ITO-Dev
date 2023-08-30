@@ -123,6 +123,16 @@ public class ReviewController {
         return "redirect:reviewIndex.do";
     }
 	
+    
+    /**
+     * 게시판 글삭제
+     */
+    @RequestMapping("reviewdelete.do")
+    public String reviewdelete(HttpServletRequest request) throws Exception {
+        int review_no = Integer.parseInt(request.getParameter("review_no"));
+        reviewService.reviewdelete(review_no);
+        return "redirect:reviewIndex.do";
+    }
 	
 	
 }

@@ -83,6 +83,13 @@
 		WHERE review_no = #{review_no}
     </update>
     
+    
+    <!-- 게시판 글삭제 -->
+    <delete id="reviewdelete" parameterType="Integer">
+    	DELETE FROM tb_review
+		WHERE review_no = #{review_no}
+    </delete>
+    
 	
 
 </mapper>
