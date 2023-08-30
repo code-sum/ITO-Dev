@@ -31,8 +31,8 @@
 				<h1>약국 추천 글쓰기</h1>
 				<hr>
 			</div>
-			<form id="review_form" action="reviewinsert.do" method="post" encType="multiplart/form-data">
-	            <table class="table">
+			<form id="review_form" action="reviewupdate.do" method="post" encType="multiplart/form-data">
+	            <table class="table mt-2 mb-4">
 	                <tbody>
         				<colgroup>
 							<col width="15%">

@@ -114,5 +114,15 @@ public class ReviewController {
     }
 	
 	
+	/**
+     * 게시판 글수정
+     */
+    @RequestMapping("reviewupdate.do")
+    public String reviewupdate(@ModelAttribute("reviewVO") ReviewVO reviewVO) throws Exception {
+    	reviewService.reviewinsert(reviewVO);
+        return "redirect:reviewIndex.do";
+    }
+	
+	
 	
 }

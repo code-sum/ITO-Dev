@@ -48,5 +48,11 @@ public class ReviewServiceImpl implements ReviewService {
     public void reviewinsert(ReviewVO reviewVO) throws Exception {
 		reviewMapper.reviewinsert(reviewVO);
     }
+	
+	/** 게시판 글수정 */
+	@Override
+    public void reviewupdate(ReviewVO reviewVO) throws Exception {
+		reviewMapper.reviewupdate(reviewVO);
+    }
 
 }

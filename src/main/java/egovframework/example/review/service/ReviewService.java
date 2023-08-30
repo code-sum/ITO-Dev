@@ -20,4 +20,7 @@ public interface ReviewService {
 	/** 게시판 글생성 */
 	public void reviewinsert(ReviewVO reviewVO) throws Exception;
 	
+	/** 게시판 글수정 */
+	public void reviewupdate(ReviewVO reviewVO) throws Exception;
+	
 }
