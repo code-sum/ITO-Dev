@@ -98,16 +98,18 @@
 				<a href="" id="btnSearch" name="btn" class="btn btn-success rounded-pill py-2 px-3">검 색</a>
 			</div>
 			
-			<table class="table table-hover mt-2 mb-4">
+			<table class="table table-hover mt-2 mb-4 text-center">
 				<colgroup>
+						<col width="15%">
+						<col width="45%">
 						<col width="20%">
-						<col width="60%">
 						<col width="20%">
 				</colgroup>
 				<thead>
 					<tr>
 						<th>글번호</th>
 						<th>제목</th>
+						<th>작성자</th>
 						<th>작성일</th>
 					</tr>
 				</thead>

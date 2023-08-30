@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.review.service.ReviewService;
 import egovframework.example.review.service.ReviewVO;
 
@@ -77,4 +78,20 @@ public class ReviewController {
 
         return "review/reviewListGrd";
 	}
+	
+	
+	/**
+     * 게시판 한건 조회 
+     */
+	@RequestMapping("reviewselectone.do")
+    public String reviewselectone(Model model, HttpServletRequest request) throws Exception {
+        int review_no = Integer.parseInt(request.getParameter("review_no"));
+        
+        ReviewVO reviewVO = reviewService.reviewselectone(review_no);
+        model.addAttribute("vo", reviewVO);
+        
+        return "review/reviewOne";
+    }
+	
+	
 }

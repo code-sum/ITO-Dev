@@ -14,7 +14,8 @@
 		<c:forEach items="${reviewsearchlist }" var="list">
 			<tr>
 				<td>${list.review_no }</td>
-				<td>${list.review_title }</td>
+				<td><a href="/review/reviewselectone.do?review_no=${list.review_no}">${list.review_title }</a></td>
+				<td>방문자</td>
 				<td>${list.review_created_at }</td>
 			</tr>
 		</c:forEach>

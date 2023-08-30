@@ -8,6 +8,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.review.service.ReviewService;
 import egovframework.example.review.service.ReviewVO;
 
@@ -34,6 +35,12 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public int countreviewlist(Map<String, Object> paramMap) throws Exception {
 		return reviewMapper.countreviewlist(paramMap);
+	}
+	
+	/** 게시판 한건 조회  */
+	@Override
+	public ReviewVO reviewselectone(int review_no) throws Exception {
+		return reviewMapper.reviewselectone(review_no);
 	}
 
 }

@@ -50,5 +50,18 @@
 		      </if>
 		  </where>
 	</select>
+	
+	<!-- 게시판 한건 조회 -->
+	<select id="reviewselectone" parameterType="Integer" resultType="egovframework.example.review.service.ReviewVO">
+		SELECT
+		        review_no
+		      , review_title
+		      , review_password
+		      , review_content
+		      , review_created_at
+		  FROM tb_review
+		 WHERE review_no = #{review_no}
+	</select>
+	
 
 </mapper>

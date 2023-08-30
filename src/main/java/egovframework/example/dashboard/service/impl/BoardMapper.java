@@ -17,6 +17,6 @@ public interface BoardMapper {
 	public int countboardlist(Map<String, Object> paramMap) throws Exception;
 	
 	/** 약국 한건 조회  */
-	 public BoardVO boardselectone(int pharm_no) throws Exception;
+	public BoardVO boardselectone(int pharm_no) throws Exception;
 	
 }

@@ -7,7 +7,7 @@ public class ReviewVO {
 	private String review_title;  // 글제목
 	private String review_content;  // 글내용
 	private int review_password;  // 글비밀번호
-	private String review_created_at;  // 글작성일
+	private String review_created_at;  // 글작성일 ... DATE 형식이어도 VO 선언할 땐 String 으로 받을 수 있다.
 	
 	
 	public int getReview_no() {
