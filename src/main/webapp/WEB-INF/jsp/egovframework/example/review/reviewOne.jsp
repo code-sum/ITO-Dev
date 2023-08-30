@@ -73,7 +73,7 @@
 				</table>
 			</form>
 			
-			<!-- 버튼 모음 -->
+			<!-- 버튼 영역 -->
 			<div class="d-flex justify-content-between">			
 				<div>
 					<a href="/review/reviewIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>

@@ -31,7 +31,7 @@
 				<h1>약국 추천 글쓰기</h1>
 				<hr>
 			</div>
-			<form id="review_form" action="reviewupdate.do" method="post" encType="multiplart/form-data">
+			<form id="review_form" action="reviewinsert.do" method="post" encType="multiplart/form-data">
 	            <table class="table mt-2 mb-4">
 	                <tbody>
         				<colgroup>
@@ -63,7 +63,7 @@
 					<a href="/review/reviewIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>
 				</div>
 				<div>
-					<a id="btn_register" type="button" class="btn_register btn btn-outline-success rounded-pill">등록</a>
+					<button id="btn_register" type="button" class="btn btn-outline-success rounded-pill">등록</button>
 				</div>
 			</div>
 			
