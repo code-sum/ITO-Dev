@@ -87,6 +87,12 @@
 			
 			<!-- 카카오맵 표출 -->
 			<div id="map" style="width:100%;height:350px;"></div>
+			
+			<!-- 뒤로가기 버튼 -->
+			<div class="mt-3">			
+				<a href="/dashboard/mainIndex.do" style="text-decoration:none; color:black;">목록으로</a>
+			</div>
+			
 		</div>
 
 		<!-- 위로가기 버튼 -->

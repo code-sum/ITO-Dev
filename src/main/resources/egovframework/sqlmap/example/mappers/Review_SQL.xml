@@ -25,7 +25,7 @@
 			   		</choose>
 		      </if>
 		  </where>
-		ORDER BY review_no
+		ORDER BY review_no DESC
 		LIMIT #{pageSize}
 		OFFSET #{pageindex}
 	</select>

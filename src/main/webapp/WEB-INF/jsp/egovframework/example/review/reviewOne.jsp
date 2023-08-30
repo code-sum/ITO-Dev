@@ -56,6 +56,9 @@
 	             </tbody>
 			</table>
 			
+			<!-- 뒤로가기 버튼 -->
+			<a href="/review/reviewIndex.do" style="text-decoration:none; color:black;">목록으로</a>
+			
 		</div>
 
 		<!-- 위로가기 버튼 -->
