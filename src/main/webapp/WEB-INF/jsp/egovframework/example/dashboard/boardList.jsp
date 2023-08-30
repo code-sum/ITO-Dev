@@ -46,9 +46,6 @@
 				case 'btnSearch' :
 					fn_pharlist();
 					break;
-				case 'btnSave' :
-					fn_save();
-					break;
 			}
 		});
 	}
@@ -89,6 +86,7 @@
 
 </head>
 <body>
+
 	<input type="hidden" id="pageno"  name="pageno"  />
 	<div class="container" id="wrapper">
 	
@@ -105,9 +103,9 @@
 						<input id="pname" name="pname" class="rounded-pill p-1" type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem; border-width:0.5px; border-color:#D3D3D3;">
 					</div>				
 					<div class="d-flex py-1">					
-						<select id="ltypecombo" name="ltypecombo" class="rounded-pill"></select>
-						<select id="mtypecombo" name="mtypecombo" class="mx-3 rounded-pill"></select>
-						<select id="stypecombo" name="stypecombo" class="rounded-pill"></select>
+						<select id="ltypecombo" name="ltypecombo"></select>
+						<select id="mtypecombo" name="mtypecombo"></select>
+						<select id="stypecombo" name="stypecombo"></select>
 					</div>
 				</div>
 			</div>
@@ -154,6 +152,7 @@
 	
 	<!-- 푸터 영역 -->
 	<jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/footer.jsp"></jsp:include>
+
 	
 </body>
 </html>

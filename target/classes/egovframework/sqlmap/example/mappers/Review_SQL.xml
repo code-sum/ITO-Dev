@@ -14,13 +14,13 @@
 		      <if test="(sname != null) and (!sname.equals(''))">
 		           <choose>
 				         <when test="searchKey eq 're_title'.toString()">
-				                and review_title Like CONCAT('%', #{sname}, '%')
+				                and review_title LIKE CONCAT('%', #{sname}, '%')
 				         </when>
 				         <when test="searchKey eq 're_content'.toString()">
 				                and review_content LIKE CONCAT('%', #{sname}, '%')
 				         </when>
 				         <otherwise>
-				                and ( review_title Like CONCAT('%', #{sname}, '%') or review_content LIKE CONCAT('%', #{sname}, '%') )
+				                and ( review_title LIKE CONCAT('%', #{sname}, '%') or review_content LIKE CONCAT('%', #{sname}, '%') )
 				         </otherwise>
 			   		</choose>
 		      </if>
@@ -38,13 +38,13 @@
 		      <if test="(sname != null) and (!sname.equals(''))">
 		           <choose>
 				         <when test="searchKey eq 're_title'.toString()">
-				                and review_title Like CONCAT('%', #{sname}, '%')
+				                and review_title LIKE CONCAT('%', #{sname}, '%')
 				         </when>
 				         <when test="searchKey eq 're_content'.toString()">
 				                and review_content LIKE CONCAT('%', #{sname}, '%')
 				         </when>
 				         <otherwise>
-				                and ( review_title Like CONCAT('%', #{sname}, '%') or review_content LIKE CONCAT('%', #{sname}, '%') )
+				                and ( review_title LIKE CONCAT('%', #{sname}, '%') or review_content LIKE CONCAT('%', #{sname}, '%') )
 				         </otherwise>
 			   		</choose>
 		      </if>

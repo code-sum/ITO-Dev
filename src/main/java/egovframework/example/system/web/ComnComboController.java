@@ -65,7 +65,6 @@ public class ComnComboController {
 			comComboModel = comboService.selectsmalllist(paramMap);
 		}
 		
-		
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 
 		resultMap.put("list", comComboModel);
