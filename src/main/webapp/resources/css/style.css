@@ -1,7 +1,7 @@
 /* 드래그 효과 */
 ::selection {
-  background-color: #d1ffc0;
-  color: #000000;
+  background-color: #198754;
+  color: #FFFFFF;
 }
 
 
@@ -28,6 +28,13 @@
 	padding:3rem;
 	background:#d1ffc0;
 	border-radius:30px;
+}
+
+/* 테이블에 들어간 a 태그 효과 */
+td a {
+	color:black;
+	text-decoration:none;
+	background-color:#d1ffc0;
 }
 
 

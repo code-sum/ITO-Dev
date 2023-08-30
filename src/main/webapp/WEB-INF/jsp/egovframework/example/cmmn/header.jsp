@@ -6,7 +6,7 @@
 <jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/common_include.jsp"></jsp:include>
 
 <!-- 네비게이션 바 -->
-<nav class="navbar navbar-expand-lg" style="background-color:#32A852;">
+<nav class="navbar navbar-expand-lg" style="background-color:#198754;">
   <div class="container-fluid px-5">
     <a class="navbar-brand" href="/dashboard/mainIndex.do" style="color:white; font-weight:bold;">
     	<img src="<c:url value='/resources/images/logo.png'/>" alt="" width="30" height="30" class="d-inline-block align-text-top">
