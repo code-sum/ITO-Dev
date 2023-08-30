@@ -58,12 +58,12 @@
         	</form>
 			
 			<!-- 버튼 영역 -->
-			<div class="d-flex">
+			<div class="d-flex justify-content-between">
 				<div>
 					<a href="/review/reviewIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>
 				</div>
 				<div>
-					<button id="btn_register" type="button" class="btn_register">등록</button>
+					<a id="btn_register" type="button" class="btn_register btn btn-outline-success rounded-pill">등록</a>
 				</div>
 			</div>
 			

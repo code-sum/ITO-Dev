@@ -82,9 +82,15 @@
 	
 		<!-- 내용 -->
 		<div class="layout">
-			<div class="layout-header">			
-				<h1>약국 추천 게시판</h1>
-				<a class="btn btn-outline-success rounded-pill" href="insertview.do">글쓰기</a>
+			<div class="layout-header">
+				<div class="d-flex justify-content-between align-items-center">				
+					<div>
+						<h1>약국 추천 게시판</h1>
+					</div>
+					<div>
+						<a class="btn btn-outline-success rounded-pill" href="insertview.do">글쓰기</a>
+					</div>			
+				</div>
 				<hr>
 			</div>
 			
@@ -96,7 +102,7 @@
 					<option value="re_content" >내용</option>
 				</select> 
 				<input type="text" style="width:300px; margin-right:5px;" id="sname" name="sname" placeholder="검색어를 입력해주세요.">
-				<a href="" id="btnSearch" name="btn" class="btn btn-success rounded-pill py-2 px-3">검 색</a>
+				<a href="" id="btnSearch" name="btn" class="btn btn-success rounded-pill py-2 px-3 ms-2">검 색</a>
 			</div>
 			
 			<table class="table table-hover mt-2 mb-4 text-center">

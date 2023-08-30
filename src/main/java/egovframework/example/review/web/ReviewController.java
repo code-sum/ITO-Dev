@@ -110,7 +110,7 @@ public class ReviewController {
 	@RequestMapping("reviewinsert.do")
     public String write(@ModelAttribute("reviewVO") ReviewVO reviewVO) throws Exception {
 		reviewService.reviewinsert(reviewVO);
-        return "redirect:reviewlist.do";
+        return "redirect:reviewIndex.do";
     }
 	
 	

@@ -13,8 +13,8 @@
 	margin-right:10rem;
 	margin-top:3rem;
 }
-.layout layout-header {
-	margin-bottom:5rem;
+.layout-header {
+	margin-bottom:1rem;
 }
 .layout .layout-header h1 {
 	font-weight:bold;
@@ -28,6 +28,7 @@
 	padding:3rem;
 	background:#d1ffc0;
 	border-radius:30px;
+	margin-bottom:1rem;
 }
 
 /* 테이블에 들어간 a 태그 효과 */
