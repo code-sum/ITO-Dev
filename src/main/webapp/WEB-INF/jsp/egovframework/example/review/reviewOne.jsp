@@ -77,7 +77,7 @@
 	                        <th>비밀번호</th>
 	                        <td>
 	                        	<input type="text" value="${vo.review_password}" maxlength="4" name="review_password" class="form-control" />
-	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 숫자를 입력하세요.</span>
+	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 이하 숫자를 입력하세요.</span>
                         	</td>
 	                    </tr>
 		             </tbody>

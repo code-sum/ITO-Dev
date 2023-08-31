@@ -12,7 +12,7 @@ $(document).ajaxStop($.unblockUI);
  *   callback : callback function name
  */
 function callAjax(url, method, dataType, async, param, callback) {
-	//console.log('>>>>>>param일떄',param);
+	//console.log('>>>>>>param 일 때',param);
 	
 	//method는 post 이다. async는 true/false이다.
 	if (method == null || method == "") method = "post";

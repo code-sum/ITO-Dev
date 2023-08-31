@@ -6,7 +6,7 @@
 
 	<c:if test="${totalcnt eq 0 }">
 		<tr>
-			<td colspan="3">데이터가 존재하지 않습니다.</td>
+			<td colspan="4">데이터가 존재하지 않습니다.</td>
 		</tr>
 	</c:if>
 			

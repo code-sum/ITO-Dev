@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import egovframework.example.region.service.RegionService;
 import egovframework.example.region.service.RegionVO;
+import egovframework.example.review.service.ReviewVO;
 
 
 @Controller
@@ -43,6 +44,16 @@ public class RegionController {
 	      
 	      logger.info("+ Start " + className + ".regionIndex");
 	      logger.info("   - paramMap : " + paramMap);
+	      
+	      List<RegionVO> pharmacybyregion = regionService.pharmacybyregion(paramMap);
+	      /*
+	      int totalcnt = regionService.counttotal(paramMap);
+	      */
+	        
+	      model.addAttribute("pharmacybyregion", pharmacybyregion);
+	      /*
+	      model.addAttribute("totalcnt", totalcnt);
+	      */
 	      
 	      logger.info("+ End " + className + ".regionIndex");
 

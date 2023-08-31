@@ -99,9 +99,10 @@
 			<!-- 검색조건 입력 영역 -->
 			<div class="p-3">
 				<div class="d-flex flex-column">
-					<div class="py-1">
-						<input id="pname" name="pname" class="rounded-pill p-1" type="text" placeholder="&nbsp;&nbsp;약국 이름을 입력해주세요." style="width:20rem; border-width:0.5px; border-color:#D3D3D3;">
-					</div>				
+					<div class="form-floating" style="width:20rem; height:4rem;">
+						<input id="pname" name="pname" class="form-control p-1 text-end" type="text" placeholder="약국 이름">
+						<label for="pname">이름을 입력해주세요.</label>
+					</div>
 					<div class="d-flex py-1">					
 						<select id="ltypecombo" name="ltypecombo"></select>
 						<select id="mtypecombo" name="mtypecombo"></select>

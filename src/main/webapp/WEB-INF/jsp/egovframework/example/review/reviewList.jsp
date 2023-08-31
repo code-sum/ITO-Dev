@@ -34,9 +34,6 @@
 				case 'btnSearch' :
 					fn_reviewlist();
 					break;
-				case 'btnSave' :
-					fn_save();
-					break;
 			}
 		});
 	}
@@ -96,13 +93,18 @@
 			
 			<!-- 검색창 -->
 			<div class="searchbox">
-				<select id="searchKey" name="searchKey" style="width:150px; margin-right:5px;" >
+				<select class="form-select" id="searchKey" name="searchKey" style="width:150px; margin-right:5px;" >
 			        <option value="" >검색조건</option>
 					<option value="re_title" >제목</option>
 					<option value="re_content" >내용</option>
-				</select> 
-				<input type="text" style="width:300px; margin-right:5px;" id="sname" name="sname" placeholder="검색어를 입력해주세요.">
-				<a href="" id="btnSearch" name="btn" class="btn btn-success rounded-pill py-2 px-3 ms-2">검 색</a>
+				</select>
+				<div class="form-floating" style="width:20rem;">
+					<input id="sname" name="sname" class="form-control" placeholder="검색어" type="text" >
+					<label for="sname">검색어를 입력해주세요.</label>
+				</div>
+				<div class="d-flex align-items-center">				
+					<a href="" id="btnSearch" name="btn" class="btn btn-success rounded-pill py-2 px-3 ms-2">검 색</a>
+				</div>
 			</div>
 			
 			<table class="table table-hover mt-2 mb-4 text-center">
