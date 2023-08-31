@@ -13,26 +13,62 @@
 <jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/header.jsp"></jsp:include>
  
 <script type="text/javascript">
+
+
+	/** OnLoad event **/ 
+	$(function() {
+		fn_btnEvent();  // 버튼 이벤트 등록
+		fn_update();  // 글수정
+		fn_delete();  // 글삭제
+	});
 	
-	/** 수정 버튼 클릭 시, form 제출 **/ 
-	$(document).on('click', '#btn_update', function(e) {
-        if (confirm("정말 수정하시겠습니까 ?") == true) {
-            $("#update_form").submit();
-        } else {
-            return;
-        }
-    });
 	
-	/** 삭제 버튼 클릭 시, reviewdelete.do **/
-	$(document).on('click', '#btn_delete', function(e) {
-        var review_no = ${vo.review_no};
-        if (confirm("정말 삭제하시겠습니까 ?") == true) {
-            $("#update_form").attr("action", "reviewdelete.do?review_no="+review_no);
-            $("#update_form").submit();
-        } else {
-            return;
-        }
-    });
+	/** 버튼 이벤트 등록 */
+	function fn_btnEvent() {
+		$('a[name=btn]').click(function(e) {
+			e.preventDefault();
+	
+			var btnId = $(this).attr('id');
+	
+			switch (btnId) {
+				case 'btnUpdate' :
+					fn_update();
+					break;
+				case 'btnDelete' :
+					fn_delete();
+					break;
+				case 'btnTop' :
+					fn_scrollToTop();
+					break;
+			}
+		});
+	}
+	
+	
+	/** 글수정 **/ 
+	function fn_update() {		
+		$(document).on('click', '#btnUpdate', function(e) {
+	        if (confirm("정말 수정하시겠습니까 ?") == true) {
+	            $("#update_form").submit();
+	        } else {
+	            return;
+	        }
+	    });
+	}
+	
+	
+	/** 글삭제 **/
+	function fn_delete() {		
+		$(document).on('click', '#btnDelete', function(e) {
+	        var review_no = ${vo.review_no};
+	        if (confirm("정말 삭제하시겠습니까 ?") == true) {
+	            $("#update_form").attr("action", "reviewdelete.do?review_no="+review_no);
+	            $("#update_form").submit();
+	        } else {
+	            return;
+	        }
+	    });
+	}
 	
 	
 </script>
@@ -90,8 +126,8 @@
 					<a href="/review/reviewIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>
 				</div>
 				<div>
-					<button id="btn_update" type="button" class="btn btn-outline-success rounded-pill">수정</button>
-					<button id="btn_delete" type="button" class="btn btn-outline-danger rounded-pill">삭제</button>
+					<button id="btnUpdate" type="button" class="btn btn-outline-success rounded-pill">수정</button>
+					<button id="btnDelete" type="button" class="btn btn-outline-danger rounded-pill">삭제</button>
 				</div>
 			</div>
 			

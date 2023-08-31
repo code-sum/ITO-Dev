@@ -14,10 +14,13 @@
 
 <script type="text/javascript">
 	
+	
 	/** OnLoad event **/ 
 	$(function() {
+		fn_btnEvent();  // 버튼 이벤트 등록
 		fn_phartable();  // 광역시도별 약국 개수 출력
 	});
+	
 	
 	/** 광역시도별 약국 개수 출력  **/
 	function fn_phartable() {
@@ -25,21 +28,40 @@
 	   var param = {};
 	   
 	   var listcallback = function(data) {
+		   $(".table tbody").empty();
 
-	       $(".table tbody").empty();
-	
-	       // 테이블에 데이터 추가
-	       $.each(data.pharmacybyregion, function(index, item) {
-	           var row = $("<tr></tr>");
-	           var nameCell = $("<td></td>").text(item.sido_name);
-	           var countCell = $("<td></td>").text(item.count);
-	
-	           row.append(nameCell);
-	           row.append(countCell);
-	           $(".table tbody").append(row);
-	       });
-	   }
+		   // 데이터 구조 확인 후 수정
+		   if (data && data.pharmacybyregion) {
+		       $.each(data.pharmacybyregion, function(index, item) {
+		           var row = $("<tr></tr>");
+		           var nameCell = $("<td></td>").text(item.sido_name);
+		           var countCell = $("<td></td>").text(item.count);
+
+		           row.append(nameCell);
+		           row.append(countCell);
+		           $(".table tbody").append(row);
+		       });
+		   } else {
+	       		console.log("Invalid or missing data format.");
+		   }
+		}
 	   callAjax("/region/regionIndex.do", "post", "json", true, param, listcallback);
+	}
+	
+	
+	/** 버튼 이벤트 등록 */
+	function fn_btnEvent() {
+		$('a[name=btn]').click(function(e) {
+			e.preventDefault();
+
+			var btnId = $(this).attr('id');
+
+			switch (btnId) {
+				case 'btnTop' :
+					fn_scrollToTop();
+					break;
+			}
+		});
 	}
 	
 	
@@ -93,7 +115,7 @@
 		
 		<!-- 위로가기 버튼 -->
 		<div class="d-flex justify-content-end">
-			<a href="#" class="scrollToTop">
+			<a href="#" id="btnTop">
 			  <h1>
 			    <i class="bi bi-arrow-up-circle-fill"></i>
 			  </h1>

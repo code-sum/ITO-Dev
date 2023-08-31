@@ -1,6 +1,11 @@
-// cmmn.js 연결 테스트 : TOP 버튼 구현
-  let scrollToTop = document.querySelector(".scrollToTop");
-  scrollToTop.onclick = () => window.scrollTo({top: 0, behavior: "smooth"});
+/**
+ * TOP버튼 공통코드
+ */
+  function fn_scrollToTop() {
+	  $(document).on('click', '#btnTop', function(e) {
+		  window.scrollTo({top: 0, behavior: "smooth"});
+	    });
+  }
   
   
   

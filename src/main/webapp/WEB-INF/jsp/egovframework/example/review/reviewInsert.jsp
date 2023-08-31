@@ -13,11 +13,41 @@
 <jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/header.jsp"></jsp:include>
  
 <script type="text/javascript">
+
+
+	/** OnLoad event **/ 
+	$(function() {
+		fn_btnEvent();  // 버튼 이벤트 등록
+		fn_insert();  // 글생성
+	});
 	
-	/** 등록 버튼 클릭 시, form 제출 **/ 
-    $(document).on('click', '#btn_register', function(e) {
-        $("#review_form").submit();
-    });
+	
+	/** 버튼 이벤트 등록 */
+	function fn_btnEvent() {
+		$('a[name=btn]').click(function(e) {
+			e.preventDefault();
+
+			var btnId = $(this).attr('id');
+
+			switch (btnId) {
+				case 'btnRegister' :
+					fn_insert();
+					break;
+				case 'btnTop' :
+					fn_scrollToTop();
+					break;
+			}
+		});
+	}
+	
+	
+	/** 글생성 **/ 
+	function fn_insert() {		
+	    $(document).on('click', '#btnRegister', function(e) {
+	        $("#review_form").submit();
+	    });
+	}
+	
 	
 </script>
 
@@ -63,7 +93,7 @@
 					<a href="/review/reviewIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>
 				</div>
 				<div>
-					<button id="btn_register" type="button" class="btn btn-outline-success rounded-pill">등록</button>
+					<button id="btnRegister" type="button" class="btn btn-outline-success rounded-pill">등록</button>
 				</div>
 			</div>
 			

@@ -13,13 +13,15 @@
 
 <script type="text/javascript">
 
+
 	/** 페이지네이션 **/
 	var pageSize = 10;  // 1페이지에 10건씩 조회
 	var pageBlockSize = 5;  
 	
+	
 	/** OnLoad event **/ 
 	$(function() {
-		fRegisterButtonClickEvent();  // 버튼 이벤트 등록
+		fn_btnEvent();  // 버튼 이벤트 등록
 		fn_pharlist();  // 약국 목록
 		
 		// 지역구분_광역시도
@@ -35,8 +37,9 @@
 		});
 	});
 	
+	
 	/** 버튼 이벤트 등록 */
-	function fRegisterButtonClickEvent() {
+	function fn_btnEvent() {
 		$('a[name=btn]').click(function(e) {
 			e.preventDefault();
 
@@ -46,9 +49,13 @@
 				case 'btnSearch' :
 					fn_pharlist();
 					break;
+				case 'btnTop' :
+					fn_scrollToTop();
+					break;
 			}
 		});
 	}
+	
 	
 	/** 약국 목록  **/
 	function fn_pharlist(pagenum) {
@@ -142,7 +149,7 @@
 		
 		<!-- 위로가기 버튼 -->
 		<div class="d-flex justify-content-end">
-			<a href="#" class="scrollToTop">
+			<a href="#" id="btnTop">
 			  <h1>
 			    <i class="bi bi-arrow-up-circle-fill"></i>
 			  </h1>
