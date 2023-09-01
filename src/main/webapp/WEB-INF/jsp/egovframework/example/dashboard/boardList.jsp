@@ -14,6 +14,75 @@
 <script type="text/javascript">
 
 
+	/**
+	 * 약국 대분류/중분류/소분류 콤보박스
+	 * (메인화면 검색기능)
+	 */
+	function pharCombo(comtype, combo_name, type, lcode, mcode, selvalue) {
+	//                (combo type(l:대분류   m:중분류   s:소분류), combo_name, type(기본값  all: 전체   sel: 선택), 대분류코드, 중분류코드, 소분류코드, "")
+		
+		var selectbox = document.getElementById(combo_name);
+
+		var data = {
+					  "comtype" : comtype
+					, "lcode" : lcode
+					, "mcode" : mcode
+			};	
+		
+		$(selectbox).find("option").remove();
+	  		
+		$.ajax({ 
+			 url : "/system/pharCombo.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 - 정상
+			 data : data,
+			 type : "POST", // HTTP 요청 방식(GET, POST)
+		     dataType : "text",  // 서버 측에서 클라이언트로 리턴하는 데이터 타입, html 이나 text 로 고치면 success 로 넘어감
+		     success: function(data)
+		     { 				
+		    	 console.log(data);
+		    	 
+		    	 /******************************
+		    	 console.log(JSON.stringify(data));
+			     var json_obj = $.parseJSON(JSON.stringify(data));//parse JSON 
+			     var jsonstr = json_obj.list;
+			     console.log("jsonstr : " + jsonstr);
+			     
+			     var jsonstr_obj = $.parseJSON(JSON.stringify(jsonstr));//parse JSON 
+			     var listLen = jsonstr_obj.length;
+
+		    	 if(type == "all") {
+		    	    $(selectbox).append("<option value=''>전체</option>");
+		    	 }		     
+			     
+		    	 if(type == "sel") {
+			    	$(selectbox).append("<option value=''>선택</option>");
+			     }
+		    	 console.log(" selvalue : " + selvalue);
+		    	 
+		         for (var i=0; i<listLen; i++)
+		         { 		
+		        	 var eleString = JSON.stringify(jsonstr_obj[i]);
+		        	 var item_obj = $.parseJSON(eleString);//parse JSON
+	            
+		        	 if (selvalue != null && selvalue != null && selvalue != "") {
+		        		 if (selvalue == item_obj.dtl_cod) {
+		        			 console.log(" item_obj.cd : " + item_obj.cd);
+		        			 
+		        			 $(selectbox).append("<option value='"+ item_obj.cd + "' selected>" + item_obj.name + "</option>");
+		        		 } else {
+		        			 $(selectbox).append("<option value='"+ item_obj.cd + "'>" + item_obj.name + "</option>");
+		        		 }
+		        	 } else {
+		        		 $(selectbox).append("<option value='"+ item_obj.cd + "'>" + item_obj.name + "</option>");
+		        	 }
+		         } 
+		         $(selectbox).val(selvalue);
+		         ******************************/
+		     },
+		     error: function(request,status,error) { alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
+		});  
+	};
+	
+	
 	/** 페이지네이션 **/
 	var pageSize = 10;  // 1페이지에 10건씩 조회
 	var pageBlockSize = 5;  
@@ -89,6 +158,8 @@
 	}
 	
 	
+	
+	
 </script>
 
 </head>
@@ -151,7 +222,7 @@
 		<div class="d-flex justify-content-end">
 			<a href="#" id="btnTop">
 			  <h1>
-			    <i class="bi bi-arrow-up-circle-fill"></i>
+			    <i class="bi bi-arrow-up-circle-fill text-success"></i>
 			  </h1>
 			</a>
 		</div>

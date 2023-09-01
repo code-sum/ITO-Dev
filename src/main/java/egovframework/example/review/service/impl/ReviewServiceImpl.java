@@ -8,7 +8,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.review.service.ReviewService;
 import egovframework.example.review.service.ReviewVO;
 

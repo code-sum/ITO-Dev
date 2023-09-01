@@ -103,7 +103,7 @@
 		<div class="d-flex justify-content-end">
 			<a href="#" class="scrollToTop">
 			  <h1>
-			    <i class="bi bi-arrow-up-circle-fill"></i>
+			    <i class="bi bi-arrow-up-circle-fill text-success"></i>
 			  </h1>
 			</a>
 		</div>

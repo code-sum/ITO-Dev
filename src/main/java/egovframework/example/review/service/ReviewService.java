@@ -3,7 +3,6 @@ package egovframework.example.review.service;
 import java.util.List;
 import java.util.Map;
 
-import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.review.service.ReviewVO;
 
 public interface ReviewService {

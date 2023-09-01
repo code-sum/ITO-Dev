@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import egovframework.example.region.service.RegionService;
 import egovframework.example.region.service.RegionVO;
-import egovframework.example.review.service.ReviewVO;
 
 
 @Controller

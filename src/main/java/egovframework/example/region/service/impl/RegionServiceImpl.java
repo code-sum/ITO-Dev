@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import egovframework.example.region.service.RegionService;
 import egovframework.example.region.service.RegionVO;
-import egovframework.example.review.service.ReviewVO;
-import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
 
 @Service

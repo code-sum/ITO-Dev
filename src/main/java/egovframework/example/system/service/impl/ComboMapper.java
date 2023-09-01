@@ -3,7 +3,6 @@ package egovframework.example.system.service.impl;
 import java.util.List;
 import java.util.Map;
 
-import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.system.service.ComboVO;
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
