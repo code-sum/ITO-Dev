@@ -86,7 +86,7 @@
 			
 			$("#pageno").val(pagenum);
 		}
-		callAjax("/dashboard/boardlist.do", "post", "text", false, param, listcallback);
+		callAjax("../dashboard/boardlist.do", "post", "text", false, param, listcallback);
 	}
 	
 	
