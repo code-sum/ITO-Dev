@@ -1,6 +1,7 @@
 package egovframework.example.system.web;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
@@ -10,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.system.service.ComboService;
 import egovframework.example.system.service.ComboVO;
+
 
 
 @Controller
@@ -37,9 +38,7 @@ public class ComnComboController {
     private final String className = this.getClass().toString();
 	
 	
-    /**
-	 *  약국 대분류/중분류/소분류 콤보박스 
-	 */
+	// 약국 대분류/중분류/소분류 콤보박스 
 	@RequestMapping("pharCombo.do")
 	@ResponseBody
 	public Map<String, Object> pharCombo (Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
@@ -73,6 +72,4 @@ public class ComnComboController {
 		
 		return resultMap;
 	}	
-
-	
 }
