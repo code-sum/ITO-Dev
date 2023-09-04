@@ -25,37 +25,24 @@
 	$(function() {
 		fn_btnEvent();  // 버튼 이벤트 등록
 		fn_phartable();  // 광역시도별 약국 개수 출력(표)
+		fn_commas();  // 콤마찍기(,)
 	});
 	
 	
-	/** 광역시도별 약국 개수 출력(표)  **/
-	/** 차트 구현한 다음에 하단 코드 수정하기 **/
+	/** 시각화(표)  **/
 	function fn_phartable() {		
 		
 	   var listcallback = function(returnvalue) {
-		   $(".table tbody").empty();
 		   console.log(returnvalue);
-
-		   // 데이터 구조 확인 후 수정
-		   if (returnvalue && returnvalue.pharmacybyregion) {
-		       $.each(returnvalue.pharmacybyregion, function(index, item) {
-		           var row = $("<tr></tr>");
-		           var nameCell = $("<td></td>").text(item.sido_name);
-		           var countCell = $("<td></td>").text(item.count);
-
-		           row.append(nameCell);
-		           row.append(countCell);
-		           $(".table tbody").append(row);
-		       });
-		   } else {
-	       		console.log("Invalid or missing data format.");
-		   }
-		}
-	   callAjax("../region/regionIndex.do", "post", "text", true, "", listcallback);
+		   
+		   $("#listregion").empty().append(returnvalue);
+		   
+	   }
+	   callAjax("../region/regionList.do", "post", "text", false, "", listcallback);
 	}
 	
 	
-	/** 버튼 이벤트 등록 */
+	/** 버튼 이벤트 등록 **/
 	function fn_btnEvent() {
 		$('a[name=btn]').click(function(e) {
 			e.preventDefault();
@@ -71,7 +58,7 @@
 	}
 	
 	
-	/******* 차트 *******/
+	/** 시각화(차트) **/
 	am5.ready(function() {
 
 	// Create root element
@@ -88,121 +75,87 @@
 	  {
 	    name: "세종",
 	    counts: 45688,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/sejong.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/sejong.png'/>"}
 	  },
 	  {
 	    name: "제주",
 	    counts: 35781,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/jeju.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/jeju.png'/>"}
 	  },
 	  {
 	    name: "경남",
 	    counts: 25464,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/gyeongnam.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/gyeongnam.png'/>"}
 	  },
 	  {
 	    name: "경북",
 	    counts: 18788,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/gyeongbuk.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/gyeongbuk.png'/>"}
 	  },
 	  {
 	    name: "전남",
 	    counts: 15465,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/jeonnam.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/jeonnam.png'/>"}
 	  },
 	  {
 	    name: "전북",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/jeonbuk.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/jeonbuk.png'/>"}
 	  },
 	  {
 	    name: "충남",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/chungnam.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/chungnam.png'/>"}
 	  },
 	  {
 	    name: "충북",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/chungbuk.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/chungbuk.png'/>"}
 	  },
 	  {
 	    name: "강원",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/gangwon.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/gangwon.png'/>"}
 	  },
 	  {
 	    name: "경기",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/gyeonggi.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/gyeonggi.png'/>"}
 	  },
 	  {
 	    name: "울산",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/ulsan.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/ulsan.png'/>"}
 	  },
 	  {
 	    name: "대전",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/daejeon.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/daejeon.png'/>"}
 	  },
 	  {
 	    name: "광주",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/gwangju.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/gwangju.png'/>"}
 	  },
 	  {
 	    name: "대구",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/daegu.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/daegu.png'/>"}
 	  },
 	  {
 	    name: "인천",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/incheon.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/incheon.png'/>"}
 	  },
 	  {
 	    name: "부산",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/busan.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/busan.png'/>"}
 	  },
 	  {
 	    name: "서울",
 	    counts: 11561,
-	    pictureSettings: {
-	      src: "<c:url value='/resources/images/seoul.png'/>"
-	    }
+	    pictureSettings: {src: "<c:url value='/resources/images/seoul.png'/>"}
 	  },
 	  
 	];
@@ -426,7 +379,7 @@
 							<th>(단위: 개소)</th>
 						</tr>
 					</thead>
-					<tbody>
+					<tbody id="listregion">
 					</tbody>
 				</table>
 				

@@ -24,10 +24,10 @@ public class RegionServiceImpl implements RegionService {
 	@Autowired
 	private RegionMapper regionMapper;
 	
-	/** 광역시도별 약국 개수 */
+	/** 시도별 약국 현황 목록 조회 */
 	@Override
-	public List<RegionVO> pharmacybyregion(Map<String, Object> paramMap) throws Exception {
-		return regionMapper.pharmacybyregion(paramMap);
+	public List<RegionVO> pharmcntbyregion(RegionVO regionVO) throws Exception {
+		return regionMapper.pharmcntbyregion(regionVO);
 	}
 	
 	/** 전체 약국 개수 */

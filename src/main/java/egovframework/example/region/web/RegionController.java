@@ -35,7 +35,7 @@ public class RegionController {
 	
 	
     /**
-	 * 지역별 약국 현황 초기화면 
+	 * 시도별 약국 현황 초기화면 
 	 */
 	@RequestMapping("regionIndex.do")
 	public String regionIndex(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
@@ -43,20 +43,22 @@ public class RegionController {
 	      
 	      logger.info("+ Start " + className + ".regionIndex");
 	      logger.info("   - paramMap : " + paramMap);
-	      
-	      List<RegionVO> pharmacybyregion = regionService.pharmacybyregion(paramMap);
-	      /*
-	      int totalcnt = regionService.counttotal(paramMap);
-	      */
-	        
-	      model.addAttribute("pharmacybyregion", pharmacybyregion);
-	      /*
-	      model.addAttribute("totalcnt", totalcnt);
-	      */
-	      
+	      	        	      
 	      logger.info("+ End " + className + ".regionIndex");
 
 	      return "region/regionList";
 	   }
+	
+	
+	/**
+	 * 시도별 약국 현황 목록 조회
+	 */
+	@RequestMapping("regionList.do")
+	public String pharmcntbyregion(RegionVO regionVO, Model model) throws Exception{
+        
+        model.addAttribute("list", regionService.pharmcntbyregion(regionVO));
+        
+        return "region/regionListGrd";
+    }
 	
 }

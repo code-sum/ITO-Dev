@@ -15,6 +15,7 @@ public class RegionVO {
 	private String pharm_open;  // 약국 개설일자
 	private String pharm_x;  // 약국 좌표(x)
 	private String pharm_y;  // 약국 좌표(y)
+	private int counts;  // 지역별 약국 갯수 카운팅
 	
 	
 	public int getPharm_no() {
@@ -88,6 +89,12 @@ public class RegionVO {
 	}
 	public void setPharm_y(String pharm_y) {
 		this.pharm_y = pharm_y;
+	}
+	public int getCounts() {
+		return counts;
+	}
+	public void setCounts(int counts) {
+		this.counts = counts;
 	}
 	
 	

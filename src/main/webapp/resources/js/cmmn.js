@@ -1,12 +1,24 @@
-/**
- * TOP버튼 공통코드
- */
+  /**
+   * TOP버튼 공통코드
+   */
   function fn_scrollToTop() {
 	  $(document).on('click', '#btnTop', function(e) {
 		  window.scrollTo({top: 0, behavior: "smooth"});
 	    });
   }
+
   
+  /**
+   * 숫자 1000 단위마다 쉼표(,) 공통코드
+   */
+  function fn_commas() {
+	   var nums = document.querySelectorAll(".numcom");
+	   nums.forEach(function (num) {
+	       var number = parseFloat(num.textContent); // 숫자로 변환
+	       var formattedNumber = number.toLocaleString();
+	       num.textContent = formattedNumber; // 변경된 숫자를 다시 설정
+	   });
+	}
   
   
   /**
