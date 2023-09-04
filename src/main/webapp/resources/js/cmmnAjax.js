@@ -72,7 +72,8 @@ function pharCombo(comtype, combo_name, type, lcode, mcode, selvalue){
 		 url : "/dashboard/pharCombo.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 - 정상
 		 data : data,
 		 type : "POST", // HTTP 요청 방식(GET, POST)
-	     dataType : "json",  // 서버 측에서 클라이언트로 리턴하는 데이터 타입, html 이나 text 로 고치면 success 로 넘어가긴 하는데 뭐가 문제지?
+	     dataType : "json",  // 서버 측에서 클라이언트로 리턴하는 데이터 타입
+	     contentType : "application/json; charset=UTF-8",  // ajax 데이터 전송 시, 데이터가 json 인 경우 content-type 도 json 으로 지정되어야 함
 	     success: function(data)
 	     { 				
 	    	 console.log(data);
@@ -83,14 +84,17 @@ function pharCombo(comtype, combo_name, type, lcode, mcode, selvalue){
 		     var jsonstr_obj = $.parseJSON(JSON.stringify(jsonstr));//parse JSON 
 		     var listLen = jsonstr_obj.length;
 
-	    	 if(type == "all") {
-	    	    $(selectbox).append("<option value=''>전체</option>");
+	    	 if(type == "sido") {
+	    	    $(selectbox).append("<option value=''>시도</option>");
 	    	 }		     
-		     
-	    	 if(type == "sel") {
-		    	$(selectbox).append("<option value=''>선택</option>");
+	    	 if(type == "sigungu") {
+		    	$(selectbox).append("<option value=''>시군구</option>");
 		     }
-	    	 console.log(" selvalue : " + selvalue);
+	    	 if(type == "pharm") {
+			    	$(selectbox).append("<option value=''>약국명</option>");
+			     }
+	    	 
+	    	 console.log("selvalue : " + selvalue);
 	         for(var i=0; i<listLen; i++)
 	         { 		
 	        	 var eleString = JSON.stringify(jsonstr_obj[i]);

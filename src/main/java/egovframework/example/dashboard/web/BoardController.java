@@ -57,14 +57,14 @@ public class BoardController {
 	/** 
 	 * 약국 대분류/중분류/소분류 콤보박스 
 	 */
-	@RequestMapping("pharCombo.do")
+	@RequestMapping(value="pharCombo.do", produces="application/json;charset=UTF-8")
 	@ResponseBody
 	public Map<String, Object> pharCombo (Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) throws Exception {
 		
 		logger.info("+ Start " + className + ".pharCombo");
 		logger.info("   - paramMap : " + paramMap);
-
+		
 		String ComType = (String) paramMap.get("comtype");
 			
 		List<ComboVO> comComboModel = new ArrayList<>();
@@ -85,6 +85,8 @@ public class BoardController {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 
 		resultMap.put("list", comComboModel);
+		
+		// System.out.println("JSON 테스트 : " + comComboModel);
 		
 		logger.info("+ End " + className + ".pharCombo");
 		

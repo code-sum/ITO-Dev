@@ -25,15 +25,15 @@
 		
 		
 		// 지역구분_광역시도
-		pharCombo("l","ltypecombo","all","","","","");  // combo type(l:대분류   m:중분류   s:소분류) combo_name, type(기본값  all: 전체   sel: 선택), 대분류 코드, 중분류코드, 소분류 코드, ""
+		pharCombo("l","ltypecombo","sido","","","","");  // combo type(l:대분류   m:중분류   s:소분류) combo_name, type, 대분류 코드, 중분류코드, 소분류 코드, ""
 		// 지역구분_시군구
 		$('#ltypecombo').change(function() {
-			pharCombo("m","mtypecombo","all",$("#ltypecombo").val(),"","","");   // combo type(combo box 종류), combo_name, type(기본값  all: 전체   sel: 선택), 선택된 상위 계정코드, "" 
+			pharCombo("m","mtypecombo","sigungu",$("#ltypecombo").val(),"","","");   // combo type(combo box 종류), combo_name, type, 선택된 상위 계정코드, "" 
 			$("#stypecombo option").remove();
 		});
 		// 약국이름_목록
 		$('#mtypecombo').change(function() {   
-			pharCombo("s","stypecombo","all",$("#ltypecombo").val(),$("#mtypecombo").val(),"");   // combo type(combo box 종류), combo_name, type(기본값  all: 전체   sel: 선택), 선택된 상위 계정코드, "" 
+			pharCombo("s","stypecombo","pharm",$("#ltypecombo").val(),$("#mtypecombo").val(),"");   // combo type(combo box 종류), combo_name, type, 선택된 상위 계정코드, "" 
 		});
 		
 	});
@@ -114,9 +114,9 @@
 						<label for="pname">이름을 입력해주세요.</label>
 					</div>
 					<div class="d-flex py-1">					
-						<select id="ltypecombo" name="ltypecombo"></select>
-						<select id="mtypecombo" name="mtypecombo"></select>
-						<select id="stypecombo" name="stypecombo"></select>
+						<select id="ltypecombo" name="ltypecombo" class="form-select me-1"></select>
+						<select id="mtypecombo" name="mtypecombo" class="form-select me-1"></select>
+						<select id="stypecombo" name="stypecombo" class="form-select"></select>
 					</div>
 				</div>
 			</div>

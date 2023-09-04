@@ -15,7 +15,7 @@
 - Programming Language : Java 8, XML
 - Script Language (Server) : JSP
 - Script Language (Client) : JavaScript
-- Framework : Spring, MyBatis
+- Framework : Spring (4.3.16), MyBatis
 - Library :  jQuery, Bootstrap (5.3.1)
 - SCM : Git
 - Web : HTML 5, CSS 3

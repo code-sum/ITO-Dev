@@ -53,7 +53,7 @@
 			</snapshots>
 		</repository>
 		
-		<!-- 2023-08-14 추가 -->
+		<!-- Repository 설정 (2023-08-14) -->
 		<repository>
        		<id>codelds</id>
       		<url>https://code.lds.org/nexus/content/groups/main-repo</url> 
@@ -62,6 +62,7 @@
 	</repositories>
 
 	<dependencies>
+	
 		<!-- 표준프레임워크 실행환경 -->
         <dependency>
 		    <groupId>egovframework.rte</groupId>
@@ -155,7 +156,7 @@
         </dependency>
         -->
         
-        <!-- 2023-08-14 추가 -->
+        <!-- PostgreSQL 설정 (2023-08-14) -->
         <dependency>
 		    <groupId>org.apache.commons</groupId>
 		    <artifactId>commons-dbcp2</artifactId>
@@ -167,13 +168,52 @@
 		    <artifactId>postgresql</artifactId>
 		    <version>42.2.18</version>
 		</dependency>
+		
+		<!-- JSON 설정 (2023-09-04) -->
+		<dependency>       
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>       
+			<version>2.4</version>
+			<classifier>jdk15</classifier>       
+		</dependency>
+		
+		<dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
+			 
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.5.1</version>
+		</dependency>
+		
         
 	</dependencies>
 
 	<build>
         <defaultGoal>install</defaultGoal>
         <directory>${basedir}/target</directory>
-        <finalName>${artifactId}-${version}</finalName>
+        <finalName>${project.artifactId}-${project.version}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>

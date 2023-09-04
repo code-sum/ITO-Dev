@@ -5,7 +5,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/egovframework/sample.css'/>" />
 <title>Basic Sample</title>
 </head>
 
