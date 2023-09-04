@@ -25,7 +25,7 @@ function callAjax(url, method, dataType, async, param, callback) {
 		data : param,
 		beforeSend: function(xhr) {
 			xhr.setRequestHeader("AJAX", "true");
-			$.blockUI({ message: '<h1>Just a moment...</h1>', T:99999 });
+			$.blockUI({ message: '<h3>Just a moment...</h3>', T:99999 });
 		},
 		success : function(data) {
 			callback(data);
