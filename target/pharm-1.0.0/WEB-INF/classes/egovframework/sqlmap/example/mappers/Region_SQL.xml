@@ -3,14 +3,14 @@
 <mapper namespace="egovframework.example.region.service.impl.RegionMapper">
 
 	<!-- 광역시도별 약국 개수 -->
-	<select id="pharmacybyregion" resultType="egovframework.example.region.service.RegionVO">
+	<select id="pharmcntbyregion" resultType="egovframework.example.region.service.RegionVO">
 		SELECT 
 				sido_name
 			  , sido_code
-			  , TO_CHAR(COUNT(*), 'FM999,999,999') AS count
+			  , COUNT(*) AS counts
 		  FROM tb_pharm
 		GROUP BY sido_code, sido_name 
-		ORDER BY sido_code
+		ORDER BY sido_code;
 	</select>
 	
 	<!-- 전체 약국 개수 -->

@@ -207,6 +207,13 @@
 			<version>2.5.1</version>
 		</dependency>
 		
+		<!-- JSOUP 설정 (2023-09-04) -->
+		<dependency>
+		    <groupId>org.jsoup</groupId>
+		    <artifactId>jsoup</artifactId>
+		    <version>1.16.1</version>
+		</dependency>
+		
         
 	</dependencies>
 
