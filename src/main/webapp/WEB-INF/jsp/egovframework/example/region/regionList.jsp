@@ -391,7 +391,7 @@
 			</div>
 			
 			<!-- 2.차트 -->
-			<div id="chartdiv" style="float:right; width:100%; height:1000px;">
+			<div id="chartdiv" style="float:right; width:100%; height:800px;">
 			</div>
 			
 		</div>

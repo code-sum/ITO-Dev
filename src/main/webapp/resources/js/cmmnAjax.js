@@ -100,7 +100,6 @@ function pharCombo(comtype, comname, type, lcode, mcode, selvalue) {
             
 	        	 if(selvalue != null && selvalue != null && selvalue != "") {
 	        		 
-	        		// private String dtl_cod; ... VO모델 가서 dtl_cod 가 뭐였는지 확인하고 수정할 것
 	        		 if(selvalue == item_obj.dtl_cod) {
 	        			 console.log(" item_obj.cd : " + item_obj.cd);
 	        			 

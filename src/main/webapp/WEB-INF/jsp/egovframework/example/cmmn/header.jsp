@@ -32,3 +32,12 @@
 		<p style="font-size:1rem;"><span class="fw-bold me-2" style="color:#32A852;">NEW</span>'판매중단' 1·2위 어린이 해열제, 약국 복귀</p>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+
