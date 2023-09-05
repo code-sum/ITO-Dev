@@ -10,6 +10,19 @@
 
   
   /**
+   * 약국 개업일 문자열 -> 날짜 (YYYY-MM-DD) 변환
+   */
+  function fn_yyyymmdd() {
+	  var dateString = document.querySelectorAll(".dateformat");
+	  dateString.forEach(function (date) {
+		  var parsedDate = parseInt(date.textContent);
+		  var formattedDate = parsedDate.replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3');
+		  date.textContent = formattedDate;
+	  });
+  }
+
+  
+  /**
    * 숫자 1000 단위마다 쉼표(,) 공통코드
    */
   function fn_commas() {
@@ -38,8 +51,6 @@
   	pageRow = parseInt(pageRow);
   	blockPage = parseInt(blockPage);
   	
-  			
-  	
   	var totalPage = Math.ceil(totalCount / pageRow);
   	if (totalPage == 0) {
   		totalPage = 1;
@@ -53,9 +64,7 @@
   	// 현재 페이지의 처음과 마지막 글의 번호 가져오기.
   	var startCount = (currentPage - 1) * pageRow;
   	var endCount = startCount + pageRow;
-
-  	
-  	
+	
   	// 시작 페이지와 마지막 페이지 값 구하기.
   	startPage = Math.floor((currentPage - 1) / blockPage) * blockPage + 1;
   	endPage = startPage + blockPage - 1;

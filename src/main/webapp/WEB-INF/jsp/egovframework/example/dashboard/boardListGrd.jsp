@@ -17,7 +17,7 @@
 				<td>${list.sido_name }</td>
 				<td>${list.sigungu_name }</td>
 				<td><a href="/dashboard/boardselectone.do?pharm_no=${list.pharm_no}">${list.pharm_name }</a></td>
-				<td>${list.pharm_open }</td>
+				<td class="dateformat">${list.pharm_open }</td>
 			</tr>
 		</c:forEach>
 	</c:if>

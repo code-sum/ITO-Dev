@@ -22,6 +22,7 @@
 	$(function() {
 		fn_btnEvent();  // 버튼 이벤트 등록
 		fn_pharlist();  // 약국 목록
+		fn_yyyymmdd();
 		
 		// 콤보박스 검색 (구분코드:sido_code)
 		pharCombo("l","ltypecombo","sido","","","","");  // comtype(l:대   m:중   s:소), comname, type, 대분류코드, 중분류코드, 소분류 코드, ""

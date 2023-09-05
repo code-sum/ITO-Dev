@@ -21,6 +21,7 @@
 	/** OnLoad event **/ 
 	$(function() {
 		fn_btnEvent();  // 버튼 이벤트 등록
+		// fn_yyyymmdd();  // 날짜 출력 양식 (YYYY-MM-DD)
 		
 		/* 카카오맵 JS코드 시작 */
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -98,7 +99,7 @@
 	                 </tr>
 	                 <tr>
 	                     <th>개업일</th>
-	                     <td>${vo.pharm_open}</td>
+	                     <td class="dateformat">${vo.pharm_open}</td>
 	                 </tr>
 	             </tbody>
 			</table>
