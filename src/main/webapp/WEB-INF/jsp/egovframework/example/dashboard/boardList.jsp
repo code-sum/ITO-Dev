@@ -109,13 +109,13 @@
 			<!-- 검색조건 입력 영역 -->
 			<div class="p-3">
 				<div class="d-flex flex-column">
-					<div class="form-floating" style="width:20rem; height:4rem;">
+					<div class="form-floating" style="width:30rem; height:4rem;">
 						<input id="pname" name="pname" class="form-control p-1 text-end" type="text" placeholder="약국 이름">
 						<label for="pname">이름을 입력해주세요.</label>
 					</div>
-					<div class="d-flex py-1">					
-						<select id="ltypecombo" name="ltypecombo" class="form-select me-1"></select>
-						<select id="mtypecombo" name="mtypecombo" class="form-select me-1"></select>
+					<div class="d-flex py-1" style="width:30rem;">					
+						<select id="ltypecombo" name="ltypecombo" class="form-select me-1" style="width:8rem;"></select>
+						<select id="mtypecombo" name="mtypecombo" class="form-select me-1" style="width:15rem;"></select>
 						<select id="stypecombo" name="stypecombo" class="form-select"></select>
 					</div>
 				</div>

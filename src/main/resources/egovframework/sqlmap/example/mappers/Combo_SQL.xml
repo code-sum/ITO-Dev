@@ -20,7 +20,7 @@
 		  	   INNER JOIN tb_ltype lt ON mt.sido_code = lt.sido_code
 		  	 <where>
 		  	 	<if test="(lcode != null) and (!lcode.equals(''))">       
-                       and mt.sido_code = #{lcode}
+                       and lt.sido_code = CAST(#{lcode} AS INTEGER)
                 </if>
 		  	 </where>
 		ORDER BY mt.sigungu_code
@@ -36,10 +36,10 @@
                INNER JOIN tb_mtype mt ON st.sigungu_code = mt.sigungu_code  
              <where>
 		        <if test="(lcode != null) and (!lcode.equals(''))">       
-                      and st.sido_code = #{lcode}
+                      and lt.sido_code = CAST(#{lcode} AS INTEGER)
                 </if>
 		        <if test="(mcode != null) and (!mcode.equals(''))">       
-                      and st.sigungu_code = #{mcode}
+                      and mt.sigungu_code = CAST(#{mcode} AS INTEGER)
                 </if>
              </where>			  
 		 ORDER BY st.pharm_no

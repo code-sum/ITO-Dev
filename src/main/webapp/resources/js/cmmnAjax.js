@@ -70,14 +70,9 @@ function pharCombo(comtype, comname, type, lcode, mcode, selvalue) {
   		
 	$.ajax({
 		 type: "POST",  
-	     url: "/system/pharCombo.do", 
-	     dataType: "json",  
+	     url: "/system/pharCombo.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 - 정상
+	     dataType: "json",  // 서버 측에서 클라이언트로 리턴하는 데이터 타입 - 정상
 	     data : data,
-		 // url : "/dashboard/pharCombo.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 - 정상
-		 // data : data,
-		 // type : "POST", // HTTP 요청 방식(GET, POST)
-	     // dataType : "json",  // 서버 측에서 클라이언트로 리턴하는 데이터 타입
-	     // contentType : "application/json; charset=UTF-8",  // ajax 데이터 전송 시, 데이터가 json 인 경우 content-type 도 json 으로 지정되어야 함
 	     success: function(data)
 	     { 				
 		     var json_obj = $.parseJSON(JSON.stringify(data)); //parse JSON 
@@ -88,7 +83,7 @@ function pharCombo(comtype, comname, type, lcode, mcode, selvalue) {
 		     var listLen = jsonstr_obj.length;
 
 	    	 if(type == "sido") {
-	    	    $(selectbox).append("<option value=''>시도</option>");
+	    	    $(selectbox).append("<option value=''>지역</option>");
 	    	 }		     
 	    	 if(type == "sigungu") {
 		    	$(selectbox).append("<option value=''>시군구</option>");

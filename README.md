@@ -16,10 +16,10 @@
 - Script Language (Server) : JSP
 - Script Language (Client) : JavaScript
 - Framework : Spring (4.3.16), MyBatis
-- Library :  jQuery, Bootstrap (5.3.1)
+- Library :  jQuery (1.11.2), Bootstrap (5.3.1)
 - SCM : Git
 - Web : HTML 5, CSS 3
 - Server : Apache Tomcat (8.5.91)
 - IDE : Eclipse (eGovFrameDev - 3.8.0)
-- DB : PostgreSQL (13.12), DBeaver (23.1.5)
+- DB : PostgreSQL (13.12), DBeaver (23.2.0)
 - Tools : Ajax, JSON, Figma
