@@ -23,17 +23,16 @@
 		fn_btnEvent();  // 버튼 이벤트 등록
 		fn_pharlist();  // 약국 목록
 		
-		
-		// 지역구분_광역시도
-		pharCombo("l","ltypecombo","sido","","","","");  // combo type(l:대분류   m:중분류   s:소분류) combo_name, type, 대분류 코드, 중분류코드, 소분류 코드, ""
-		// 지역구분_시군구
+		// 콤보박스 검색 (구분코드:sido_code)
+		pharCombo("l","ltypecombo","sido","","","","");  // comtype(l:대   m:중   s:소), comname, type, 대분류코드, 중분류코드, 소분류 코드, ""
+		// 콤보박스 검색 (구분코드:sigungu_code)
 		$('#ltypecombo').change(function() {
-			pharCombo("m","mtypecombo","sigungu",$("#ltypecombo").val(),"","","");   // combo type(combo box 종류), combo_name, type, 선택된 상위 계정코드, "" 
+			pharCombo("m","mtypecombo","sigungu",$("#ltypecombo").val(),"","","");   // comtype(l:대   m:중   s:소), comname, type, 선택된 상위 계정코드, "" 
 			$("#stypecombo option").remove();
 		});
-		// 약국이름_목록
+		// 콤보박스 검색 (구분코드:pharm_no)
 		$('#mtypecombo').change(function() {   
-			pharCombo("s","stypecombo","pharm",$("#ltypecombo").val(),$("#mtypecombo").val(),"");   // combo type(combo box 종류), combo_name, type, 선택된 상위 계정코드, "" 
+			pharCombo("s","stypecombo","pharm",$("#ltypecombo").val(),$("#mtypecombo").val(),"");   // comtype(l:대   m:중   s:소), comname, type, 선택된 상위 계정코드, "" 
 		});
 		
 	});
@@ -96,6 +95,7 @@
 
 </head>
 <body>
+<form id="myForm" action=""  method="">
 
 	<input type="hidden" id="pageno"  name="pageno"  />
 	<div class="container" id="wrapper">
@@ -164,6 +164,6 @@
 	<!-- 푸터 영역 -->
 	<jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/footer.jsp"></jsp:include>
 
-	
+</form>
 </body>
 </html>

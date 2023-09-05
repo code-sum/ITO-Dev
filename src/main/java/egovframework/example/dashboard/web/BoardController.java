@@ -1,7 +1,5 @@
 package egovframework.example.dashboard.web;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,11 +15,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.dashboard.service.BoardService;
 import egovframework.example.dashboard.service.BoardVO;
-import egovframework.example.dashboard.service.ComboVO;
 
 
 @Controller
@@ -47,51 +43,10 @@ public class BoardController {
 	      
 	      logger.info("+ Start " + className + ".mainIndex");
 	      logger.info("   - paramMap : " + paramMap);
-	      
 	      logger.info("+ End " + className + ".mainIndex");
 
 	      return "dashboard/boardList";
 	   }
-	
-	
-	/** 
-	 * 약국 대분류/중분류/소분류 콤보박스 
-	 */
-	@RequestMapping(value="pharCombo.do", produces="application/json;charset=UTF-8")
-	@ResponseBody
-	public Map<String, Object> pharCombo (Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
-			HttpServletResponse response, HttpSession session) throws Exception {
-		
-		logger.info("+ Start " + className + ".pharCombo");
-		logger.info("   - paramMap : " + paramMap);
-		
-		String ComType = (String) paramMap.get("comtype");
-			
-		List<ComboVO> comComboModel = new ArrayList<>();
-		
-		logger.info("   - ComType : " + ComType);
-		
-		if("l".equals(ComType)) {
-			// 지역구분_광역시도 (대분류)
-			comComboModel = boardService.selectlargelist(paramMap);
-		} else if("m".equals(ComType)) {
-			// 지역구분_시군구 (중분류)
-			comComboModel = boardService.selectmidlist(paramMap);
-		} else if("s".equals(ComType)) {
-			// 약국이름_목록 (소분류)
-			comComboModel = boardService.selectsmalllist(paramMap);
-		}
-		
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-
-		resultMap.put("list", comComboModel);
-		
-		// System.out.println("JSON 테스트 : " + comComboModel);
-		
-		logger.info("+ End " + className + ".pharCombo");
-		
-		return resultMap;
-	}
 	
 	
 	/** 

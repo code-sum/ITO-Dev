@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import egovframework.example.dashboard.service.BoardService;
 import egovframework.example.dashboard.service.BoardVO;
-import egovframework.example.dashboard.service.ComboVO;
 
 
 @Service
@@ -25,26 +24,6 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardMapper boardMapper;
 	
-	/** 약국 대분류 */
-	@Override
-	public List<ComboVO> selectlargelist(Map<String, Object> paramMap) throws Exception {
-		List<ComboVO> list = boardMapper.selectlargelist(paramMap);
-		return list;
-	}
-	
-	/** 약국 중분류 */
-	@Override
-	public List<ComboVO> selectmidlist(Map<String, Object> paramMap) throws Exception {
-		List<ComboVO> list = boardMapper.selectmidlist(paramMap);
-		return list;
-	}
-	
-	/** 약국 대분류/중분류/소분류 콤보박스 */
-	@Override
-	public List<ComboVO> selectsmalllist(Map<String, Object> paramMap) throws Exception {
-		List<ComboVO> list = boardMapper.selectsmalllist(paramMap);
-		return list;
-	}
 	
 	/** 약국 목록 조회 */
 	@Override

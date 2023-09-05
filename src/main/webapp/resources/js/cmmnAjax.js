@@ -51,14 +51,14 @@ function callAjax(url, method, dataType, async, param, callback) {
 
 
 /**
- * 약국 대분류/중분류/소분류 콤보박스
+ * 약국 대/중/소분류 콤보박스
  * (메인화면 검색기능)
  */
-function pharCombo(comtype, combo_name, type, lcode, mcode, selvalue){
+function pharCombo(comtype, comname, type, lcode, mcode, selvalue) {
 	
-	// console.log("pharCombo Start !!!!!!!!!!!!!! ");
+	// console.log("pharCombo Start.");
 	
-	var selectbox = document.getElementById(combo_name);
+	var selectbox = document.getElementById(comname);
 
 	var data = {
 				  "comtype" : comtype
@@ -68,20 +68,23 @@ function pharCombo(comtype, combo_name, type, lcode, mcode, selvalue){
 	
 	$(selectbox).find("option").remove();
   		
-	$.ajax({ 
-		 url : "/dashboard/pharCombo.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 - 정상
-		 data : data,
-		 type : "POST", // HTTP 요청 방식(GET, POST)
-	     dataType : "json",  // 서버 측에서 클라이언트로 리턴하는 데이터 타입
-	     contentType : "application/json; charset=UTF-8",  // ajax 데이터 전송 시, 데이터가 json 인 경우 content-type 도 json 으로 지정되어야 함
+	$.ajax({
+		 type: "POST",  
+	     url: "/system/pharCombo.do", 
+	     dataType: "json",  
+	     data : data,
+		 // url : "/dashboard/pharCombo.do", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 - 정상
+		 // data : data,
+		 // type : "POST", // HTTP 요청 방식(GET, POST)
+	     // dataType : "json",  // 서버 측에서 클라이언트로 리턴하는 데이터 타입
+	     // contentType : "application/json; charset=UTF-8",  // ajax 데이터 전송 시, 데이터가 json 인 경우 content-type 도 json 으로 지정되어야 함
 	     success: function(data)
 	     { 				
-	    	 console.log(data);
-		     var json_obj = $.parseJSON(JSON.stringify(data));//parse JSON 
+		     var json_obj = $.parseJSON(JSON.stringify(data)); //parse JSON 
 		     var jsonstr = json_obj.list;
 		     console.log("jsonstr : " + jsonstr);
 		     
-		     var jsonstr_obj = $.parseJSON(JSON.stringify(jsonstr));//parse JSON 
+		     var jsonstr_obj = $.parseJSON(JSON.stringify(jsonstr)); //parse JSON 
 		     var listLen = jsonstr_obj.length;
 
 	    	 if(type == "sido") {
@@ -93,14 +96,16 @@ function pharCombo(comtype, combo_name, type, lcode, mcode, selvalue){
 	    	 if(type == "pharm") {
 			    	$(selectbox).append("<option value=''>약국명</option>");
 			     }
-	    	 
 	    	 console.log("selvalue : " + selvalue);
+	    	 
 	         for(var i=0; i<listLen; i++)
 	         { 		
 	        	 var eleString = JSON.stringify(jsonstr_obj[i]);
-	        	 var item_obj = $.parseJSON(eleString);//parse JSON
+	        	 var item_obj = $.parseJSON(eleString); //parse JSON
             
 	        	 if(selvalue != null && selvalue != null && selvalue != "") {
+	        		 
+	        		// private String dtl_cod; ... VO모델 가서 dtl_cod 가 뭐였는지 확인하고 수정할 것
 	        		 if(selvalue == item_obj.dtl_cod) {
 	        			 console.log(" item_obj.cd : " + item_obj.cd);
 	        			 
