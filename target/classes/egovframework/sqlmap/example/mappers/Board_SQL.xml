@@ -6,7 +6,10 @@
 	<select id="boardlist" resultType="egovframework.example.dashboard.service.BoardVO">
 		SELECT 
 		        pharm_no
+		      , sido_code
 		      , sido_name
+		      , sigungu_code
+		      , sigungu_name
 		      , pharm_name
 		      , pharm_open
 		  FROM tb_pharm
@@ -14,6 +17,12 @@
 		  		<if test="(pname != null) and (!pname.equals(''))">
 		  			and pharm_name LIKE CONCAT('%', #{pname}, '%')
 		  		</if>
+		  		<if test="ltypecombo != null and ltypecombo != ''">
+			    	and sido_code = CAST(#{ltypecombo} AS INTEGER)
+		        </if>
+		        <if test="mtypecombo != null and mtypecombo != ''">
+			    	and sigungu_code = CAST(#{mtypecombo} AS INTEGER)
+		        </if>
 		  		<if test="stypecombo != null and stypecombo != ''">
 			    	and pharm_no = CAST(#{stypecombo} AS INTEGER)
 		        </if>

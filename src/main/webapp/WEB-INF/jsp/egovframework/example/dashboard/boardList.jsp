@@ -64,6 +64,8 @@
 		
 		var param = {
 				  pname : $("#pname").val()
+				, ltypecombo : $("#ltypecombo").val()
+				, mtypecombo : $("#mtypecombo").val()
 				, stypecombo : $("#stypecombo").val()
 			    , pageSize : pageSize
 			    , pageBlockSize : pageBlockSize
@@ -130,15 +132,17 @@
 		<div class="px-5">
 			<table class="table table-hover text-center">
 				<colgroup>
+						<col width="10%">
 						<col width="15%">
 						<col width="15%">
-						<col width="40%">
-						<col width="30%">
+						<col width="35%">
+						<col width="25%">
 				</colgroup>
 				<thead>
 					<tr>
 						<th>번호</th>
-						<th>지역</th>
+						<th>시도</th>
+						<th>시군구</th>
 						<th>약국명</th>
 						<th>개업일</th>
 					</tr>
