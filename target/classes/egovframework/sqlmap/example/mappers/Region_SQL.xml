@@ -2,7 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="egovframework.example.region.service.impl.RegionMapper">
 
-	<!-- 광역시도별 약국 개수 -->
+
+	<!-- 시각화(표) -->
 	<select id="pharmcntbyregion" resultType="egovframework.example.region.service.RegionVO">
 		SELECT 
 				sido_name
@@ -13,7 +14,20 @@
 		ORDER BY sido_code;
 	</select>
 	
-	<!-- 전체 약국 개수 -->
+	
+	<!-- 시각화(차트) -->
+	<select id="visualization" resultType="egovframework.example.region.service.RegionVO">
+		SELECT 
+				sido_name
+			  , sido_code
+			  , COUNT(*) AS counts
+		  FROM tb_pharm
+		GROUP BY sido_code, sido_name 
+		ORDER BY sido_code;
+	</select>
+	
+	
+	<!-- 총 약국 갯수 -->
 	<!-- 
 	<select id="counttotal" resultType="int">
 		SELECT TO_CHAR(COUNT(*), 'FM999,999,999') AS counttotal FROM tb_pharm;

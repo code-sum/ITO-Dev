@@ -10,8 +10,11 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 @Mapper
 public interface RegionMapper {
 
-	/** 광역시도별 약국 개수 */
+	/** 시각화(표) */
 	public List<RegionVO> pharmcntbyregion(RegionVO regionVO) throws Exception;
+	
+	/** 시각화(차트) */
+	public List<RegionVO> visualization(Map<String, Object> paramMap) throws Exception;
 	
 	/** 전체 약국 개수 */
 	/*

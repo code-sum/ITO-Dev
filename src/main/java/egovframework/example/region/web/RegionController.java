@@ -1,5 +1,7 @@
 package egovframework.example.region.web;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.region.service.RegionService;
 import egovframework.example.region.service.RegionVO;
@@ -35,7 +38,7 @@ public class RegionController {
 	
 	
     /**
-	 * 시도별 약국 현황 초기화면 
+	 * 지역별 약국 현황 초기화면 
 	 */
 	@RequestMapping("regionIndex.do")
 	public String regionIndex(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
@@ -51,7 +54,7 @@ public class RegionController {
 	
 	
 	/**
-	 * 시도별 약국 현황 목록 조회
+	 * 시각화(표)
 	 */
 	@RequestMapping("regionList.do")
 	public String pharmcntbyregion(RegionVO regionVO, Model model) throws Exception{
@@ -60,5 +63,32 @@ public class RegionController {
         
         return "region/regionListGrd";
     }
+	
+	
+	/**
+	 * 시각화(차트) 
+	 */
+	@RequestMapping("visualJSON.do")
+	@ResponseBody
+	public Map<String, Object> visualJSON (Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
+			HttpServletResponse response, HttpSession session) throws Exception {
+		
+		logger.info("+ Start " + className + ".visualJSON");
+		logger.info("   - paramMap : " + paramMap);
+		
+		// 어아아아아아
+		List<RegionVO> countModel = new ArrayList<>();
+		countModel = regionService.visualization(paramMap);
+		
+		// 어아아아아아
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		// 어아아아아아
+		resultMap.put("list", countModel);
+		
+		logger.info("+ End " + className + ".visualJSON");
+		
+		return resultMap;
+	}
 	
 }

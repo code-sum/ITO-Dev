@@ -5,8 +5,11 @@ import java.util.Map;
 
 public interface RegionService {
 
-	/** 시도별 약국 현황 목록 조회 */
+	/** 시각화(표) */
 	public List<RegionVO> pharmcntbyregion(RegionVO regionVO) throws Exception;
+	
+	/** 시각화(차트) */
+	public List<RegionVO> visualization(Map<String, Object> paramMap) throws Exception;
 	
 	/** 전체 약국 개수 */
 	/*

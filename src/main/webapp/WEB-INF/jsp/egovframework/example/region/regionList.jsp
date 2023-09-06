@@ -23,23 +23,11 @@
 	
 	/** OnLoad event **/ 
 	$(function() {
-		fn_btnEvent();  // 버튼 이벤트 등록
-		fn_phartable();  // 광역시도별 약국 개수 출력(표)
-		fn_commas();  // 콤마찍기(,)
+		fn_btnEvent();   // 버튼 이벤트 등록
+		fn_phartable();  // 시각화(표) 구현
+		fn_commas();     // 시각화(표)에 콤마찍기(,)
+		fn_getJSON();    // 시각화(차트) 구현을 위한 JSON 데이터 받기
 	});
-	
-	
-	/** 시각화(표)  **/
-	function fn_phartable() {		
-		
-	   var listcallback = function(returnvalue) {
-		   console.log(returnvalue);
-		   
-		   $("#listregion").empty().append(returnvalue);
-		   
-	   }
-	   callAjax("../region/regionList.do", "post", "text", false, "", listcallback);
-	}
 	
 	
 	/** 버튼 이벤트 등록 **/
@@ -58,6 +46,44 @@
 	}
 	
 	
+	/** 시각화(표) **/
+	function fn_phartable() {		
+		
+	   var listcallback = function(returnvalue) {
+		   // console.log(returnvalue);
+		   
+		   $("#listregion").empty().append(returnvalue);
+		   
+	   }
+	   callAjax("../region/regionList.do", "post", "text", false, "", listcallback);
+	}
+	
+	
+	/** DB에서 JSON 데이터 받아오기 **/
+	var countsDataFromDB = [];
+	
+	function fn_getJSON() {
+		var callback = function(returndata) {
+			console.log(returndata);
+			
+			// returndata에서 key가 counts인 값들만 뽑아오는 배열 만들기
+	        for (var i=0; i<returndata.length; i++) {
+	           var item = returndata[i];
+	           
+	           // 만들어진 배열을 countsDataFromDB에 저장
+	           if (item.hasOwnProperty("counts")) {
+	               countsDataFromDB.push(item.counts);
+	           } else {
+	        	   console.log("잘못됨")
+	           }
+
+	        }
+		}
+		callAjax("../region/visualJSON.do", "get", "json", true, "", callback);
+	}
+	console.log(countsDataFromDB);
+	
+	
 	/** 시각화(차트) **/
 	am5.ready(function() {
 
@@ -74,91 +100,108 @@
 	var data = [
 	  {
 	    name: "세종",
-	    counts: 45688,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/sejong.png'/>"}
 	  },
 	  {
 	    name: "제주",
-	    counts: 35781,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/jeju.png'/>"}
 	  },
 	  {
 	    name: "경남",
-	    counts: 25464,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/gyeongnam.png'/>"}
 	  },
 	  {
 	    name: "경북",
-	    counts: 18788,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/gyeongbuk.png'/>"}
 	  },
 	  {
 	    name: "전남",
-	    counts: 15465,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/jeonnam.png'/>"}
 	  },
 	  {
 	    name: "전북",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/jeonbuk.png'/>"}
 	  },
 	  {
 	    name: "충남",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/chungnam.png'/>"}
 	  },
 	  {
 	    name: "충북",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/chungbuk.png'/>"}
 	  },
 	  {
 	    name: "강원",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/gangwon.png'/>"}
 	  },
 	  {
 	    name: "경기",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/gyeonggi.png'/>"}
 	  },
 	  {
 	    name: "울산",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/ulsan.png'/>"}
 	  },
 	  {
 	    name: "대전",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/daejeon.png'/>"}
 	  },
 	  {
 	    name: "광주",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/gwangju.png'/>"}
 	  },
 	  {
 	    name: "대구",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/daegu.png'/>"}
 	  },
 	  {
 	    name: "인천",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/incheon.png'/>"}
 	  },
 	  {
 	    name: "부산",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/busan.png'/>"}
 	  },
 	  {
 	    name: "서울",
-	    counts: 11561,
+	    counts: "",
 	    pictureSettings: {src: "<c:url value='/resources/images/seoul.png'/>"}
 	  },
 	  
 	];
+		
+	// DB에서 counts 값을 받아온다고 가정
+	var countsDataFromDB = [
+	 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17
+	];
+	
+	// 배열의 첫번째 요소부터 서울-부산 ... -제주-세종 순서로 출력되도록 전처리
+	var reversedData = [];
+	for(let i=countsDataFromDB.length-1; i >= 0; i--) {
+		reversedData.push(countsDataFromDB[i]);
+	}
+
+	// 기존 데이터의 counts 값을 DB에서 받아온 데이터로 업데이트
+	for (var i = 0; i < data.length; i++) {
+	 data[i].counts = reversedData[i];
+	}
+	
 	
 	// Create chart
 	// https://www.amcharts.com/docs/v5/charts/xy-chart/
