@@ -99,7 +99,10 @@
 	                 </tr>
 	                 <tr>
 	                     <th>개업일</th>
-	                     <td class="dateformat">${vo.pharm_open}</td>
+	                     <td>
+		                     <fmt:parseDate value="${vo.pharm_open}" var="dateValue" pattern="yyyyMMdd"/>
+							 <fmt:formatDate value="${dateValue}" pattern="yyyy-MM-dd"/>
+                     	</td>
 	                 </tr>
 	             </tbody>
 			</table>

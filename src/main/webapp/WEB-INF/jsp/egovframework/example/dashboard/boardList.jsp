@@ -22,7 +22,6 @@
 	$(function() {
 		fn_btnEvent();  // 버튼 이벤트 등록
 		fn_pharlist();  // 약국 목록
-		fn_yyyymmdd();
 		
 		// 콤보박스 검색 (구분코드:sido_code)
 		pharCombo("l","ltypecombo","sido","","","","");  // comtype(l:대   m:중   s:소), comname, type, 대분류코드, 중분류코드, 소분류 코드, ""
@@ -74,7 +73,7 @@
 		}
 		
 		var listcallback = function(returnvalue) {
-			console.log(returnvalue);
+			// console.log(returnvalue);
 			
 			$("#listphar").empty().append(returnvalue);
 			
@@ -82,7 +81,7 @@
 			console.log("totalcnt : " + totalcnt);
 			
 			var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_pharlist');
-			console.log("paginationHtml : " + paginationHtml);
+			// console.log("paginationHtml : " + paginationHtml);
 			 
 			$("#pharPagination").empty().append(paginationHtml);
 			

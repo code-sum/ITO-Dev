@@ -10,19 +10,6 @@
 
   
   /**
-   * 약국 개업일 문자열 -> 날짜 (YYYY-MM-DD) 변환
-   */
-  function fn_yyyymmdd() {
-	  var dateString = document.querySelectorAll(".dateformat");
-	  dateString.forEach(function (date) {
-		  var parsedDate = parseInt(date.textContent);
-		  var formattedDate = parsedDate.replace(/(\d{4})(\d{2})(\d{2})/g, '$1-$2-$3');
-		  date.textContent = formattedDate;
-	  });
-  }
-
-  
-  /**
    * 숫자 1000 단위마다 쉼표(,) 공통코드
    */
   function fn_commas() {
