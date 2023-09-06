@@ -5,6 +5,64 @@
 }
 
 
+/* 지금 뜨는 약국 뉴스 롤링박스 */
+.rollingbanner{
+    position: relative;
+    width: 380px;
+    height: 32px;
+    font-size: .875rem;
+    letter-spacing: -1px;
+    padding: 7px 15px;
+    box-sizing: border-box;
+    background-color: #f0f0f0;
+    border-radius: 16px;
+}
+/* 타이틀 */
+.rollingbanner > .title{
+    font-weight: bold;
+    float: left;
+    padding-right: 1.5rem;
+    color:#32A852;
+}
+/* 롤링 배너 */
+.rollingbanner > .wrap{
+    position: relative;
+    width: auto;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}        
+.rolling ul{
+    list-style: none;
+}
+.rollingbanner li{
+    position: absolute;
+    top: -36px;
+    left: 0;
+}
+/* 이전, 현재, 다음 롤링 배너 표시 */
+.rollingbanner li.prev{
+    top: 36px;
+    transition: top 0.5s ease;
+}
+.rollingbanner li.current{
+    top: 0;
+    transition: top 0.5s ease;
+}
+.rollingbanner li.next{
+    top: -36px;
+}
+.rollingbanner a{
+    display: block;
+    display: -webkit-box;
+    text-decoration: none;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient:vertical;
+    overflow: hidden;
+    color: #000;
+}
+
+
 /* 컨텐츠 영역 */
 .layout {
 	display:flex;

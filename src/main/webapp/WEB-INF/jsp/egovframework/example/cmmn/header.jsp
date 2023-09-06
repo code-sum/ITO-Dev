@@ -27,9 +27,22 @@
 
 <!-- 지금 뜨는 약국 뉴스 -->
 <div class="container-fluid p-0">
-	<div class="text-center pt-5 pb-4" style="background-color:#F0F0F0;">
-		<p style="font-size:1.1rem; font-weight:bold;">지금 뜨는 약국 뉴스</p>
-		<p style="font-size:1rem;"><span class="fw-bold me-2" style="color:#32A852;">NEW</span>'판매중단' 1·2위 어린이 해열제, 약국 복귀</p>
+	<div class="d-flex flex-column justify-content-center align-items-center text-center py-5" style="background-color:#F0F0F0;">
+		<div>
+			<p style="font-size:1.3rem; font-weight:bold;">지금 뜨는 약국 뉴스</p>
+		</div>
+		<div class="rollingbanner">
+		    <div class="title">NEW</div>
+		    <div class="wrap">
+		        <ul>
+		            <li class="current"><a href="#">노바백스 백신 2월중순부터 접종</a></li>
+		            <li class="next"><a href="#">얼어붙은 투심에…현대엔지니어링 상장 철회</a></li>
+		            <li><a href="#">"일본 정부, 사도광산 세계유산 추천 방침 굳혀, 일본과 갈등 첨예화 예상"</a></li>
+		            <li><a href="#">"공법변경 구조검토 요구, 현산 측이 묵살했다"</a></li> 
+		            <li class="prev"><a href="#">12월 주담대 금리 연 3.63%…7년7개월 만에 최고</a></li>
+		        </ul>
+		    </div>
+		</div>
 	</div>
 </div>
 
