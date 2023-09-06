@@ -89,6 +89,25 @@
 	margin-bottom:1rem;
 }
 
+
+/* 메인화면 Section 2 */
+.customcard {
+	margin:3rem;
+	width:15rem;
+	border: 0.1rem dashed #bcbcbc;
+}
+
+.customcard > .cardtop {
+	background-color:#d1ffc0;
+	font-size:1.3rem;
+	font-weight:bold;
+}
+
+.customcard > .cardbottom {
+	background-color:#ffffff;
+}
+
+
 /* 테이블에 들어간 a 태그 효과 */
 td a {
 	color:black;

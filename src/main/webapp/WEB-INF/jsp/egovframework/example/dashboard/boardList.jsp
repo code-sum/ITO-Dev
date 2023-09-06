@@ -102,7 +102,7 @@
 	<input type="hidden" id="pageno"  name="pageno"  />
 	<div class="container" id="wrapper">
 	
-		<!-- 검색창 영역 -->
+		<!-- Section 1 : 검색창 영역 시작 -->
 		<div class="d-flex justify-content-center align-items-center py-5">
 			<!-- 텍스트 영역 -->
 			<div class="p-3">
@@ -122,37 +122,59 @@
 					</div>
 				</div>
 			</div>
-			<!-- 버튼 영역 -->
+			<!-- 검색버튼 영역 -->
 			<div class="p-3">
 				<a href="" id="btnSearch" name="btn" class="btn btn-success rounded-pill py-2 px-3">검 색</a>
 			</div>
 		</div>
+		<!-- Section 1 : 검색창 영역 끝 -->
 		
-		<!-- 목록 테이블 영역 -->
-		<div class="px-5">
-			<table class="table table-hover text-center">
-				<colgroup>
-						<col width="10%">
-						<col width="15%">
-						<col width="15%">
-						<col width="35%">
-						<col width="25%">
-				</colgroup>
-				<thead>
-					<tr>
-						<th>번호</th>
-						<th>시도</th>
-						<th>시군구</th>
-						<th>약국명</th>
-						<th>개업일</th>
-					</tr>
-				</thead>
-				<tbody id="listphar"></tbody>
-			</table>
+		
+		<!-- Section 2 : 게시판 최신글 모아보기(좌) / 게시판 Word Cloud(우) 영역 시작 -->
+		<div class="d-flex flex-row justify-content-center">
+			<!-- 게시판 최신글 모아보기(5건) 영역 (화면 좌측) -->
+			<div class="customcard">
+				<div class="cardtop">#게시판 최신글</div>
+				<div class="cardbottom">...</div>
+			</div>
+			
+			<!-- Word Cloud 영역 (화면 우측) -->
+			<div class="customcard">
+				<div class="cardtop">#와글와글</div>
+				<div class="cardbottom">...</div>
+			</div>		
 		</div>
+		<!-- Section 2 : 게시판 최신글 모아보기(좌) / 게시판 Word Cloud(우) 영역 끝 -->
+
 		
-		<!-- 페이지네이션 영역 -->
-		<div class="paging"  id="pharPagination"></div>
+		<!-- Section 3 : 약국 목록 테이블 영역 시작 -->
+		<div>
+			<div class="px-5">
+				<table class="table table-hover text-center">
+					<colgroup>
+							<col width="10%">
+							<col width="15%">
+							<col width="15%">
+							<col width="35%">
+							<col width="25%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>시도</th>
+							<th>시군구</th>
+							<th>약국명</th>
+							<th>개업일</th>
+						</tr>
+					</thead>
+					<tbody id="listphar"></tbody>
+				</table>
+			</div>
+			<!-- 페이지네이션 영역 -->
+			<div class="paging"  id="pharPagination"></div>
+		</div>
+		<!-- Section 3 : 약국 목록 테이블 영역 끝 -->
+		
 		
 		<!-- 위로가기 버튼 -->
 		<div class="d-flex justify-content-end">
