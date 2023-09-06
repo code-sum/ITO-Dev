@@ -39,7 +39,7 @@
 	});
 	
 	
-	/** 버튼 이벤트 등록 */
+	/** 버튼 이벤트 등록 **/
 	function fn_btnEvent() {
 		$('a[name=btn]').click(function(e) {
 			e.preventDefault();
@@ -113,7 +113,7 @@
 			<div class="p-3">
 				<div class="d-flex flex-column">
 					<div class="form-floating" style="width:30rem; height:4rem;">
-						<input id="pname" name="pname" class="form-control p-1 text-end" type="text" placeholder="약국 이름">
+						<input id="pname" name="pname" class="form-control" type="text" placeholder="약국 이름">
 						<label for="pname">이름을 입력해주세요.</label>
 					</div>
 					<div class="d-flex py-1" style="width:30rem;">					
