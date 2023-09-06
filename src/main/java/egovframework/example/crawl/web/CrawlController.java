@@ -1,5 +1,6 @@
 package egovframework.example.crawl.web;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
@@ -24,11 +25,11 @@ public class CrawlController {
         Document doc = null;
         System.out.println("apiUrl > " + apiUrl);
 
-        
+        // Jsoup의 connect 메서드가 IOException을 던질 수 있으므로 예외 처리 강화
         try {
             doc = Jsoup.connect(apiUrl).get();
-        } catch (Exception e){
-            System.out.println(e);
+        } catch (IOException e){
+        	e.printStackTrace();
         }
 
         ArrayList<String> al1 = new ArrayList<>();

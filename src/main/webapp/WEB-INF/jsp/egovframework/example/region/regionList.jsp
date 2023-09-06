@@ -75,7 +75,7 @@
 	               countsDataFromDB.push(item.counts);
 	           } else {
 	        	   console.log("잘못됨")
-	           }
+	           };
 
 	        }
 		}
