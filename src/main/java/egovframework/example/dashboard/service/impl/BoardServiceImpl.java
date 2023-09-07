@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import egovframework.example.dashboard.service.BoardService;
 import egovframework.example.dashboard.service.BoardVO;
+import egovframework.example.dashboard.service.RevVO;
 
 
 @Service
@@ -24,6 +25,12 @@ public class BoardServiceImpl implements BoardService {
 	@Autowired
 	private BoardMapper boardMapper;
 	
+	
+	/** 게시판 최신글 목록 조회 */
+	@Override
+	public List<RevVO> revlist(Map<String, Object> paramMap) throws Exception {
+		return boardMapper.revlist(paramMap);
+	}
 	
 	/** 약국 목록 조회 */
 	@Override

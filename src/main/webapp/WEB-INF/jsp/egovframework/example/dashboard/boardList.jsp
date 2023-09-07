@@ -27,6 +27,7 @@
 	/** OnLoad event **/ 
 	$(function() {
 		fn_btnEvent();  // 버튼 이벤트 등록
+		fn_revlist();   // 게시판 최신글 목록
 		fn_pharlist();  // 약국 목록
 		
 		// 콤보박스 검색 (구분코드:sido_code)
@@ -60,6 +61,18 @@
 					break;
 			}
 		});
+	}
+	
+	
+	/** 게시판 최신글 목록  **/
+	function fn_revlist() {
+		
+		var listcallback = function(returnvalue) {
+			console.log(returnvalue);
+			$("#listrev").empty().append(returnvalue);
+			 
+		}
+		callAjax("../dashboard/revlist.do", "post", "text", true, "", listcallback);
 	}
 	
 	
@@ -175,15 +188,31 @@
 			<div class="row justify-content-center">
 				<!-- 게시판 최신글 모아보기(5건) 영역 (화면 좌측) -->
 				<div class="col col-lg-1 col-md-2 col-sm-2 customcard">
-					<div class="cardtop">#&nbsp약국 최신글</div>
-					<div class="cardbottom">...</div>
+					<div class="cardtop">#&nbsp약국 추천 최신글</div>
+					<div class="cardbottom">
+						<table class="table table-hover text-start mb-0">
+							<colgroup>
+									<col width="20%">
+									<col width="55%">
+									<col width="25%">
+							</colgroup>
+							<thead>
+								<tr>
+									<th></th>
+									<th>제목</th>
+									<th>작성일</th>
+								</tr>
+							</thead>
+							<tbody id="listrev"></tbody>
+						</table>
+					</div>
 				</div>
 				
 				<!-- Word Cloud 영역 (화면 우측) -->
-				<div class="col col-lg-1 col-md-2 col-sm-2 customcard">
-					<div class="cardtop">#&nbsp약국 핫이슈</div>
+				<div class="col col-lg-1 col-md-2 col-sm-2 customcard" style="border-bottom: 0.1rem solid #e7e7e7;">
+					<div class="cardtop">#&nbsp약국 추천 핫이슈</div>
 					<div class="cardbottom">
-						<div id="chartdiv" style="height:20rem;"></div>
+						<div id="chartdiv" style="height:18rem;"></div>
 					</div>
 				</div>		
 			</div>

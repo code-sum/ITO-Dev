@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import egovframework.example.dashboard.service.BoardService;
 import egovframework.example.dashboard.service.BoardVO;
+import egovframework.example.dashboard.service.RevVO;
 
 
 @Controller
@@ -48,6 +49,27 @@ public class BoardController {
 	      return "dashboard/boardList";
 	   }
 	
+	
+	/**
+	 * 게시판 최신글 목록 조회
+	 */
+	@RequestMapping("revlist.do")
+	public String revlist(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
+	         HttpServletResponse response, HttpSession session) throws Exception {
+		
+		logger.info("+ Start " + className + ".revlist");
+        logger.info("   - paramMap : " + paramMap);
+        
+        List<RevVO> revlist = boardService.revlist(paramMap);
+        
+        model.addAttribute("revlist", revlist);
+        
+        logger.info("+ End " + className + ".revlist");
+        
+        return "dashboard/revListGrd";
+		
+	}
+
 	
 	/** 
 	 * 약국 목록 조회

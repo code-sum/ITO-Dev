@@ -97,7 +97,9 @@
 	margin-bottom:3rem;
 	padding:0;
 	width:30rem;
-	border: 0.1rem solid #e7e7e7;
+	border-top: 0.1rem solid #e7e7e7;
+	border-left: 0.1rem solid #e7e7e7;
+	border-right: 0.1rem solid #e7e7e7;
 }
 
 .customcard > .cardtop {
@@ -110,6 +112,7 @@
 
 .customcard > .cardbottom {
 	background-color:#ffffff;
+	font-size: 12px;
 }
 
 
