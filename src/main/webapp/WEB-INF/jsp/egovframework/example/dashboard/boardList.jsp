@@ -55,6 +55,7 @@
 			switch (btnId) {
 				case 'btnSearch' :
 					fn_pharlist();
+					fn_display();
 					break;
 				case 'btnTop' :
 					fn_scrollToTop();
@@ -144,7 +145,31 @@
 	}
 	
 	
+	/** btnSearch 기능 추가 **/
 	
+	// 평소엔 section2 열고, section3 닫기
+	// btnSearch 클릭 시, section2 닫고, section3 열기
+	function fn_display() {
+		
+		var second = document.getElementById("section2");
+		var third = document.getElementById("section3");
+		
+		// 1. section3 의 display 초기값 none
+		if (third.style.display=='none') { 		
+			if (){} else {}
+			third.style.display = 'block';
+			second.style.display = 'none';
+        } 
+		
+		// 2. section3 가 띄워진 상태면(이전에 검색버튼 클릭된 경우)
+		else {
+			if (){} else {}
+        	third.style.display = 'block';
+        	second.style.display = 'none';
+        }
+
+	}
+		
 	
 </script>
 
@@ -184,7 +209,7 @@
 		
 		
 		<!-- Section 2 : 게시판 최신글 모아보기(좌) / 게시판 Word Cloud(우) 영역 시작 -->
-		<div class="container text-center">
+		<div id="section2" class="container text-center">
 			<div class="row justify-content-center">
 				<!-- 게시판 최신글 모아보기(5건) 영역 (화면 좌측) -->
 				<div class="col col-lg-1 col-md-2 col-sm-2 customcard">
@@ -221,7 +246,7 @@
 
 		
 		<!-- Section 3 : 약국 목록 테이블 영역 시작 -->
-		<div>
+		<div id="section3">
 			<div class="px-5">
 				<table class="table table-hover text-center">
 					<colgroup>
