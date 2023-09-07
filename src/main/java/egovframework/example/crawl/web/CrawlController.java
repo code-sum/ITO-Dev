@@ -25,30 +25,32 @@ public class CrawlController {
         Document doc = null;
         System.out.println("apiUrl > " + apiUrl);
 
-        // Jsoup의 connect 메서드가 IOException을 던질 수 있으므로 예외 처리 강화
-        try {
-            doc = Jsoup.connect(apiUrl).get();
-        } catch (IOException e){
-        	e.printStackTrace();
-        }
-
         ArrayList<String> al1 = new ArrayList<>();
-
-        Elements elements1 = doc.select(".news_tit");
-        System.out.println("elements " + elements1);
         
-        String href;
-        String title2;
-        for(Element el : elements1){
+        try {
+        	
+            // Jsoup의 connect 메서드가 IOException을 던질 수 있으므로 예외 처리 강화
+            doc = Jsoup.connect(apiUrl).get();
 
-            href = el.select("a").attr("href");
-            System.out.println("href " + href);
-            title2 = el.select("a").attr("title");
-            System.out.println("title2 " + title2);
-            al1.add(href);
+            Elements elements1 = doc.select(".news_tit");
+            System.out.println("elements " + elements1);
+
+            String href;
+            String title2;
+            for (Element el : elements1) {
+                href = el.select("a").attr("href");
+                System.out.println("href " + href);
+                title2 = el.select("a").attr("title");
+                System.out.println("title2 " + title2);
+                al1.add(href);
+            }
+            System.out.println("al1 > " + al1);
+
+        } catch (IOException e) {
+        	
+        	// 예외 처리 로직 추가
+            e.printStackTrace();
         }
-        System.out.println("al1 > " + al1);
-        
 		
 		return "cmmn/test";
 	}
