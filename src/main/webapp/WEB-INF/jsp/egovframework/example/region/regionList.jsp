@@ -60,33 +60,47 @@
 	
 	
 	/** DB에서 JSON 데이터 받아오기 **/
+	
+	// DB에서 받아올 counts 값 저장
 	var countsDataFromDB = [];
 	
 	function fn_getJSON() {
 		var callback = function(returndata) {
-			console.log(returndata);
+			// console.log(returndata);
+			
+			var str = $.parseJSON(JSON.stringify(returndata));  //parse JSON
+			var str_list = str.list;
+			
+			var parsedData = $.parseJSON(JSON.stringify(str_list));  //parse JSON
+			var listLen = parsedData.length;
 			
 			// returndata에서 key가 counts인 값들만 뽑아오는 배열 만들기
-	        for (var i=0; i<returndata.length; i++) {
-	           var item = returndata[i];
+	        for (var i=0; i<listLen; i++) {
+	           var items = JSON.stringify(parsedData[i]);
+	           var item = $.parseJSON(items);  //parse JSON
+	           // console.log(item);
 	           
 	           // 만들어진 배열을 countsDataFromDB에 저장
 	           if (item.hasOwnProperty("counts")) {
 	               countsDataFromDB.push(item.counts);
 	           } else {
 	        	   console.log("잘못됨")
-	           };
-
+	           }
 	        }
+	        console.log(countsDataFromDB);
+	        
+	        // 여기서 JSON 데이터 17건이 담긴 countsDataFromDB 를
+	        // 전역변수 countsDataFromDB 로 업데이트하는 로직 추가
+	        //  ~
+	        
 		}
 		callAjax("../region/visualJSON.do", "get", "json", true, "", callback);
 	}
-	console.log(countsDataFromDB);
 	
 	
 	/** 시각화(차트) **/
 	am5.ready(function() {
-
+		
 	// Create root element
 	// https://www.amcharts.com/docs/v5/getting-started/#Root_element
 	var root = am5.Root.new("chartdiv");
@@ -185,23 +199,19 @@
 	  },
 	  
 	];
-		
-	// DB에서 counts 값을 받아온다고 가정
-	var countsDataFromDB = [
-	 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17
-	];
-	
+			
 	// 배열의 첫번째 요소부터 서울-부산 ... -제주-세종 순서로 출력되도록 전처리
+	/*	
 	var reversedData = [];
 	for(let i=countsDataFromDB.length-1; i >= 0; i--) {
 		reversedData.push(countsDataFromDB[i]);
 	}
+	*/
 
-	// 기존 데이터의 counts 값을 DB에서 받아온 데이터로 업데이트
+	// 기존 데이터의 counts 값을 DB에서 받아온 데이터로 업데이트	
 	for (var i = 0; i < data.length; i++) {
-	 data[i].counts = reversedData[i];
+	 data[i].counts = countsDataFromDB[i];
 	}
-	
 	
 	// Create chart
 	// https://www.amcharts.com/docs/v5/charts/xy-chart/
