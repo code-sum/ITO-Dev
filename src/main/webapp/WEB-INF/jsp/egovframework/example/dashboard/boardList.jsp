@@ -147,27 +147,17 @@
 	
 	/** btnSearch 기능 추가 **/
 	
-	// 평소엔 section2 열고, section3 닫기
-	// btnSearch 클릭 시, section2 닫고, section3 열기
+	// [초기값] 평소엔 section2 열고, section3 닫기
+	// [함수 동작 시] btnSearch 클릭 시, section2 닫고, section3 열기
+
 	function fn_display() {
 		
 		var second = document.getElementById("section2");
 		var third = document.getElementById("section3");
 		
-		// 1. section3 의 display 초기값 none
-		if (third.style.display=='none') { 		
-			if (){} else {}
-			third.style.display = 'block';
-			second.style.display = 'none';
-        } 
+		third.style.display = 'block';
+		second.style.display = 'none';
 		
-		// 2. section3 가 띄워진 상태면(이전에 검색버튼 클릭된 경우)
-		else {
-			if (){} else {}
-        	third.style.display = 'block';
-        	second.style.display = 'none';
-        }
-
 	}
 		
 	

@@ -84,8 +84,8 @@
 	           if (item.hasOwnProperty("counts")) {
 	               countsDataFromDB.push(item.counts);
 	           } else {
-	        	   console.log("잘못됨")
-	           }
+	        	   console.log("잘못됨");
+	           };
 	        }
 	        console.log(countsDataFromDB);
 	        
