@@ -82,7 +82,7 @@
 	  maxCount:100,
 	  minWordLength:2,
 	  maxFontSize:am5.percent(35),
-	  text: "Though yet of Hamlet our dear brother's death The memory be green, and that it us befitted To bear our hearts in grief and our whole kingdom To be contracted in one brow of woe, Yet so far hath discretion fought with nature That we with wisest sorrow think on him, Together with remembrance of ourselves. Therefore our sometime sister, now our queen, The imperial jointress to this warlike state, Have we, as 'twere with a defeated joy,-- With an auspicious and a dropping eye, With mirth in funeral and with dirge in marriage, In equal scale weighing delight and dole,-- Taken to wife: nor have we herein barr'd Your better wisdoms, which have freely gone With this affair along. For all, our thanks. Now follows, that you know, young Fortinbras, Holding a weak supposal of our worth, Or thinking by our late dear brother's death Our state to be disjoint and out of frame, Colleagued with the dream of his advantage, He hath not fail'd to pester us with message, Importing the surrender of those lands Lost by his father, with all bonds of law, To our most valiant brother. So much for him. Now for ourself and for this time of meeting: Thus much the business is: we have here writ To Norway, uncle of young Fortinbras,-- Who, impotent and bed-rid, scarcely hears Of this his nephew's purpose,--to suppress His further gait herein; in that the levies, The lists and full proportions, are all made Out of his subject: and we here dispatch You, good Cornelius, and you, Voltimand, For bearers of this greeting to old Norway; Giving to you no further personal power To business with the king, more than the scope Of these delated articles allow. Farewell, and let your haste commend your duty. Tis sweet and commendable in your nature, Hamlet,To give these mourning duties to your father: But, you must know, your father lost a father; That father lost, lost his, and the survivor bound In filial obligation for some term To do obsequious sorrow: but to persever In obstinate condolement is a course Of impious stubbornness; 'tis unmanly grief; It shows a will most incorrect to heaven, A heart unfortified, a mind impatient, An understanding simple and unschool'd: For what we know must be and is as common As any the most vulgar thing to sense, Why should we in our peevish opposition Take it to heart? Fie! 'tis a fault to heaven, A fault against the dead, a fault to nature, To reason most absurd: whose common theme Is death of fathers, and who still hath cried, From the first corse till he that died to-day, 'This must be so.' We pray you, throw to earth This unprevailing woe, and think of us As of a father: for let the world take note, You are the most immediate to our throne; And with no less nobility of love Than that which dearest father bears his son, Do I impart toward you. For your intent In going back to school in Wittenberg, It is most retrograde to our desire: And we beseech you, bend you to remain Here, in the cheer and comfort of our eye, Our chiefest courtier, cousin, and our son.",
+	  text: "종로 나간김에 약국 들려서 약쇼핑했습니다. 엄마가 카베진 사다달래서 열심히 서칭을 해봤더니 동네약국은 35000~40000원정도이고 종로약국거리에서는 25000원! 그 외 다른약들도 저렴해요. 저도 보은하는 마음으로 쇼핑 가격 영수증 올리옵니다. 종로약국거리에 제가 아는건 보령약국 뿐이였는데 바로 옆에 온유약국도 유명하더라고요. 몇몇제품은 가격이 더 저렴한것도 있다하고 저의 첫번째 목표인 카베진이 25000원이란 첩보로 온유로 갔습니다. 근데 약국거리약이 대체로 다 저렴하다는데 저는 모험하고 싶지않아서 알아본곳으로",
 	}));
 	
 	// Configure labels
@@ -171,20 +171,22 @@
 		
 		
 		<!-- Section 2 : 게시판 최신글 모아보기(좌) / 게시판 Word Cloud(우) 영역 시작 -->
-		<div class="d-flex flex-row justify-content-center">
-			<!-- 게시판 최신글 모아보기(5건) 영역 (화면 좌측) -->
-			<div class="customcard">
-				<div class="cardtop">#게시판 최신글</div>
-				<div class="cardbottom">...</div>
-			</div>
-			
-			<!-- Word Cloud 영역 (화면 우측) -->
-			<div class="customcard">
-				<div class="cardtop">#와글와글</div>
-				<div class="cardbottom">
-					<div id="chartdiv" style="height:20rem;"></div>
+		<div class="container text-center">
+			<div class="row justify-content-center">
+				<!-- 게시판 최신글 모아보기(5건) 영역 (화면 좌측) -->
+				<div class="col col-lg-1 col-md-2 col-sm-2 customcard">
+					<div class="cardtop">#&nbsp약국 최신글</div>
+					<div class="cardbottom">...</div>
 				</div>
-			</div>		
+				
+				<!-- Word Cloud 영역 (화면 우측) -->
+				<div class="col col-lg-1 col-md-2 col-sm-2 customcard">
+					<div class="cardtop">#&nbsp약국 핫이슈</div>
+					<div class="cardbottom">
+						<div id="chartdiv" style="height:20rem;"></div>
+					</div>
+				</div>		
+			</div>
 		</div>
 		<!-- Section 2 : 게시판 최신글 모아보기(좌) / 게시판 Word Cloud(우) 영역 끝 -->
 
