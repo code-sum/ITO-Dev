@@ -1,5 +1,7 @@
 package egovframework.example.dashboard.web;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,10 +17,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.dashboard.service.BoardService;
 import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.dashboard.service.RevVO;
+import egovframework.example.region.service.RegionVO;
 
 
 @Controller
@@ -67,9 +71,32 @@ public class BoardController {
         logger.info("+ End " + className + ".revlist");
         
         return "dashboard/revListGrd";
-		
 	}
-
+	
+	
+	/**
+	 * 시각화(Word Cloud)
+	 */
+	@RequestMapping("wordJSON.do")
+	@ResponseBody
+	public Map<String, Object> wordJSON(Model model, @RequestParam Map<String, Object> paramMap, HttpServletRequest request,
+	         HttpServletResponse response, HttpSession session) throws Exception {
+		
+		logger.info("+ Start " + className + ".wordJSON");
+        logger.info("   - paramMap : " + paramMap);
+        
+		List<RevVO> wordModel = new ArrayList<>();
+		wordModel = boardService.wordcloud(paramMap);
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		resultMap.put("list", wordModel);        
+        
+        logger.info("+ End " + className + ".wordJSON");
+        
+        return resultMap;
+	}
+	
 	
 	/** 
 	 * 약국 목록 조회

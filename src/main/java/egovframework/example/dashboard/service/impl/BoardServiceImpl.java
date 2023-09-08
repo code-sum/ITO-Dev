@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import egovframework.example.dashboard.service.BoardService;
 import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.dashboard.service.RevVO;
+import egovframework.example.region.service.RegionVO;
 
 
 @Service
@@ -30,6 +31,13 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public List<RevVO> revlist(Map<String, Object> paramMap) throws Exception {
 		return boardMapper.revlist(paramMap);
+	}
+	
+	/** 시각화(Word Cloud) */
+	@Override
+	public List<RevVO> wordcloud(Map<String, Object> paramMap) throws Exception {
+		List<RevVO> list = boardMapper.wordcloud(paramMap);
+		return list;
 	}
 	
 	/** 약국 목록 조회 */

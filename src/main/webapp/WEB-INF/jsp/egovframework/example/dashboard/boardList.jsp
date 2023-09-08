@@ -28,6 +28,7 @@
 	$(function() {
 		fn_btnEvent();  // 버튼 이벤트 등록
 		fn_revlist();   // 게시판 최신글 목록
+		fn_cloud();     // 시각화(Word Cloud) 및 데이터 요청
 		fn_pharlist();  // 약국 목록
 		
 		// 콤보박스 검색 (구분코드:sido_code)
@@ -69,7 +70,7 @@
 	function fn_revlist() {
 		
 		var listcallback = function(returnvalue) {
-			console.log(returnvalue);
+			// console.log(returnvalue);
 			$("#listrev").empty().append(returnvalue);
 			 
 		}
@@ -77,38 +78,83 @@
 	}
 	
 	
-	/** Word Cloud **/
-	am5.ready(function() {
+	/** 시각화(Word Cloud) 구현 및 데이터 요청 **/
+	function fn_cloud() {
+		
+		am5.ready(function() {
 
-	// Create root element
-	// https://www.amcharts.com/docs/v5/getting-started/#Root_element
-	var root = am5.Root.new("chartdiv");
-	
-	// Set themes
-	// https://www.amcharts.com/docs/v5/concepts/themes/
-	root.setThemes([
-	  am5themes_Animated.new(root)
-	]);
-	
-	// Add series
-	// https://www.amcharts.com/docs/v5/charts/word-cloud/
-	var series = root.container.children.push(am5wc.WordCloud.new(root, {
-	  maxCount:100,
-	  minWordLength:2,
-	  maxFontSize:am5.percent(35),
-	  text: "종로 나간김에 약국 들려서 약쇼핑했습니다. 엄마가 카베진 사다달래서 열심히 서칭을 해봤더니 동네약국은 35000~40000원정도이고 종로약국거리에서는 25000원! 그 외 다른약들도 저렴해요. 저도 보은하는 마음으로 쇼핑 가격 영수증 올리옵니다. 종로약국거리에 제가 아는건 보령약국 뿐이였는데 바로 옆에 온유약국도 유명하더라고요. 몇몇제품은 가격이 더 저렴한것도 있다하고 저의 첫번째 목표인 카베진이 25000원이란 첩보로 온유로 갔습니다. 근데 약국거리약이 대체로 다 저렴하다는데 저는 모험하고 싶지않아서 알아본곳으로",
-	}));
-	
-	// Configure labels
-	series.labels.template.setAll({
-	  paddingTop: 5,
-	  paddingBottom: 5,
-	  paddingLeft: 5,
-	  paddingRight: 5,
-	  fontFamily: "Courier New"
-	});
-	
-	}); // end am5.ready()
+			// Create root element
+			// https://www.amcharts.com/docs/v5/getting-started/#Root_element
+			var root = am5.Root.new("chartdiv");
+			
+			// Set themes
+			// https://www.amcharts.com/docs/v5/concepts/themes/
+			root.setThemes([
+			  am5themes_Animated.new(root)
+			]);
+			
+			// Add series
+			// https://www.amcharts.com/docs/v5/charts/word-cloud/
+			var series = root.container.children.push(am5wc.WordCloud.new(root, {
+			  maxCount:100,     // 시각화 표출할 단어의 갯수
+			  minWordLength:1,  // 단어 최소길이
+			  maxFontSize:am5.percent(35),
+			  text: "",
+			  // text: "종로 나간김에 약국 들려서 약쇼핑했습니다. 엄마가 카베진 사다달래서 열심히 서칭을 해봤더니 동네약국은 35000~40000원정도이고 종로약국거리에서는 25000원! 그 외 다른약들도 저렴해요. 저도 보은하는 마음으로 쇼핑 가격 영수증 올리옵니다. 종로약국거리에 제가 아는건 보령약국 뿐이였는데 바로 옆에 온유약국도 유명하더라고요. 몇몇제품은 가격이 더 저렴한것도 있다하고 저의 첫번째 목표인 카베진이 25000원이란 첩보로 온유로 갔습니다. 근데 약국거리약이 대체로 다 저렴하다는데 저는 모험하고 싶지않아서 알아본곳으로",
+			}));
+		
+			
+			/** 시각화(Word Cloud) 구현을 위한 JSON 데이터 받기 **/
+			function fn_getJSON() {
+				
+				var callback = function(returndata) {
+					
+					var str = $.parseJSON(JSON.stringify(returndata));  //parse JSON
+					var str_list = str.list;
+					
+					var parsedData = $.parseJSON(JSON.stringify(str_list));  //parse JSON
+					var listLen = parsedData.length;
+					
+					// parsedData 에서 key가 review_content인 값들만 뽑아오는 배열(content_list) 만들기
+					var content_list = [];
+					for (var i=0; i<listLen; i++) {
+						var items = JSON.stringify(parsedData[i]);
+			            var item = $.parseJSON(items);
+						
+						// 만들어진 배열을 content_list 에 저장
+						if (item.hasOwnProperty("review_content")) {
+							content_list.push(item.review_content);
+			            } else {
+			        	    console.log("잘못됨");
+			            };
+					}
+					
+					// JSON 데이터가 담긴 배열 content_list를 하나의 문자열(str_cloud)로 합치기
+					str_cloud = content_list.join(' ');
+					console.log(str_cloud);
+					
+					// 여기에 'series' 의 'text' 부분을 str_cloud 로 업데이트하는 코드 구현
+					// ~~~
+		
+				}
+				callAjax("../dashboard/wordJSON.do", "get", "json", true, "", callback);
+			}
+			
+			// DB 데이터 호출 및 'text' 업데이트
+			fn_getJSON();
+			
+		
+			// Configure labels
+			series.labels.template.setAll({
+			  paddingTop: 5,
+			  paddingBottom: 5,
+			  paddingLeft: 5,
+			  paddingRight: 5,
+			  fontFamily: "Courier New"
+			});
+			
+			}); // end am5.ready()	
+	}
 	
 	
 	/** 약국 목록  **/
@@ -132,7 +178,7 @@
 			$("#listphar").empty().append(returnvalue);
 			
 			var  totalcnt = $("#totalcnt").val();
-			console.log("totalcnt : " + totalcnt);
+			// console.log("totalcnt : " + totalcnt);
 			
 			var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_pharlist');
 			// console.log("paginationHtml : " + paginationHtml);

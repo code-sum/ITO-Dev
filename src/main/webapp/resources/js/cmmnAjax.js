@@ -77,7 +77,7 @@ function pharCombo(comtype, comname, type, lcode, mcode, selvalue) {
 	     { 				
 		     var json_obj = $.parseJSON(JSON.stringify(data)); //parse JSON 
 		     var jsonstr = json_obj.list;
-		     console.log("jsonstr : " + jsonstr);
+		     // console.log("jsonstr : " + jsonstr);
 		     
 		     var jsonstr_obj = $.parseJSON(JSON.stringify(jsonstr)); //parse JSON 
 		     var listLen = jsonstr_obj.length;
@@ -91,7 +91,7 @@ function pharCombo(comtype, comname, type, lcode, mcode, selvalue) {
 	    	 if(type == "pharm") {
 			    	$(selectbox).append("<option value=''>약국명</option>");
 			     }
-	    	 console.log("selvalue : " + selvalue);
+	    	 // console.log("selvalue : " + selvalue);
 	    	 
 	         for(var i=0; i<listLen; i++)
 	         { 		

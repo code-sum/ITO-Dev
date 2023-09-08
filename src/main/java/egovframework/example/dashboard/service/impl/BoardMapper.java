@@ -13,6 +13,9 @@ public interface BoardMapper {
 	
 	/** 게시판 최신글 목록 조회 */
 	public List<RevVO> revlist(Map<String, Object> paramMap) throws Exception;
+	
+	/** 시각화(Word Cloud) */
+	public List<RevVO> wordcloud(Map<String, Object> paramMap) throws Exception;
 
 	/** 약국 목록 조회 */
 	public List<BoardVO> boardlist(Map<String, Object> paramMap) throws Exception;

@@ -76,14 +76,11 @@ public class RegionController {
 		logger.info("+ Start " + className + ".visualJSON");
 		logger.info("   - paramMap : " + paramMap);
 		
-		// 어아아아아아
 		List<RegionVO> countModel = new ArrayList<>();
 		countModel = regionService.visualization(paramMap);
 		
-		// 어아아아아아
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
-		// 어아아아아아
 		resultMap.put("list", countModel);
 		
 		logger.info("+ End " + className + ".visualJSON");
