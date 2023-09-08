@@ -100,6 +100,15 @@
 				  maxCount:100,     // 시각화 표출할 단어의 갯수
 				  minWordLength:1,  // 단어 최소길이
 				  maxFontSize:am5.percent(35),
+				  colors: am5.ColorSet.new(root, {
+				      colors: [
+				        am5.color(0x095256),
+				        am5.color(0x087f8c),
+				        am5.color(0x5aaa95),
+				        am5.color(0x86a873),
+				        am5.color(0xbb9f06)
+				      ]
+				    }),
 				  text: "",
 			}));
 		
