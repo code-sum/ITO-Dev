@@ -26,8 +26,7 @@
 		fn_btnEvent();       // 버튼 이벤트 등록
 		fn_phartable();      // 시각화(표) 구현
 		fn_commas();         // 시각화(표)에 콤마찍기(,)
-		fn_getJSON();        // 시각화(차트) 구현을 위한 JSON 데이터 받기
-		fn_visualization();  // 시각화(차트) 구현
+		fn_visualization();  // 시각화(차트) 구현 및 데이터 요청
 	});
 	
 	
@@ -57,55 +56,8 @@
 	   callAjax("../region/regionList.do", "post", "text", false, "", listcallback);
 	}
 	
-	
-	/** 시각화(차트) 구현을 위한 JSON 데이터 받기 **/
-	function fn_getJSON() {
-		
-		// fn_getJSON() 내에서 데이터 업데이트
-		var callback = function(returndata) {
-			// console.log(returndata);
-			
-			var str = $.parseJSON(JSON.stringify(returndata));  //parse JSON
-			var str_list = str.list;
-			
-			var parsedData = $.parseJSON(JSON.stringify(str_list));  //parse JSON
-			var listLen = parsedData.length;
-			
-			// returndata에서 key가 counts인 값들만 뽑아오는 배열(countsDataFromDB) 만들기
-			var countsDataFromDB = [];
-	        for (var i=0; i<listLen; i++) {
-	           var items = JSON.stringify(parsedData[i]);
-	           var item = $.parseJSON(items);  //parse JSON
-	           // console.log(item);
-	           
-	           // 만들어진 배열을 countsDataFromDB에 저장
-	           if (item.hasOwnProperty("counts")) {
-	               countsDataFromDB.push(item.counts);
-	           } else {
-	        	   console.log("잘못됨");
-	           };
-	        }
-     		// 여기서 JSON 데이터 17건이 담긴 countsDataFromDB를
-	        // 차트 데이터에 업데이트
-	        console.log(countsDataFromDB);
-	        updateChartCountsData(countsDataFromDB);
-		}
-		callAjax("../region/visualJSON.do", "get", "json", true, "", callback);
-	}
-	
-	
-	/** 시각화(차트) 구현을 위한 데이터 업데이트 **/ 
-	function updateChartCountsData(countsDataFromDB) {
-	   // countsDataFromDB를 기존 데이터에 업데이트
-	   for (var i=0; i<data.length; i++) {
-	       data[i].counts = countsDataFromDB[i];
-	   }
-	   // 차트 업데이트
-	   chart.data.setAll(data);
-	}
-	
-	
-	/** 시각화(차트) **/
+
+	/** 시각화(차트) 구현 및 데이터 요청 **/
 	function fn_visualization() {
 		
 		am5.ready(function() {
@@ -209,7 +161,6 @@
 			  
 			];
 			
-			fn_getJSON();
 			
 			// Create chart
 			// https://www.amcharts.com/docs/v5/charts/xy-chart/
@@ -219,10 +170,58 @@
 			    panY: false,
 			    wheelX: "none",
 			    wheelY: "none",
+			    paddingTop: 40,
 			    paddingLeft: 50,
 			    paddingRight: 40
 			  })
 			);
+			
+			
+			/** 시각화(차트) 구현을 위한 JSON 데이터 받기 **/
+			function fn_getJSON() {
+				
+				// fn_getJSON() 내에서 데이터 업데이트
+				var callback = function(returndata) {
+					// console.log(returndata);
+					
+					var str = $.parseJSON(JSON.stringify(returndata));  //parse JSON
+					var str_list = str.list;
+					
+					var parsedData = $.parseJSON(JSON.stringify(str_list));  //parse JSON
+					var listLen = parsedData.length;
+					
+					// returndata에서 key가 counts인 값들만 뽑아오는 배열(countsDataFromDB) 만들기
+					var countsDataFromDB = [];
+			        for (var i=0; i<listLen; i++) {
+			           var items = JSON.stringify(parsedData[i]);
+			           var item = $.parseJSON(items);  //parse JSON
+			           // console.log(item);
+			           
+			           // 만들어진 배열을 countsDataFromDB에 저장
+			           // 역순으로 저장해야하기 때문에 .push 대신, .unshift 활용
+			           if (item.hasOwnProperty("counts")) {
+			               countsDataFromDB.unshift(item.counts);
+			           } else {
+			        	   console.log("잘못됨");
+			           };
+			        }
+			        
+		     		// JSON 데이터 17건이 담긴 countsDataFromDB를
+			        // 차트 데이터('data')에 업데이트
+			        for (var i=0; i<data.length; i++) {
+			            data[i].counts = countsDataFromDB[i];
+			        }
+			        console.log(data);
+
+				    // 차트 업데이트
+				    series.data.setAll(data);
+				}
+				callAjax("../region/visualJSON.do", "get", "json", true, "", callback);
+			}
+			
+			// DB 데이터 호출 및 'data' 업데이트
+			fn_getJSON();
+			
 			
 			// Create axes
 			// https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
@@ -261,7 +260,7 @@
 			    calculateAggregates: true,
 			    maskBullets: false,
 			    tooltip: am5.Tooltip.new(root, {
-			      dy: -30,
+			      dy: -20,
 			      pointerOrientation: "vertical",
 			      labelText: "{valueX}"
 			    })
@@ -274,7 +273,7 @@
 			  cornerRadiusTR: 10,
 			  cornerRadiusBL: 10,
 			  cornerRadiusTL: 10,
-			  maxHeight: 50,
+			  maxHeight: 20,
 			  fillOpacity: 0.8
 			});
 			
@@ -323,14 +322,14 @@
 			    am5.Circle.new(
 			      root,
 			      {
-			        radius: 34
+			        radius: 20
 			      },
 			      circleTemplate
 			    )
 			  );
 			
 			  var maskCircle = bulletContainer.children.push(
-			    am5.Circle.new(root, { radius: 27 })
+			    am5.Circle.new(root, { radius: 15 })
 			  );
 			
 			  // only containers can be masked, so we add image to another container
@@ -346,8 +345,8 @@
 			      templateField: "pictureSettings",
 			      centerX: am5.p50,
 			      centerY: am5.p50,
-			      width: 50,
-			      height: 50,
+			      width: 25,
+			      height: 25,
 			    })
 			  );
 			
@@ -375,7 +374,7 @@
 			  }
 			]);
 			
-			series.data.setAll(data);
+			// series.data.setAll(data);
 			yAxis.data.setAll(data);
 			
 			var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
