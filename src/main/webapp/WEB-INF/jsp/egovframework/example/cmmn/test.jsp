@@ -19,6 +19,8 @@
 	$(function() {
 	});
 	
+	// Controller 단에 parameter 로 keyword 값 보내주기
+	
 	
 </script>
 

@@ -21,7 +21,8 @@ public class CrawlController {
 	@RequestMapping("jsoupCrawler.do")
 	public String jsoupCrawler(Model model, @RequestParam String keyword) {
 		
-        String apiUrl = "https://search.naver.com/search.naver?where=news&ie=utf8&sm=nws_hty&query=%EC%95%BD%EA%B5%AD";
+		// 1. JSP단에서 parameter 로 keyword 값을 받아와서 사용
+        String apiUrl = "https://search.naver.com/search.naver?where=news&ie=utf8&sm=nws_hty&query="+keyword;
         Document doc = null;
         System.out.println("apiUrl > " + apiUrl);
 
