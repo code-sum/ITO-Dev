@@ -95,15 +95,15 @@
 			
 			// Add series
 			// https://www.amcharts.com/docs/v5/charts/word-cloud/
-			var series = root.container.children.push(am5wc.WordCloud.new(root, {
-			  maxCount:100,     // 시각화 표출할 단어의 갯수
-			  minWordLength:1,  // 단어 최소길이
-			  maxFontSize:am5.percent(35),
-			  text: "",
-			  // text: "종로 나간김에 약국 들려서 약쇼핑했습니다. 엄마가 카베진 사다달래서 열심히 서칭을 해봤더니 동네약국은 35000~40000원정도이고 종로약국거리에서는 25000원! 그 외 다른약들도 저렴해요. 저도 보은하는 마음으로 쇼핑 가격 영수증 올리옵니다. 종로약국거리에 제가 아는건 보령약국 뿐이였는데 바로 옆에 온유약국도 유명하더라고요. 몇몇제품은 가격이 더 저렴한것도 있다하고 저의 첫번째 목표인 카베진이 25000원이란 첩보로 온유로 갔습니다. 근데 약국거리약이 대체로 다 저렴하다는데 저는 모험하고 싶지않아서 알아본곳으로",
+			var series = root.container.children.push(
+			  am5wc.WordCloud.new(root, {
+				  maxCount:100,     // 시각화 표출할 단어의 갯수
+				  minWordLength:1,  // 단어 최소길이
+				  maxFontSize:am5.percent(35),
+				  text: "",
 			}));
 		
-			
+		
 			/** 시각화(Word Cloud) 구현을 위한 JSON 데이터 받기 **/
 			function fn_getJSON() {
 				
@@ -128,21 +128,18 @@
 			        	    console.log("잘못됨");
 			            };
 					}
-					
+				
 					// JSON 데이터가 담긴 배열 content_list를 하나의 문자열(str_cloud)로 합치기
 					str_cloud = content_list.join(' ');
-					console.log(str_cloud);
 					
-					// 여기에 'series' 의 'text' 부분을 str_cloud 로 업데이트하는 코드 구현
-					// ~~~
-		
+					// 'series' 의 'text' 를 str_cloud 로 업데이트
+					series.set("text", str_cloud);
 				}
 				callAjax("../dashboard/wordJSON.do", "get", "json", true, "", callback);
 			}
 			
 			// DB 데이터 호출 및 'text' 업데이트
 			fn_getJSON();
-			
 		
 			// Configure labels
 			series.labels.template.setAll({
@@ -285,7 +282,7 @@
 				<div class="col col-lg-1 col-md-2 col-sm-2 customcard" style="border-bottom: 0.1rem solid #e7e7e7;">
 					<div class="cardtop">#&nbsp약국 추천 핫이슈</div>
 					<div class="cardbottom">
-						<div id="chartdiv" style="height:18rem;"></div>
+						<div id="chartdiv" style="height:18rem; cursor:pointer;" onclick="location.href='../review/reviewIndex.do';"></div>
 					</div>
 				</div>		
 			</div>
