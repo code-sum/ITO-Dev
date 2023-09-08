@@ -155,8 +155,6 @@
 		var second = document.getElementById("section2");
 		var third = document.getElementById("section3");
 		
-		// 검색조건 파라미터가 있어야 display 전환O
-		// 검색조건 파라미터가 아무 것도 없으면 display 전환X (기능 구현의 근본적인 목표임)
 		var param1 = $("#pname").val()
 		var param2 = $("#ltypecombo").val()
 		var param3 = $("#mtypecombo").val()
@@ -164,7 +162,6 @@
 				
 		// if 검색조건으로 넘기는 파라미터가 하나도 없으면, 화면을 전환하지 않는다.
 		// else if 검색조건으로 넘기는 파라미터가 하나라도 있으면, 화면을 전환한다.
-		debugger;
 		if ( ((param1==null)||(param1=='')) && ((param2==null)||(param2=='')) && ((param3==null)||(param3=='')) && ((param4==null)||(param4=='')) ) {
 			third.style.display = 'none';
 			second.style.display = 'block';
