@@ -16,7 +16,7 @@
 - Script Language (Server) : JSP
 - Script Language (Client) : JavaScript
 - Framework : Spring (4.3.16), MyBatis
-- Library :  jQuery (1.11.2), Bootstrap (5.3.1)
+- Library : amCharts 5, Jsoup (1.16.1), jQuery (1.11.2), Bootstrap (5.3.1)
 - SCM : Git
 - Web : HTML 5, CSS 3
 - Server : Apache Tomcat (8.5.91)
