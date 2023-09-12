@@ -6,7 +6,7 @@
 
 <ul>
 	<c:forEach items="${crawlResult}" var="entry" varStatus="status">
-		<li class="${status.index == 0 ? 'current' : (status.index == 1 ? 'next' : (status.index == fn:length(crawlResult) - 1 ? 'prev' : ''))}">
+		<li class="${status.index == 0 ? 'current' : (status.index == 1 ? 'next' : (status.index == crawlResult.size() - 1 ? 'prev' : ''))}">
 			<a href="${entry.value}">${entry.key}</a>
 		</li>
 	</c:forEach>
