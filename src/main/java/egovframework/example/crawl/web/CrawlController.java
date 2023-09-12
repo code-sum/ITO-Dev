@@ -33,6 +33,6 @@ public class CrawlController {
        model.addAttribute("crawlResult", result);       
        System.out.println("result : " + result);
 
-       return "cmmn/header";
+       return "cmmn/newsListGrd";
    }
 }
