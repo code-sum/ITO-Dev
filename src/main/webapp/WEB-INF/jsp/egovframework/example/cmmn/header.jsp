@@ -5,6 +5,26 @@
 
 <jsp:include page="/WEB-INF/jsp/egovframework/example/cmmn/common_include.jsp"></jsp:include>
 
+<script type="text/javascript">
+
+
+ /** OnLoad event **/ 
+	$(function() {
+		fn_news();
+	});
+
+ 
+/** 지금 뜨는 약국 뉴스 **/		
+function fn_news() {
+	var listcallback = function(returnvalue) {
+		// console.log(returnvalue);
+		$("#listnews").empty().append(returnvalue);
+	}
+	callAjax("../crawl/jsoupCrawler.do", "post", "text", true, "", listcallback);
+}
+
+</script>
+
 <!-- 네비게이션 바 -->
 <nav class="navbar navbar-expand-lg" style="background-color:#198754;">
   <div class="container-fluid px-5">
@@ -41,10 +61,30 @@
 		            <li><a href="#">"공법변경 구조검토 요구, 현산 측이 묵살했다"</a></li> 
 		            <li class="prev"><a href="#">12월 주담대 금리 연 3.63%…7년7개월 만에 최고</a></li>
 		        </ul>
+		        
+		        <!-- CrawlController.java 에서 받아온 "crawlResult" -->
+		        <!-- 시작하는 li 태그의 class="current", 그다음 태그의 class="next", ... , 마지막 태그의 class="prev" -->
+		        <!--
+				<ul>
+					<c:forEach items="${crawlResult}" var="entry">
+						<li>
+							<a href="${entry.value}">${entry.key}</a>
+						</li>
+					</c:forEach>
+				</ul>
+				 -->
+				
 		    </div>
 		</div>
 	</div>
 </div>
+
+<!-- 
+<div>
+	<span>return 테스트</span>
+	<div id="listnews"></div>
+</div>
+ -->
 
 
 

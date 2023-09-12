@@ -49,7 +49,6 @@ function callAjax(url, method, dataType, async, param, callback) {
 }
 
 
-
 /**
  * 약국 대/중/소분류 콤보박스
  * (메인화면 검색기능)

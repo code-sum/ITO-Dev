@@ -27,6 +27,11 @@ function rollingCallback(){
 }
 
 
+/**
+ * 랜덤 문자열 생성
+ */
+
+
   /**
    * TOP버튼 공통코드
    */

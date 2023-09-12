@@ -21,8 +21,8 @@
 	
 	/** OnLoad event **/ 
 	$(function() {
-		fn_btnEvent();  // 버튼 이벤트 등록
-		fn_reviewlist();  // 약국 목록
+		fn_btnEvent();    // 버튼 이벤트 등록
+		fn_reviewlist();  // 게시글 목록
 	});
 	
 	
@@ -45,7 +45,7 @@
 	}
 	
 	
-	/** 약국 목록  **/
+	/** 게시글 목록  **/
 	function fn_reviewlist(pagenum) {
 		
 		pagenum = pagenum || 1;
