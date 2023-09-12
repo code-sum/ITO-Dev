@@ -103,12 +103,13 @@
 	                    </tr>
 	                    <tr>
 	                        <th>내용</th>
-	                        <td><textarea name="review_content" class="form-control" style="height:25rem;" readonly >${vo.review_content}</textarea></td>
+	                        <td>
+	                        	<textarea name="review_content" class="form-control" style="height:25rem;" readonly >${vo.review_content}</textarea>
+	                        	<div class="text-end pt-2">
+		                        	<span style="color:#7e7e7e; font-size:14px;">${vo.review_created_at} 작성됨</span>
+	                        	</div>
+                        	</td>
 	                    </tr>
-		                <tr>
-		                    <th>작성일</th>
-		                    <td>${vo.review_created_at}</td>
-		                </tr>
 	                    <tr>
 	                        <th><span style="color:red;">*</span>비밀번호</th>
 	                        <td>
