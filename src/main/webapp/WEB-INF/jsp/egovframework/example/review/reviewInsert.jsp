@@ -44,9 +44,30 @@
 	/** 글생성 **/ 
 	function fn_insert() {		
 	    $(document).on('click', '#btnRegister', function(e) {
+	    	
+	    	if ( ! fn_Validate() ) {
+	            return;
+	        }
+	    	
 	        $("#review_form").submit();
 	    });
 	}
+	
+	
+	/** 입력값 유효성 검사 **/
+	function fn_Validate() {
+		var chk = checkNotEmpty(
+				[
+					 [ "review_title", "제목은 필수 입력값 입니다." ]
+					,[ "review_password", "비밀번호는 필수 입력값 입니다." ]
+				]
+		);
+		if (!chk) {
+			return;
+		}
+		return true;
+	}
+	
 	
 	
 </script>
@@ -70,11 +91,11 @@
 						</colgroup>
 	                    <tr>
 	                        <th><span style="color:red;">*</span>제목</th>
-	                        <td><input type="text" placeholder="제목을 입력하세요." name="review_title" class="form-control" /></td>
+	                        <td><input type="text" placeholder="제목을 입력하세요." id="review_title" name="review_title" class="form-control" /></td>
 	                    </tr>
 	                    <tr>
 	                        <th>내용</th>
-	                        <td><textarea placeholder="내용을 입력하세요." name="review_content" class="form-control" style="height:25rem;"></textarea></td>
+	                        <td><textarea placeholder="내용을 입력하세요." id="review_content" name="review_content" class="form-control" style="height:25rem;"></textarea></td>
 	                    </tr>
 	                    <tr>
 	                        <th><span style="color:red;">*</span>비밀번호</th>

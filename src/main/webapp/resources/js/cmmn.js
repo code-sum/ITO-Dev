@@ -46,7 +46,7 @@ function rollingCallback(){
 	    });
   }
 
-  
+
   /**
    * 숫자 1000 단위마다 쉼표(,) 공통코드
    */
@@ -127,4 +127,35 @@ function rollingCallback(){
   	pagingHtml += "</div>";
 
   	return pagingHtml;
+  }
+  
+  
+  /**
+   * 폼 요소 값이 비어있는지 체크하고 비어있으면 메시지를 표시한다.
+   *
+   * @param
+   *   arr : 비어있는지 체크할 폼 요소 id, 얼럿 메시지 쌍의 배열
+   *     ex) checkNotEmpty[ ["elem1","메시지1"], ["elem2","메시지2"] ] 
+   *
+   * @return : 값이 비어있는 폼 요소가 하나라도 있으면 false 값이 전부 입력된 경우 true
+   */
+  function checkNotEmpty(arr) {
+      
+  	for(var i=0, len=arr.length; i<len; i++) {
+  		
+  		var $elem = $('#' + arr[i][0]);
+  		if($elem.length <= 0){ //not exist
+  			continue;
+  		}
+  		var elemValue = $.trim( $elem.val() );
+  		var alertMsg = arr[i][1];
+
+  		if ( elemValue == "" ) {
+  			swal(alertMsg);
+  			$elem.focus();
+  			return false;
+  		}
+  	} 
+  	 
+      return true;	 
   }
