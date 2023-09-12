@@ -131,6 +131,7 @@
 	/* div 의 display 기본값은 block 이므로,
 	   아래와 같이 초기값 세팅해야 함  */
 	display:none;
+	padding-bottom:2rem;
 }
 
 
