@@ -15,7 +15,7 @@
 			<tr>
 				<td>${list.review_no }</td>
 				<td><a href="/review/reviewselectone.do?review_no=${list.review_no}">${list.review_title }</a></td>
-				<td><span style="font-size:12px; background-color:#f6f6f6;">${list.review_writer }</span></td>
+				<td><span style="font-size:12px; background-color:#f6f6f6; padding:4px; border-radius:25%">${list.review_writer }</span></td>
 				<td>${list.review_created_at }</td>
 			</tr>
 		</c:forEach>
