@@ -79,7 +79,7 @@
 	                    <tr>
 	                        <th><span style="color:red;">*</span>비밀번호</th>
 	                        <td>
-	                        	<input type="text" maxlength="4" placeholder="****" name="review_password" class="form-control" 
+	                        	<input type="password" maxlength="4" placeholder="****" name="review_password" class="form-control" 
 	                        	       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 이하 숫자를 입력하세요.</span>
                         	</td>
