@@ -97,8 +97,11 @@
 			// https://www.amcharts.com/docs/v5/charts/word-cloud/
 			var series = root.container.children.push(
 			  am5wc.WordCloud.new(root, {
-				  maxCount:100,     // 시각화 표출할 단어의 갯수
-				  minWordLength:1,  // 단어 최소길이
+				  excludeWords: 
+					  ["합니다", "같아요", "있습니다", "방문했습니다", "됩니다", "저는", "제가", "그래서", "그리고", 
+						  "가장", "많이", "너무", "제일", "같이", "정말", "조금", "있는", "있다고", "설명해", "00", "30", "ㅎㅎ", "apos"],   // 시각화에서 제외할 단어
+				  maxCount:100,     // 시각화할 단어의 갯수
+				  minWordLength:2,  // 시각화할 단어의 최소길이
 				  maxFontSize:am5.percent(35),
 				  colors: am5.ColorSet.new(root, {
 				      colors: [
