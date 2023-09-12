@@ -74,7 +74,7 @@
 	                    </tr>
 	                    <tr>
 	                        <th>내용</th>
-	                        <td><textarea placeholder="내용을 입력하세요." name="review_content" class="form-control" style="height:15rem;"></textarea></td>
+	                        <td><textarea placeholder="내용을 입력하세요." name="review_content" class="form-control" style="height:25rem;"></textarea></td>
 	                    </tr>
 	                    <tr>
 	                        <th>비밀번호</th>

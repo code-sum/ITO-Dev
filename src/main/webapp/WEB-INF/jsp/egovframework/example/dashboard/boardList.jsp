@@ -98,8 +98,10 @@
 			var series = root.container.children.push(
 			  am5wc.WordCloud.new(root, {
 				  excludeWords: 
-					  ["합니다", "같아요", "있습니다", "방문했습니다", "됩니다", "저는", "제가", "그래서", "그리고", 
-						  "가장", "많이", "너무", "제일", "같이", "정말", "조금", "있는", "있다고", "설명해", "00", "30", "ㅎㅎ", "apos"],   // 시각화에서 제외할 단어
+					  ["합니다", "같아요", "있습니다", "방문했습니다", "됩니다", "저는", "제가", "저도", 
+						  "그래서", "그리고", "하지만", "오늘은", "최근에", "참고로", "분들이", "모르겠지만", 
+						  "가장", "많이", "너무", "제일", "같이", "정말", "조금", "있는", "있다고", "설명해", "좋은", 
+						  "00", "30", "ㅎㅎ", "apos"],   // 시각화에서 제외할 불용어 목록
 				  maxCount:100,     // 시각화할 단어의 갯수
 				  minWordLength:2,  // 시각화할 단어의 최소길이
 				  maxFontSize:am5.percent(35),
@@ -191,8 +193,14 @@
 			
 			var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_pharlist');
 			// console.log("paginationHtml : " + paginationHtml);
-			 
-			$("#pharPagination").empty().append(paginationHtml);
+			
+			// 콤보박스 활용해서 1건 조회할 때만 생기던 페이지네이션 문제 해결 완료
+			// 해결 방법 : #stypecombo 가 입력되면(=콤보박스로 1건 조회 시), 페이징 영역 삭제
+			if ( $("#stypecombo").val()==null || $("#stypecombo").val()=='') {			
+				$("#pharPagination").empty().append(paginationHtml);
+			} else {				
+				$("#pharPagination").empty();
+			}
 			
 			$("#pageno").val(pagenum);
 		}

@@ -103,7 +103,7 @@
 	                    </tr>
 	                    <tr>
 	                        <th>내용</th>
-	                        <td><textarea name="review_content" class="form-control" style="height:15rem;">${vo.review_content}</textarea></td>
+	                        <td><textarea name="review_content" class="form-control" style="height:25rem;">${vo.review_content}</textarea></td>
 	                    </tr>
 		                <tr>
 		                    <th>작성일</th>
