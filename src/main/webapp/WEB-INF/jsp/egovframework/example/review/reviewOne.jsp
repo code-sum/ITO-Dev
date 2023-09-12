@@ -98,7 +98,7 @@
 		                    <td>방문자</td>
 		                </tr>
 						<tr>
-	                        <th>제목</th>
+	                        <th><span style="color:red;">*</span>제목</th>
 	                        <td><input type="text" value="${vo.review_title}" name="review_title" class="form-control" /></td>
 	                    </tr>
 	                    <tr>
@@ -110,7 +110,7 @@
 		                    <td>${vo.review_created_at}</td>
 		                </tr>
 	                    <tr>
-	                        <th>비밀번호</th>
+	                        <th><span style="color:red;">*</span>비밀번호</th>
 	                        <td>
 	                        	<input type="text" value="${vo.review_password}" maxlength="4" name="review_password" class="form-control" />
 	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 이하 숫자를 입력하세요.</span>

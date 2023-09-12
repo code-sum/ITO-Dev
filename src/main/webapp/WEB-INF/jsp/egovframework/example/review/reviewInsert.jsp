@@ -69,7 +69,7 @@
 							<col width="75%">
 						</colgroup>
 	                    <tr>
-	                        <th>제목</th>
+	                        <th><span style="color:red;">*</span>제목</th>
 	                        <td><input type="text" placeholder="제목을 입력하세요." name="review_title" class="form-control" /></td>
 	                    </tr>
 	                    <tr>
@@ -77,7 +77,7 @@
 	                        <td><textarea placeholder="내용을 입력하세요." name="review_content" class="form-control" style="height:25rem;"></textarea></td>
 	                    </tr>
 	                    <tr>
-	                        <th>비밀번호</th>
+	                        <th><span style="color:red;">*</span>비밀번호</th>
 	                        <td>
 	                        	<input type="text" maxlength="4" placeholder="****" name="review_password" class="form-control" />
 	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 이하 숫자를 입력하세요.</span>
