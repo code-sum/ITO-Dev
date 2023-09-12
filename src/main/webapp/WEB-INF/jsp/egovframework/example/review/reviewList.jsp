@@ -22,7 +22,6 @@
 	/** OnLoad event **/ 
 	$(function() {
 		fn_btnEvent();    // 버튼 이벤트 등록
-		fn_randomID();    // 랜덤ID 생성
 		fn_reviewlist();  // 게시글 목록
 	});
 	

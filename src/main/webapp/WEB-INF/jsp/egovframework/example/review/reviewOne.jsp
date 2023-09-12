@@ -95,7 +95,7 @@
 						</colgroup>
 		                <tr>
 		                    <th>작성자</th>
-		                    <td>방문자</td>
+		                    <td><span style="font-size:12px; background-color:#f6f6f6;">${vo.review_writer}</span></td>
 		                </tr>
 						<tr>
 	                        <th><span style="color:red;">*</span>제목</th>

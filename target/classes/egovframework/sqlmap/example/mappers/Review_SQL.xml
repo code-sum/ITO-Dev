@@ -8,6 +8,7 @@
 		SELECT 
         	    review_no
 			  , review_title
+			  , review_writer
 			  , review_content
 			  , review_created_at 
 		  FROM tb_review
@@ -59,6 +60,7 @@
 		SELECT
 		        review_no
 		      , review_title
+		      , review_writer
 		      , review_password
 		      , review_content
 		      , review_created_at
@@ -70,9 +72,9 @@
 	<!-- 게시판 글생성 -->
 	<insert id="reviewinsert" parameterType="egovframework.example.review.service.ReviewVO">
         INSERT INTO tb_review
-        			(review_title, review_password, review_content, review_created_at)
+        			(review_title, review_writer, review_password, review_content, review_created_at)
         VALUES
-        			(#{review_title}, #{review_password}, #{review_content}, now())
+        			(#{review_title}, #{review_writer}, #{review_password}, #{review_content}, now())
     </insert>
     
     

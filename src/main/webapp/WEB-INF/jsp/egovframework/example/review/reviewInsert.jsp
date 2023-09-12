@@ -18,6 +18,7 @@
 	/** OnLoad event **/ 
 	$(function() {
 		fn_btnEvent();  // 버튼 이벤트 등록
+		fn_randomID();  // 랜덤아이디
 		fn_insert();    // 글생성
 	});
 	
@@ -41,31 +42,23 @@
 	}
 	
 	
+	/** 글작성자 이름 랜덤 문자열로 생성하는 로직 **/
+	function fn_randomID() {
+		
+		var randomStr = Math.random().toString(36).substring(2, 8);
+		// console.log(randomStr);
+		
+		$("#review_writer").attr("value", randomStr);
+		
+	}
+	
+	
 	/** 글생성 **/ 
 	function fn_insert() {		
 	    $(document).on('click', '#btnRegister', function(e) {
 	    	
-	    	if ( ! fn_Validate() ) {
-	            return;
-	        }
-	    	
 	        $("#review_form").submit();
 	    });
-	}
-	
-	
-	/** 입력값 유효성 검사 **/
-	function fn_Validate() {
-		var chk = checkNotEmpty(
-				[
-					 [ "review_title", "제목은 필수 입력값 입니다." ]
-					,[ "review_password", "비밀번호는 필수 입력값 입니다." ]
-				]
-		);
-		if (!chk) {
-			return;
-		}
-		return true;
 	}
 	
 	
@@ -105,6 +98,7 @@
 	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 이하 숫자를 입력하세요.</span>
                         	</td>
 	                    </tr>
+	                    <input type="hidden" id="review_writer" name="review_writer" class="form-control" />
 	                </tbody>
 	            </table>
         	</form>

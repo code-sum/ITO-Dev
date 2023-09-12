@@ -17,7 +17,7 @@
 /** 지금 뜨는 약국 뉴스 **/
 function fn_news() {
 	var listcallback = function(returnvalue) {
-		console.log(returnvalue);
+		// console.log(returnvalue);
 		$("#listnews").empty().append(returnvalue);
 	}
 	callAjax("../crawl/jsoupCrawler.do", "post", "text", false, "", listcallback);

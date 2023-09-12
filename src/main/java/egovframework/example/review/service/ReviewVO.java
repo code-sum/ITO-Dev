@@ -8,6 +8,7 @@ public class ReviewVO {
 	private String review_content;  // 글내용
 	private int review_password;  // 글비밀번호
 	private String review_created_at;  // 글작성일 ... DATE 형식이어도 VO 선언할 땐 String 으로 받을 수 있다.
+	private String review_writer;  // 글작성자
 	
 	
 	public int getReview_no() {
@@ -39,6 +40,12 @@ public class ReviewVO {
 	}
 	public void setReview_created_at(String review_created_at) {
 		this.review_created_at = review_created_at;
+	}
+	public String getReview_writer() {
+		return review_writer;
+	}
+	public void setReview_writer(String review_writer) {
+		this.review_writer = review_writer;
 	}
 	
 }
