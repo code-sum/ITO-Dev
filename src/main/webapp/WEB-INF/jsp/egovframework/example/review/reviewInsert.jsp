@@ -18,7 +18,7 @@
 	/** OnLoad event **/ 
 	$(function() {
 		fn_btnEvent();  // 버튼 이벤트 등록
-		fn_insert();  // 글생성
+		fn_insert();    // 글생성
 	});
 	
 	
