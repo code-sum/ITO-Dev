@@ -30,6 +30,11 @@ function rollingCallback(){
 /**
  * 랜덤 문자열 생성
  */
+  function fn_randomID() {
+	  let randomStr = Math.random().toString(36).substring(2, 12);
+	  console.log(randomStr);
+	  // 게시글 갯수에 맞춰 randomStr 배열 생성하는 로직 추가 ~
+  }
 
 
   /**

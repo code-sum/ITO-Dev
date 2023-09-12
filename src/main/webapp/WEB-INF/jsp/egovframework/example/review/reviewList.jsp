@@ -22,6 +22,7 @@
 	/** OnLoad event **/ 
 	$(function() {
 		fn_btnEvent();    // 버튼 이벤트 등록
+		fn_randomID();    // 랜덤ID 생성
 		fn_reviewlist();  // 게시글 목록
 	});
 	
@@ -59,7 +60,7 @@
 		}
 		
 		var listcallback = function(returnvalue) {
-			console.log(returnvalue);
+			// console.log(returnvalue);
 			
 			$("#listreview").empty().append(returnvalue);
 			
@@ -67,7 +68,7 @@
 			console.log("totalcnt : " + totalcnt);
 			
 			var paginationHtml = getPaginationHtml(pagenum, totalcnt, pageSize, pageBlockSize, 'fn_reviewlist');
-			console.log("paginationHtml : " + paginationHtml);
+			// console.log("paginationHtml : " + paginationHtml);
 			 
 			$("#reviewPagination").empty().append(paginationHtml);
 			
