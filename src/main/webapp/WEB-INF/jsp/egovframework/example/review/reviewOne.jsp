@@ -99,11 +99,11 @@
 		                </tr>
 						<tr>
 	                        <th><span style="color:red;">*</span>제목</th>
-	                        <td><input type="text" value="${vo.review_title}" name="review_title" class="form-control" /></td>
+	                        <td><input type="text" value="${vo.review_title}" name="review_title" class="form-control" readonly /></td>
 	                    </tr>
 	                    <tr>
 	                        <th>내용</th>
-	                        <td><textarea name="review_content" class="form-control" style="height:25rem;">${vo.review_content}</textarea></td>
+	                        <td><textarea name="review_content" class="form-control" style="height:25rem;" readonly >${vo.review_content}</textarea></td>
 	                    </tr>
 		                <tr>
 		                    <th>작성일</th>
@@ -113,7 +113,7 @@
 	                        <th><span style="color:red;">*</span>비밀번호</th>
 	                        <td>
 	                        	<input type="password" value="${vo.review_password}" maxlength="4" name="review_password" class="form-control"
-	                        	       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+	                        	       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" readonly  />
 	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 이하 숫자를 입력하세요.</span>
                         	</td>
 	                    </tr>
