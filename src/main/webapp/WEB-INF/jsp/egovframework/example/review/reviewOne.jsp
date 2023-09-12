@@ -45,13 +45,34 @@
 	}
 	
 	
-	/** 글수정 **/ 
-	function fn_update() {		
-		$(document).on('click', '#btnUpdate', function(e) {
-	        if (confirm("정말 수정하시겠습니까 ?") == true) {
-	            $("#update_form").submit();
-	        } else {
-	            return;
+	/** 글수정 **/
+	function fn_update() {
+	    $(document).on('click', '#btnUpdate', function(e) {
+	        // 비밀번호 입력
+	        var enteredPassword = prompt("비밀번호를 입력하세요:", "");
+
+	        // 입력한 비밀번호를 확인
+	        if (enteredPassword !== null) { // 사용자가 취소하지 않은 경우
+	            // 비밀번호를 서버로 전송하여 확인
+	            $.ajax({
+	                type: "POST",
+	                url: "/review/checkPassword.do", // 비밀번호 확인을 처리하는 서버의 URL로 수정
+	                data: {
+	                    review_no: ${vo.review_no},
+	                    password: enteredPassword
+	                },
+	                success: function(response) {
+	                    if (response === "true") { // 비밀번호가 일치하는 경우
+	                        // 입력 필드의 readonly 속성을 제거하여 수정 가능하도록
+	                        $("#review_title, #review_content").removeAttr("readonly");
+	                    } else {
+	                        alert("비밀번호가 일치하지 않습니다.");
+	                    }
+	                },
+	                error: function() {
+	                    alert("비밀번호 확인 중 오류가 발생했습니다.");
+	                }
+	            });
 	        }
 	    });
 	}
@@ -113,7 +134,7 @@
 	                    <tr>
 	                        <th><span style="color:red;">*</span>비밀번호</th>
 	                        <td>
-	                        	<input type="password" value="" maxlength="4" placeholder="****" name="review_password" class="form-control"
+	                        	<input type="password" value="" maxlength="4" placeholder="****" name="confirm_password" id="confirm_password" class="form-control"
 	                        	       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" readonly  />
 	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 이하 숫자를 입력하세요.</span>
                         	</td>

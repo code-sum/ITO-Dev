@@ -1,5 +1,6 @@
 package egovframework.example.review.web;
 
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import egovframework.example.review.service.ReviewService;
@@ -122,7 +124,40 @@ public class ReviewController {
     	reviewService.reviewupdate(reviewVO);
         return "redirect:reviewIndex.do";
     }
-	
+    
+    
+    /**
+     * 게시판 비밀번호 확인 컨트롤러
+     */
+    @RequestMapping(value="checkPassword.do", method=RequestMethod.POST)
+    public void checkPassword(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        // 클라이언트에서 전송한 데이터 받기
+        String reviewNoStr = request.getParameter("review_no");
+        String password = request.getParameter("password");
+
+        // 결과를 기본적으로 false로 초기화합니다.
+        boolean isPasswordCorrect = false;
+
+        try {
+            int reviewNo = Integer.parseInt(reviewNoStr);
+            ReviewVO reviewVO = reviewService.reviewselectone(reviewNo);
+
+            // DB에서 해당 게시물의 비밀번호를 가져와 입력한 비밀번호와 비교
+            if (reviewVO != null && Integer.toString(reviewVO.getReview_password()).equals(password)) {
+                isPasswordCorrect = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // 결과를 클라이언트 반환
+        response.setContentType("text/plain; charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.print(isPasswordCorrect);
+        out.flush();
+        out.close();
+    }
+  
     
     /**
      * 게시판 글삭제
