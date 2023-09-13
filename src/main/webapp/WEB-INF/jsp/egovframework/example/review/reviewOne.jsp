@@ -22,8 +22,9 @@
         $("input[name='review_title']").attr("readonly", true);       // 초기 화면에서 입력 필드의 readonly 활성화(true)
         $("textarea[name='review_content']").attr("readonly", true);  // 초기 화면에서 입력 필드의 readonly 활성화(true)
 		
-		fn_update();       // 글수정
-		fn_delete();       // 글삭제
+		fn_update();    // [수정] 버튼
+		fn_delete();    // [삭제] 버튼
+		
 	});
 	
 	
@@ -91,14 +92,42 @@
 	
 	
 	/** 글수정 [저장] 버튼 **/
-	/*
 	$(document).on('click', '#btnSave', function(e) {
-          $("#update_form").submit();
-	}
-	*/
 		
-	
-	
+	   // 필요한 데이터
+	   var review_no = ${vo.review_no};
+	   var review_title = $("#review_title").val();
+	   var review_content = $("#review_content").val();
+
+	   // 데이터를 JSON 형식으로 준비
+	   var dataToSave = {
+	       review_no : review_no,
+	       review_title : review_title,
+	       review_content : review_content
+	   };
+
+	   // 서버로 데이터 전송
+	   $.ajax({
+	       type: "POST",
+	       url: "../review/reviewupdate.do",
+	       data: JSON.stringify(dataToSave), // 데이터를 JSON 문자열로 변환
+	       contentType: "application/json;charset=UTF-8",
+	       success: function(response) {
+	           if (response === "success") {
+	               alert("게시글이 수정되었습니다.");
+	               // 리디렉션
+	               window.location.href = "reviewIndex.do";
+	           } else {
+	               alert("게시글 수정에 실패했습니다.");
+	           }
+	       },
+	       error: function() {
+	           alert("게시글 수정 중 오류가 발생했습니다.");
+	       }
+	   });
+	});
+
+
 	/** 글삭제 **/
 	function fn_delete() {		
 		$(document).on('click', '#btnDelete', function(e) {
