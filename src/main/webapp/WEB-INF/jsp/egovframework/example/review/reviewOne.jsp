@@ -94,37 +94,45 @@
 	/** 글수정 [저장] 버튼 **/
 	$(document).on('click', '#btnSave', function(e) {
 		
-	   // 필요한 데이터
+	   // 서버에 보낼 데이터
 	   var review_no = ${vo.review_no};
 	   var review_title = $("#review_title").val();
 	   var review_content = $("#review_content").val();
 
-	   // 데이터를 JSON 형식으로 준비
-	   var dataToSave = {
-	       review_no : review_no,
-	       review_title : review_title,
-	       review_content : review_content
-	   };
+       // 제목이 비어있는지 확인
+       if (review_title.trim() === "") {
+           alert("제목을 입력하세요.");
+           e.preventDefault(); // 폼 제출 중단
+       } else { // 수정된 데이터 [저장] 기능 실행
+    	   
+    	   // 데이터를 JSON 형식으로 준비
+    	   var dataToSave = {
+    	       review_no : review_no,
+    	       review_title : review_title,
+    	       review_content : review_content
+    	   };
 
-	   // 서버로 데이터 전송
-	   $.ajax({
-	       type: "POST",
-	       url: "../review/reviewupdate.do",
-	       data: JSON.stringify(dataToSave), // 데이터를 JSON 문자열로 변환
-	       contentType: "application/json;charset=UTF-8",
-	       success: function(response) {
-	           if (response === "success") {
-	               alert("게시글이 수정되었습니다.");
-	               // 리디렉션
-	               window.location.href = "reviewIndex.do";
-	           } else {
-	               alert("게시글 수정에 실패했습니다.");
-	           }
-	       },
-	       error: function() {
-	           alert("게시글 수정 중 오류가 발생했습니다.");
-	       }
-	   });
+    	   // 서버로 데이터 전송
+    	   $.ajax({
+    	       type: "POST",
+    	       url: "../review/reviewupdate.do",
+    	       data: JSON.stringify(dataToSave), // 데이터를 JSON 문자열로 변환
+    	       contentType: "application/json;charset=UTF-8",
+    	       success: function(response) {
+    	           if (response === "success") {
+    	               alert("게시글이 수정되었습니다.");
+    	               // 리디렉션
+    	               window.location.href = "reviewIndex.do";
+    	           } else {
+    	               alert("게시글 수정에 실패했습니다.");
+    	           }
+    	       },
+    	       error: function() {
+    	           alert("게시글 수정 중 오류가 발생했습니다.");
+    	       }
+    	   });   
+    	   
+       }
 	});
 
 
