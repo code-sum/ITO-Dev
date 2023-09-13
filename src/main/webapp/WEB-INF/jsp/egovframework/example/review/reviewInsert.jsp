@@ -54,12 +54,25 @@
 	
 	
 	/** 글생성 **/ 
-	function fn_insert() {		
-	    $(document).on('click', '#btnRegister', function(e) {
-	    	
-	        $("#review_form").submit();
-	    });
-	}
+	function fn_insert() {
+		   $(document).on('click', '#btnRegister', function(e) {
+		       // 제목과 비밀번호 값 가져오기
+		       var titleValue = $("#review_title").val();
+		       var passwordValue = $("#review_password").val();
+
+		       // 제목과 비밀번호가 비어있는지 확인
+		       if (titleValue.trim() === "") {
+		           alert("제목을 입력하세요.");
+		           e.preventDefault(); // 폼 제출 중단
+		       } else if (passwordValue.trim() === "") {
+		           alert("비밀번호를 입력하세요.");
+		           e.preventDefault(); // 폼 제출 중단
+		       } else if (titleValue.trim() !== "" && passwordValue.trim() !== "") {
+		           // 유효한 데이터이므로 폼 제출
+		           $("#review_form").submit();
+		       }
+		   });
+		}
 	
 	
 	
@@ -93,7 +106,7 @@
 	                    <tr>
 	                        <th><span style="color:red;">*</span>비밀번호</th>
 	                        <td>
-	                        	<input type="password" maxlength="4" placeholder="****" name="review_password" class="form-control" 
+	                        	<input type="password" maxlength="4" placeholder="****" id="review_password" name="review_password" class="form-control" 
 	                        	       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 	                        	<span style="font-size:0.7rem; color:#32A852;">※ 4자리 이하 숫자를 입력하세요.</span>
                         	</td>
