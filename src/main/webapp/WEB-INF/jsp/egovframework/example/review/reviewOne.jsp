@@ -67,7 +67,7 @@
 	                },
 	                success: function(response) {
 	                    if (response === "true") { // 비밀번호가 일치하는 경우
-	                        console.log("비밀번호 일치 테스트  !!!!");
+	                        // console.log("비밀번호 일치 success 테스트  !!!!");
 	                        $("input[name='review_title']").attr("readonly", false);       // 입력 필드의 readonly 비활성화(false)
 	                        $("textarea[name='review_content']").attr("readonly", false);  // 입력 필드의 readonly 비활성화(false)
 	                    } else {
@@ -87,13 +87,42 @@
 	/** 글삭제 **/
 	function fn_delete() {		
 		$(document).on('click', '#btnDelete', function(e) {
-	        var review_no = ${vo.review_no};
-	        if (confirm("정말 삭제하시겠습니까 ?") == true) {
-	            $("#update_form").attr("action", "reviewdelete.do?review_no="+review_no);
-	            $("#update_form").submit();
-	        } else {
-	            return;
+	        // 비밀번호 입력
+	        var enteredPassword = prompt("비밀번호를 입력하세요:", "");
+			
+	        // 입력한 비밀번호를 확인
+	        if (enteredPassword !== null) { // 사용자가 취소하지 않은 경우
+	            // 비밀번호를 서버로 전송하여 확인
+	            $.ajax({
+	                type: "POST",
+	                url: "../review/checkPassword.do", // 비밀번호 확인을 처리하는 서버의 URL로 수정
+	                data: {
+	                    review_no: ${vo.review_no},
+	                    password: enteredPassword
+	                },
+	                success: function(response) {
+	                    if (response === "true") { // 비밀번호가 일치하는 경우
+	                    	
+	                    	// 글삭제
+	            	        var review_no = ${vo.review_no};
+	            	        if (confirm("정말 삭제하시겠습니까 ?") == true) {
+	            	            $("#update_form").attr("action", "reviewdelete.do?review_no="+review_no);
+	            	            $("#update_form").submit();
+	            	        } else {
+	            	            return;
+	            	        }
+	            	        
+	                    } else {
+	                        alert("비밀번호가 일치하지 않습니다.");
+	                    }
+	                },
+	                error: function() {
+	                    alert("비밀번호 확인 중 오류가 발생했습니다.");
+	                }
+	            });
 	        }
+	        
+
 	    });
 	}
 	
