@@ -61,7 +61,6 @@
 		        review_no
 		      , review_title
 		      , review_writer
-		      , review_password
 		      , review_content
 		      , review_created_at
 		  FROM tb_review
@@ -81,7 +80,7 @@
     <!-- 게시판 글수정 -->
     <update id="reviewupdate" parameterType="egovframework.example.review.service.ReviewVO">
         UPDATE tb_review SET
-			   review_title = #{review_title}, review_content = #{review_content}, review_password = #{review_password}
+			   review_title = #{review_title}, review_content = #{review_content}
 		WHERE review_no = #{review_no}
     </update>
     

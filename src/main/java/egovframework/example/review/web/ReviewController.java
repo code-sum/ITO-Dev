@@ -1,6 +1,7 @@
 package egovframework.example.review.web;
 
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.example.review.service.ReviewService;
 import egovframework.example.review.service.ReviewVO;
@@ -117,9 +119,9 @@ public class ReviewController {
 	
 	
 	/**
-     * 게시판 글수정
+     * 게시판 글수정 [저장] 버튼 클릭
      */
-    @RequestMapping("reviewupdate.do")
+	@RequestMapping("reviewupdate.do")
     public String reviewupdate(@ModelAttribute("reviewVO") ReviewVO reviewVO) throws Exception {
     	reviewService.reviewupdate(reviewVO);
         return "redirect:reviewIndex.do";
@@ -135,7 +137,7 @@ public class ReviewController {
         String reviewNoStr = request.getParameter("review_no");
         String password = request.getParameter("password");
 
-        // 결과를 기본적으로 false로 초기화합니다.
+        // 결과를 기본적으로 false로 초기화
         boolean isPasswordCorrect = false;
 
         try {

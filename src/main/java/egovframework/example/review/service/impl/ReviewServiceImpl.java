@@ -50,7 +50,7 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	/** 게시판 글수정 */
 	@Override
-    public void reviewupdate(ReviewVO reviewVO) throws Exception {
+	public void reviewupdate(ReviewVO reviewVO) throws Exception {
 		reviewMapper.reviewupdate(reviewVO);
     }
 	
