@@ -16,6 +16,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -121,10 +122,16 @@ public class ReviewController {
 	/**
      * 게시판 글수정 [저장] 버튼 클릭
      */
-	@RequestMapping("reviewupdate.do")
-    public String reviewupdate(@ModelAttribute("reviewVO") ReviewVO reviewVO) throws Exception {
-    	reviewService.reviewupdate(reviewVO);
-        return "redirect:reviewIndex.do";
+	@RequestMapping(value="reviewupdate.do", method=RequestMethod.POST)
+	@ResponseBody
+    public String reviewupdate(@RequestBody ReviewVO reviewVO) {
+		try {
+	        reviewService.reviewupdate(reviewVO);
+	        return "success";
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "failure";
+	    }
     }
     
     
