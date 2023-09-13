@@ -21,7 +21,6 @@
 		
         $("input[name='review_title']").attr("readonly", true);       // 초기 화면에서 입력 필드의 readonly 활성화(true)
         $("textarea[name='review_content']").attr("readonly", true);  // 초기 화면에서 입력 필드의 readonly 활성화(true)
-        $("#btnSave").prop("disabled", true);       // 초기 화면에서 [저장] 버튼 disabled
 		
 		fn_update();       // 글수정
 		fn_delete();       // 글삭제
@@ -38,9 +37,6 @@
 			switch (btnId) {
 				case 'btnUpdate' :
 					fn_update();
-					break;
-				case 'btnSave' :
-					fn_updateFinal();
 					break;
 				case 'btnDelete' :
 					fn_delete();
@@ -74,7 +70,13 @@
 	                        // console.log("비밀번호 일치 success 테스트  !!!!");
 	                        $("input[name='review_title']").attr("readonly", false);       // 입력 필드의 readonly 비활성화(false)
 	                        $("textarea[name='review_content']").attr("readonly", false);  // 입력 필드의 readonly 비활성화(false)
-	                        $("#btnSave").prop("disabled", false);   // [저장] 버튼 활성화
+	                        
+	                        var first = document.getElementById("display1");
+	                		var second = document.getElementById("display2");
+	                        
+	                        first.style.display = 'none';   // [수정], [삭제] 버튼 숨김처리
+	                        second.style.display = 'block';   // [저장] 버튼 보임처리
+	                        
 	                    } else {
 	                        alert("비밀번호가 일치하지 않습니다.");
 	                    }
@@ -89,20 +91,12 @@
 	
 	
 	/** 글수정 [저장] 버튼 **/
-	function fn_updateFinal() {
-		$(document).on('click', '#btnSave', function(e) {
-			
-				if (confirm("정말 수정하시겠습니까 ?") == true) {
-		            $("#update_form").submit();
-		            alert("수정이 완료되었습니다.");
-		            $("#review_title, #review_content").prop("readonly", true);
-		            $("#btnSave").prop("disabled", true);
-		        } else {
-		        	alert("수정 내용을 저장하는데 실패하였습니다.");
-		        }
-		}
-		
+	/*
+	$(document).on('click', '#btnSave', function(e) {
+          $("#update_form").submit();
 	}
+	*/
+		
 	
 	
 	/** 글삭제 **/
@@ -196,10 +190,14 @@
 				<div>
 					<a href="/review/reviewIndex.do" class="btn btn-outline-success rounded-pill">목록으로</a>
 				</div>
-				<div>
-					<button id="btnUpdate" type="button" class="btn btn-outline-success rounded-pill">수정</button>
-					<button id="btnSave" type="button" class="btn btn-outline-success rounded-pill">저장</button>
-					<button id="btnDelete" type="button" class="btn btn-outline-danger rounded-pill">삭제</button>
+				<div class="d-flex flex-row">
+					<div id="display1">
+						<button id="btnUpdate" type="button" class="btn btn-outline-success rounded-pill">수정</button>
+						<button id="btnDelete" type="button" class="btn btn-outline-danger rounded-pill">삭제</button>
+					</div>
+					<div id="display2">
+						<button id="btnSave" type="button" class="btn btn-outline-success rounded-pill">저장</button>
+					</div>
 				</div>
 			</div>
 			

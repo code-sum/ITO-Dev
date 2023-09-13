@@ -134,6 +134,15 @@
 	padding-bottom:2rem;
 }
 
+/* display1 초기값 설정 */
+#display1 {
+	display:block;
+}
+
+/* display2 초기값 설정 */
+#display2 {
+	display:none;
+}
 
 /* 테이블에 들어간 a 태그 효과 */
 td a {
