@@ -4,7 +4,7 @@
 
 
 	<!-- 시각화(표) -->
-	<select id="pharmcntbyregion" resultType="egovframework.example.region.service.RegionVO">
+	<select id="pharmcntbyregion" resultType="regionVO">
 		SELECT 
 				sido_name
 			  , sido_code
@@ -15,7 +15,7 @@
 	</select>
 	
 	<!-- 시각화(차트) -->
-	<select id="visualization" resultType="egovframework.example.region.service.RegionVO">
+	<select id="visualization" resultType="regionVO">
 		SELECT 
 				sido_name
 			  , sido_code
