@@ -2,11 +2,15 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+
+	<!-- ..._SQL.xml 파일 내부 resultType 에 풀패키지명 작성하는 대신, 아래와 같이 등록한 alias 활용할 것 -->
     <typeAliases>
 		
+		<typeAlias alias="revVO" type="egovframework.example.dashboard.service.RevVO"/>
 		<typeAlias alias="boardVO" type="egovframework.example.dashboard.service.BoardVO"/>
-		<typeAlias alias="reviewVO" type="egovframework.example.review.service.ReviewVO"/>
 		<typeAlias alias="regionVO" type="egovframework.example.region.service.RegionVO"/>
+		<typeAlias alias="reviewVO" type="egovframework.example.review.service.ReviewVO"/>
+		<typeAlias alias="comboVO" type="egovframework.example.system.service.ComboVO"/>
 
     </typeAliases>
 </configuration>

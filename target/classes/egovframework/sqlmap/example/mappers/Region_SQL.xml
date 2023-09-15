@@ -14,7 +14,6 @@
 		ORDER BY sido_code;
 	</select>
 	
-	
 	<!-- 시각화(차트) -->
 	<select id="visualization" resultType="egovframework.example.region.service.RegionVO">
 		SELECT 
@@ -25,14 +24,6 @@
 		GROUP BY sido_code, sido_name 
 		ORDER BY sido_code;
 	</select>
-	
-	
-	<!-- 총 약국 갯수 -->
-	<!-- 
-	<select id="counttotal" resultType="int">
-		SELECT TO_CHAR(COUNT(*), 'FM999,999,999') AS counttotal FROM tb_pharm;
-	</select>
-	 -->
 	
 
 </mapper>

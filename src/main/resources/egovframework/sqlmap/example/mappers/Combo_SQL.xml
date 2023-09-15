@@ -2,8 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="egovframework.example.system.service.impl.ComboMapper">
 
+
 	<!-- 약국 대분류 콤보박스 -->
-	<select id="selectlargelist" resultType="egovframework.example.system.service.ComboVO">
+	<select id="selectlargelist" resultType="comboVO">
 		SELECT
 				 sido_code AS cd
 			   , sido_name AS name 
@@ -12,7 +13,7 @@
 	</select>
 	
 	<!-- 약국 중분류 콤보박스 -->
-	<select id="selectmidlist" resultType="egovframework.example.system.service.ComboVO">
+	<select id="selectmidlist" resultType="comboVO">
 		SELECT
 				 mt.sigungu_code AS cd
 			   , mt.sigungu_name AS name 
@@ -27,7 +28,7 @@
 	</select>
 
 	<!-- 약국 소분류 콤보박스 -->
-	<select id="selectsmalllist" resultType="egovframework.example.system.service.ComboVO">
+	<select id="selectsmalllist" resultType="comboVO">
 		SELECT 
 				 st.pharm_no AS cd
 		       , st.pharm_name AS name
@@ -44,5 +45,6 @@
              </where>			  
 		 ORDER BY st.pharm_no
 	</select>	
+
 
 </mapper>

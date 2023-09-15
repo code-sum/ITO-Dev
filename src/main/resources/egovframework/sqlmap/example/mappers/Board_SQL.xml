@@ -4,7 +4,7 @@
 
 
 	<!-- 게시판 최신글 목록 조회 -->
-	<select id="revlist" resultType="egovframework.example.dashboard.service.RevVO">
+	<select id="revlist" resultType="revVO">
 		SELECT 
 				review_no
 			  , review_title
@@ -15,12 +15,12 @@
 	</select>
 	
 	<!-- 시각화(Word Cloud) -->
-	<select id="wordcloud" resultType="egovframework.example.dashboard.service.RevVO">
+	<select id="wordcloud" resultType="revVO">
 		SELECT review_content FROM tb_review;
 	</select>
 
 	<!-- 약국 목록 조회  -->
-	<select id="boardlist" resultType="egovframework.example.dashboard.service.BoardVO">
+	<select id="boardlist" resultType="boardVO">
 		SELECT 
 		        pharm_no
 		      , sido_code
@@ -61,7 +61,7 @@
 	</select>
 	
 	<!-- 약국 한건 조회 -->
-	<select id="boardselectone" parameterType="Integer" resultType="egovframework.example.dashboard.service.BoardVO">
+	<select id="boardselectone" parameterType="Integer" resultType="boardVO">
 		SELECT
 		        pharm_no
 		      , pharm_name
