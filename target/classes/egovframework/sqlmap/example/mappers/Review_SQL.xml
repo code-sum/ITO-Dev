@@ -4,7 +4,7 @@
 
 
 	<!-- 게시판 목록조회  -->
-	<select id="reviewlist" resultType="egovframework.example.review.service.ReviewVO">
+	<select id="reviewlist" resultType="reviewVO">
 		SELECT 
         	    review_no
 			  , review_title
@@ -54,7 +54,7 @@
 	</select>
 	
 	<!-- 게시판 한건 조회 -->
-	<select id="reviewselectone" parameterType="Integer" resultType="egovframework.example.review.service.ReviewVO">
+	<select id="reviewselectone" parameterType="Integer" resultType="reviewVO">
 		SELECT
 		        review_no
 		      , review_title
