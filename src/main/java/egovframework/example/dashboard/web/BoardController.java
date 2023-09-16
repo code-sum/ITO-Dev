@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import egovframework.example.dashboard.service.BoardService;
 import egovframework.example.dashboard.service.BoardVO;
 import egovframework.example.dashboard.service.RevVO;
-import egovframework.example.region.service.RegionVO;
 
 
 @Controller

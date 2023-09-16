@@ -17,8 +17,7 @@
 		<property name="username" value="summer"/>
 		<property name="password" value="0000"/>
     </bean>
-     
-     
+    
     <!-- hsql (테스트용 메모리 DB)
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="net.sf.log4jdbc.DriverSpy"/>
