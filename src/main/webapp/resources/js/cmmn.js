@@ -76,11 +76,11 @@ function rollingCallback(){
   		currentPage = totalPage;
   	}
 
-  	// 현재 페이지의 처음과 마지막 글의 번호 가져오기.
+  	// 현재 페이지의 처음과 마지막 글의 번호 가져오기
   	var startCount = (currentPage - 1) * pageRow;
   	var endCount = startCount + pageRow;
 	
-  	// 시작 페이지와 마지막 페이지 값 구하기.
+  	// 시작 페이지와 마지막 페이지 값 구하기
   	startPage = Math.floor((currentPage - 1) / blockPage) * blockPage + 1;
   	endPage = startPage + blockPage - 1;
 
@@ -120,32 +120,3 @@ function rollingCallback(){
   }
   
   
-  /**
-   * 폼 요소 값이 비어있는지 체크하고 비어있으면 메시지를 표시한다.
-   *
-   * @param
-   *   arr : 비어있는지 체크할 폼 요소 id, 얼럿 메시지 쌍의 배열
-   *     ex) checkNotEmpty[ ["elem1","메시지1"], ["elem2","메시지2"] ] 
-   *
-   * @return : 값이 비어있는 폼 요소가 하나라도 있으면 false 값이 전부 입력된 경우 true
-   */
-  function checkNotEmpty(arr) {
-      
-  	for(var i=0, len=arr.length; i<len; i++) {
-  		
-  		var $elem = $('#' + arr[i][0]);
-  		if($elem.length <= 0){ //not exist
-  			continue;
-  		}
-  		var elemValue = $.trim( $elem.val() );
-  		var alertMsg = arr[i][1];
-
-  		if ( elemValue == "" ) {
-  			swal(alertMsg);
-  			$elem.focus();
-  			return false;
-  		}
-  	} 
-  	 
-      return true;	 
-  }
