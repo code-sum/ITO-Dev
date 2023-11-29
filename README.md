@@ -44,6 +44,12 @@
 
 
 
+#### E-R Diagram
+![ERD](media/ERD.png)
+
+
+
+
 #### Implementation
 
 - [메인화면 <실시간 뉴스> 기능](markdown/01-메인뉴스.md)
