@@ -6,9 +6,9 @@
 	<!-- 게시판 최신글 목록 조회 -->
 	<select id="revlist" resultType="revVO">
 		SELECT 
-				review_no
-			  , review_title
-			  , review_created_at 
+			review_no
+		      , review_title
+		      , review_created_at 
 		  FROM tb_review 
 		ORDER BY review_no DESC
 		LIMIT 8;
@@ -35,14 +35,14 @@
 		  			and pharm_name LIKE CONCAT('%', #{pname}, '%')
 		  		</if>
 		  		<if test="ltypecombo != null and ltypecombo != ''">
-			    	and sido_code = CAST(#{ltypecombo} AS INTEGER)
-		        </if>
-		        <if test="mtypecombo != null and mtypecombo != ''">
-			    	and sigungu_code = CAST(#{mtypecombo} AS INTEGER)
-		        </if>
-		  		<if test="stypecombo != null and stypecombo != ''">
-			    	and pharm_no = CAST(#{stypecombo} AS INTEGER)
-		        </if>
+				    	and sido_code = CAST(#{ltypecombo} AS INTEGER)
+			        </if>
+			        <if test="mtypecombo != null and mtypecombo != ''">
+				    	and sigungu_code = CAST(#{mtypecombo} AS INTEGER)
+			        </if>
+				<if test="stypecombo != null and stypecombo != ''">
+				    	and pharm_no = CAST(#{stypecombo} AS INTEGER)
+			        </if>
 		  	</where>
 		ORDER BY pharm_no
 		LIMIT #{pageSize}
