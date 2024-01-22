@@ -6,15 +6,15 @@
 	<!-- 게시판 목록조회  -->
 	<select id="reviewlist" resultType="reviewVO">
 		SELECT 
-        	    review_no
-			  , review_title
-			  , review_writer
-			  , review_content
-			  , review_created_at 
+        	    	review_no
+		      , review_title
+		      , review_writer
+		      , review_content
+		      , review_created_at 
 		  FROM tb_review
 		  <where>
-		      <if test="(sname != null) and (!sname.equals(''))">
-		           <choose>
+		          <if test="(sname != null) and (!sname.equals(''))">
+		                 <choose>
 				         <when test="searchKey eq 're_title'.toString()">
 				                and review_title LIKE CONCAT('%', #{sname}, '%')
 				         </when>
@@ -24,8 +24,8 @@
 				         <otherwise>
 				                and ( review_title LIKE CONCAT('%', #{sname}, '%') or review_content LIKE CONCAT('%', #{sname}, '%') )
 				         </otherwise>
-			   		</choose>
-		      </if>
+			        </choose>
+		          </if>
 		  </where>
 		ORDER BY review_no DESC
 		LIMIT #{pageSize}
@@ -36,9 +36,9 @@
 	<select id="countreviewlist" resultType="int">
 		SELECT COUNT(*)
 		  FROM tb_review
-		  		  <where>
-		      <if test="(sname != null) and (!sname.equals(''))">
-		           <choose>
+		  <where>
+		          <if test="(sname != null) and (!sname.equals(''))">
+		                 <choose>
 				         <when test="searchKey eq 're_title'.toString()">
 				                and review_title LIKE CONCAT('%', #{sname}, '%')
 				         </when>
@@ -48,8 +48,8 @@
 				         <otherwise>
 				                and ( review_title LIKE CONCAT('%', #{sname}, '%') or review_content LIKE CONCAT('%', #{sname}, '%') )
 				         </otherwise>
-			   		</choose>
-		      </if>
+				</choose>
+		          </if>
 		  </where>
 	</select>
 	
@@ -67,24 +67,24 @@
 	
 	<!-- 게시판 글생성 -->
 	<insert id="reviewinsert" parameterType="reviewVO">
-        INSERT INTO tb_review
-        			(review_title, review_writer, review_password, review_content, review_created_at)
-        VALUES
-        			(#{review_title}, #{review_writer}, #{review_password}, #{review_content}, now())
-    </insert>
+	        INSERT INTO tb_review
+			(review_title, review_writer, review_password, review_content, review_created_at)
+	        VALUES
+			(#{review_title}, #{review_writer}, #{review_password}, #{review_content}, now())
+    	</insert>
     
-    <!-- 게시판 글수정 -->
-    <update id="reviewupdate" parameterType="reviewVO">
-        UPDATE tb_review SET
-			   review_title = #{review_title}, review_content = #{review_content}
+	<!-- 게시판 글수정 -->
+        <update id="reviewupdate" parameterType="reviewVO">
+		UPDATE tb_review SET
+		   	review_title = #{review_title}, review_content = #{review_content}
 		WHERE review_no = #{review_no}
-    </update>
+        </update>
     
-    <!-- 게시판 글삭제 -->
-    <delete id="reviewdelete" parameterType="Integer">
-    	DELETE FROM tb_review
+        <!-- 게시판 글삭제 -->
+        <delete id="reviewdelete" parameterType="Integer">
+		DELETE FROM tb_review
 		WHERE review_no = #{review_no}
-    </delete>
+        </delete>
 	
 
 </mapper>
